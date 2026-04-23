@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lago Sur Experiences - Experiencias exclusivas en Arelauquen, Bariloche. Golf, lancha, pesca y rutas secretas en la Patagonia.">
+  <meta name="keywords" content="Bariloche, Arelauquen, turismo lujo, pesca truchas, lancha, golf Patagonia">
+  <title>Lago Sur Experiences | Bariloche · Patagonia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ── NAVBAR ────────────────────────────────────────────────── -->
+  <nav id="navbar">
+    <a href="#inicio" class="nav-logo">
+      <span class="logo-main">LAGO SUR</span>
+      <span class="logo-sub" data-es="experiences" data-en="experiences">experiences</span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre"         data-es="La Experiencia" data-en="The Experience">La Experiencia</a></li>
+      <li><a href="#experiencias"  data-es="Experiencias"   data-en="Experiences">Experiencias</a></li>
+      <li><a href="#galeria"       data-es="Galería"        data-en="Gallery">Galería</a></li>
+      <li><a href="#contacto"      data-es="Contacto"       data-en="Contact">Contacto</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEs" onclick="setLang('es')">ES</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" id="btnEn" onclick="setLang('en')">EN</button>
+      </div>
+      <a href="#contacto" class="btn-reservar" data-es="Reservar" data-en="Book Now">Reservar</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section id="inicio" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in">
+      <p class="hero-location">Arelauquen · Bariloche · Patagonia</p>
+      <h1 class="hero-title">
+        <span data-es="Una Patagonia" data-en="A Patagonia">Una Patagonia</span><br>
+        <em data-es="que pocos conocen" data-en="only few discover">que pocos conocen</em>
+      </h1>
+      <p class="hero-sub" data-es="Golf · Lago · Pesca · Rutas Secretas" data-en="Golf · Lake · Fishing · Secret Trails">Golf · Lago · Pesca · Rutas Secretas</p>
+      <a href="#sobre" class="btn-hero" data-es="Descubrir" data-en="Discover">Descubrir</a>
+    </div>
+    <div class="hero-scroll-hint">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ── SOBRE / THE EXPERIENCE ────────────────────────────────── -->
+  <section id="sobre" class="sobre">
+    <div class="container">
+      <div class="sobre-grid">
+        <div class="sobre-text fade-in">
+          <p class="section-label" data-es="Nuestra historia" data-en="Our story">Nuestra historia</p>
+          <h2 data-es="El lugar más exclusivo de Bariloche" data-en="The most exclusive place in Bariloche">El lugar más exclusivo de Bariloche</h2>
+          <p data-es="Arelauquen es el barrio privado más prestigioso de Bariloche. Rodeado de bosques milenarios, con el lago Nahuel Huapi a sus pies y la majestuosa cordillera como telón de fondo, ofrece una experiencia que muy pocos tienen el privilegio de vivir." data-en="Arelauquen is the most prestigious private neighborhood in Bariloche. Surrounded by ancient forests, with Lake Nahuel Huapi at its feet and the majestic Andes as a backdrop, it offers an experience that very few have the privilege of living.">
+            Arelauquen es el barrio privado más prestigioso de Bariloche. Rodeado de bosques milenarios, con el lago Nahuel Huapi a sus pies y la majestuosa cordillera como telón de fondo, ofrece una experiencia que muy pocos tienen el privilegio de vivir.
+          </p>
+          <p data-es="Te llevamos a conocer la Patagonia que no aparece en las guías de viaje: rincones secretos del lago, zonas de pesca que solo los locales conocen, y el silencio absoluto de la naturaleza prístina." data-en="We take you to discover the Patagonia that doesn't appear in travel guides: secret corners of the lake, fishing spots only locals know, and the absolute silence of pristine nature.">
+            Te llevamos a conocer la Patagonia que no aparece en las guías de viaje: rincones secretos del lago, zonas de pesca que solo los locales conocen, y el silencio absoluto de la naturaleza prístina.
+          </p>
+          <div class="sobre-stats">
+            <div class="stat">
+              <span class="stat-number">9</span>
+              <span class="stat-label" data-es="personas máx." data-en="guests max.">personas máx.</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">100%</span>
+              <span class="stat-label" data-es="exclusivo" data-en="exclusive">exclusivo</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">∞</span>
+              <span class="stat-label" data-es="naturaleza" data-en="nature">naturaleza</span>
+            </div>
+          </div>
+        </div>
+        <div class="sobre-image fade-in">
+          <div class="img-placeholder img-ph-lago">
+            <span class="img-ph-label" data-es="Tu foto del lago aquí" data-en="Your lake photo here">Tu foto del lago aquí</span>
+          </div>
+          <div class="sobre-badge">
+            <span data-es="Barrio Privado" data-en="Private Estate">Barrio Privado</span>
+            <strong>Arelauquen</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCIAS ───────────────────────────────────────────── -->
+  <section id="experiencias" class="experiencias">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-es="Lo que ofrecemos" data-en="What we offer">Lo que ofrecemos</p>
+        <h2 data-es="Cuatro experiencias únicas" data-en="Four unique experiences">Cuatro experiencias únicas</h2>
+        <p class="section-desc" data-es="Cada experiencia está diseñada para conectarte con la Patagonia más auténtica, en un entorno de lujo y privacidad absoluta." data-en="Each experience is designed to connect you with the most authentic Patagonia, in a setting of luxury and absolute privacy.">
+          Cada experiencia está diseñada para conectarte con la Patagonia más auténtica, en un entorno de lujo y privacidad absoluta.
+        </p>
+      </div>
+
+      <div class="exp-grid">
+
+        <div class="exp-card fade-in">
+          <div class="exp-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 36 C8 36 12 24 24 24 C36 24 40 36 40 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M16 36 L16 20 Q24 12 32 20 L32 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 36 L44 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="24" cy="14" r="3" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3 data-es="Casa de Lujo" data-en="Luxury House">Casa de Lujo</h3>
+          <p data-es="Alojate en nuestra residencia privada dentro de Arelauquen. Vistas al lago y las montañas, confort absoluto y acceso exclusivo a la cancha de golf del barrio más prestigioso de Bariloche." data-en="Stay at our private residence inside Arelauquen. Views of the lake and mountains, absolute comfort and exclusive access to the golf course of Bariloche's most prestigious neighborhood.">
+            Alojate en nuestra residencia privada dentro de Arelauquen. Vistas al lago y las montañas, confort absoluto y acceso exclusivo a la cancha de golf del barrio más prestigioso de Bariloche.
+          </p>
+          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+        </div>
+
+        <div class="exp-card fade-in">
+          <div class="exp-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M6 30 Q24 20 42 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M10 30 L10 34 Q24 38 38 34 L38 30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M24 20 L24 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M24 10 L32 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M4 36 L44 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 data-es="Paseo en Lancha" data-en="Boat Tour">Paseo en Lancha</h3>
+          <p data-es="Navegá el Nahuel Huapi a bordo de nuestra lancha privada, con capacidad para hasta 9 personas. Descubrí bahías, islas y rincones del lago que solo se pueden alcanzar desde el agua." data-en="Navigate Lake Nahuel Huapi aboard our private boat, with capacity for up to 9 people. Discover bays, islands and corners of the lake that can only be reached from the water.">
+            Navegá el Nahuel Huapi a bordo de nuestra lancha privada, con capacidad para hasta 9 personas. Descubrí bahías, islas y rincones del lago que solo se pueden alcanzar desde el agua.
+          </p>
+          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+        </div>
+
+        <div class="exp-card fade-in">
+          <div class="exp-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 40 L20 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M20 28 L28 30 L40 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="34" cy="18" r="2" fill="currentColor"/>
+              <path d="M4 40 L44 40" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M14 34 Q18 30 22 34" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 data-es="Pesca con Guía" data-en="Guided Fishing">Pesca con Guía</h3>
+          <p data-es="Pescá truchas marrones y arco iris en las mejores aguas de la Patagonia, guiado por alguien que conoce cada recoveco del río y del lago. Una experiencia que pocos tienen el privilegio de vivir." data-en="Fish for brown and rainbow trout in the best waters of Patagonia, guided by someone who knows every corner of the river and lake. An experience that few have the privilege of living.">
+            Pescá truchas marrones y arco iris en las mejores aguas de la Patagonia, guiado por alguien que conoce cada recoveco del río y del lago. Una experiencia que pocos tienen el privilegio de vivir.
+          </p>
+          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+        </div>
+
+        <div class="exp-card fade-in">
+          <div class="exp-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 8 L26 18 L36 16 L30 24 L38 30 L28 30 L28 40 L20 40 L20 30 L10 30 L18 24 L12 16 L22 18 Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 data-es="Rutas Secretas" data-en="Secret Trails">Rutas Secretas</h3>
+          <p data-es="Dejate llevar por rutas que no están en ningún mapa. Cascadas ocultas, miradores únicos, bosques de lengas centenarias. La Patagonia que solo conocen quienes viven aquí." data-en="Let yourself be led through trails that aren't on any map. Hidden waterfalls, unique viewpoints, forests of centuries-old beech trees. The Patagonia only those who live here know.">
+            Dejate llevar por rutas que no están en ningún mapa. Cascadas ocultas, miradores únicos, bosques de lengas centenarias. La Patagonia que solo conocen quienes viven aquí.
+          </p>
+          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALERÍA ────────────────────────────────────────────────── -->
+  <section id="galeria" class="galeria">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-es="Viví la experiencia" data-en="Live the experience">Viví la experiencia</p>
+        <h2 data-es="Galería" data-en="Gallery">Galería</h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gallery-item fade-in" data-index="0" onclick="openLightbox(0)">
+          <div class="img-placeholder img-ph-1"></div>
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item fade-in" data-index="1" onclick="openLightbox(1)">
+          <div class="img-placeholder img-ph-2"></div>
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item fade-in" data-index="2" onclick="openLightbox(2)">
+          <div class="img-placeholder img-ph-3"></div>
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item fade-in" data-index="3" onclick="openLightbox(3)">
+          <div class="img-placeholder img-ph-4"></div>
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item fade-in" data-index="4" onclick="openLightbox(4)">
+          <div class="img-placeholder img-ph-5"></div>
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item fade-in" data-index="5" onclick="openLightbox(5)">
+          <div class="img-placeholder img-ph-6"></div>
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+      </div>
+
+      <p class="gallery-hint fade-in" data-es="— Reemplazá estas imágenes con tus fotos reales —" data-en="— Replace these images with your real photos —">— Reemplazá estas imágenes con tus fotos reales —</p>
+    </div>
+  </section>
+
+  <!-- ── CONTACTO ───────────────────────────────────────────────── -->
+  <section id="contacto" class="contacto">
+    <div class="container">
+      <div class="contacto-grid">
+
+        <div class="contacto-info fade-in">
+          <p class="section-label" data-es="Hablemos" data-en="Let's talk">Hablemos</p>
+          <h2 data-es="Reservá tu experiencia" data-en="Book your experience">Reservá tu experiencia</h2>
+          <p data-es="Cada salida es personalizada. Contanos qué experiencia buscás y diseñamos algo único para vos." data-en="Every trip is personalized. Tell us what experience you're looking for and we'll design something unique for you.">
+            Cada salida es personalizada. Contanos qué experiencia buscás y diseñamos algo único para vos.
+          </p>
+
+          <div class="contacto-canales">
+            <a href="https://wa.me/+54XXXXXXXXXX?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Lago%20Sur%20Experiences"
+               class="canal-item canal-whatsapp" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              WhatsApp
+            </a>
+            <a href="https://instagram.com/TU_USUARIO_AQUI" class="canal-item canal-instagram" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+
+        <form class="contacto-form fade-in" id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre" data-es="Nombre" data-en="Name">Nombre</label>
+              <input type="text" id="nombre" name="nombre" required
+                data-placeholder-es="Tu nombre" data-placeholder-en="Your name"
+                placeholder="Tu nombre">
+            </div>
+            <div class="form-group">
+              <label for="email" data-es="Email" data-en="Email">Email</label>
+              <input type="email" id="email" name="email" required
+                data-placeholder-es="tu@email.com" data-placeholder-en="your@email.com"
+                placeholder="tu@email.com">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fecha" data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label>
+              <input type="date" id="fecha" name="fecha">
+            </div>
+            <div class="form-group">
+              <label for="experiencia" data-es="Experiencia" data-en="Experience">Experiencia</label>
+              <select id="experiencia" name="experiencia">
+                <option value="" data-es="Seleccionar..." data-en="Select...">Seleccionar...</option>
+                <option value="casa" data-es="Casa de Lujo" data-en="Luxury House">Casa de Lujo</option>
+                <option value="lancha" data-es="Paseo en Lancha" data-en="Boat Tour">Paseo en Lancha</option>
+                <option value="pesca" data-es="Pesca con Guía" data-en="Guided Fishing">Pesca con Guía</option>
+                <option value="rutas" data-es="Rutas Secretas" data-en="Secret Trails">Rutas Secretas</option>
+                <option value="combo" data-es="Combinado" data-en="Combined">Combinado</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4"
+              data-placeholder-es="Contanos qué buscás, cuántas personas son, alguna fecha tentativa..."
+              data-placeholder-en="Tell us what you're looking for, how many people, any tentative dates..."
+              placeholder="Contanos qué buscás, cuántas personas son, alguna fecha tentativa..."></textarea>
+          </div>
+          <button type="submit" class="btn-submit" data-es="Enviar consulta" data-en="Send inquiry">Enviar consulta</button>
+          <div id="formMsg" class="form-msg"></div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-main">LAGO SUR</span>
+          <span class="logo-sub">experiences</span>
+          <p data-es="Bariloche · Patagonia Argentina" data-en="Bariloche · Argentine Patagonia">Bariloche · Patagonia Argentina</p>
+        </div>
+        <div class="footer-links">
+          <a href="#sobre"        data-es="La Experiencia" data-en="The Experience">La Experiencia</a>
+          <a href="#experiencias" data-es="Experiencias"   data-en="Experiences">Experiencias</a>
+          <a href="#galeria"      data-es="Galería"        data-en="Gallery">Galería</a>
+          <a href="#contacto"     data-es="Contacto"       data-en="Contact">Contacto</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://instagram.com/TU_USUARIO_AQUI" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://wa.me/+54XXXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Lago Sur Experiences · <span data-es="Todos los derechos reservados" data-en="All rights reserved">Todos los derechos reservados</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── WHATSAPP FAB ────────────────────────────────────────────── -->
+  <a href="https://wa.me/+54XXXXXXXXXX?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Lago%20Sur%20Experiences"
+     class="whatsapp-fab" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- ── LIGHTBOX ────────────────────────────────────────────────── -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-prev" onclick="event.stopPropagation(); lightboxNav(-1)">‹</button>
+    <div class="lightbox-content" id="lightboxContent" onclick="event.stopPropagation()"></div>
+    <button class="lightbox-next" onclick="event.stopPropagation(); lightboxNav(1)">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
