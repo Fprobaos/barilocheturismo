@@ -3,11 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lago Sur Experiences - Experiencias exclusivas en Arelauquen, Bariloche. Golf, lancha, pesca y rutas secretas en la Patagonia.">
-  <meta name="keywords" content="Bariloche, Arelauquen, turismo lujo, pesca truchas, lancha, golf Patagonia">
+  <meta name="description" content="Lago Sur Experiences — Boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche. Private guided experiences in the Argentine Patagonia.">
+  <meta name="keywords" content="Bariloche, Arelauquen, Patagonia, fly fishing, boat tour, scenic flight, private guide, Nahuel Huapi">
   <title>Lago Sur Experiences | Bariloche · Patagonia</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://lagosurexperiences.com/">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Lago Sur Experiences">
+  <meta property="og:url" content="https://lagosurexperiences.com/">
+  <meta property="og:title" content="Lago Sur Experiences | Bariloche · Patagonia">
+  <meta property="og:description" content="Boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche. Private guided experiences in the Argentine Patagonia.">
+  <meta property="og:image" content="https://lagosurexperiences.com/og-image.jpg">
+  <meta property="og:image:secure_url" content="https://lagosurexperiences.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lago Nahuel Huapi y la cordillera de los Andes vistos desde Arelauquen, Bariloche">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:locale:alternate" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lago Sur Experiences | Bariloche · Patagonia">
+  <meta name="twitter:description" content="Boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche. Private guided experiences in the Argentine Patagonia.">
+  <meta name="twitter:image" content="https://lagosurexperiences.com/og-image.jpg">
+  <meta name="twitter:image:alt" content="Lago Nahuel Huapi y la cordillera de los Andes vistos desde Arelauquen, Bariloche">
+
+  <!-- Theme color (mobile browsers) -->
+  <meta name="theme-color" content="#0a1a2e">
+
+  <!-- Favicons (placeholders — reemplazar con archivos reales) -->
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- JSON-LD structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TravelAgency",
+    "name": "Lago Sur Experiences",
+    "description": "Private guided boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche, Patagonia.",
+    "url": "https://lagosurexperiences.com/",
+    "image": "https://lagosurexperiences.com/og-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bariloche",
+      "addressRegion": "Río Negro",
+      "addressCountry": "AR"
+    },
+    "areaServed": "Bariloche, Argentina",
+    "availableLanguage": ["es", "en"],
+    "priceRange": "$$$"
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -27,6 +82,10 @@
       <li><a href="#sobre"         data-es="La Experiencia" data-en="The Experience">La Experiencia</a></li>
       <li><a href="#experiencias"  data-es="Experiencias"   data-en="Experiences">Experiencias</a></li>
       <li><a href="#galeria"       data-es="Galería"        data-en="Gallery">Galería</a></li>
+      <li><a href="#guias"         data-es="Guías"          data-en="Guides">Guías</a></li>
+      <li><a href="#mapa"          data-es="Mapa"           data-en="Map">Mapa</a></li>
+      <li><a href="#reservar"      data-es="Reservar"       data-en="Book">Reservar</a></li>
+      <li><a href="#faq"           data-es="FAQ"            data-en="FAQ">FAQ</a></li>
       <li><a href="#contacto"      data-es="Contacto"       data-en="Contact">Contacto</a></li>
     </ul>
 
@@ -120,9 +179,10 @@
               <circle cx="24" cy="14" r="3" stroke="currentColor" stroke-width="1.5"/>
             </svg>
           </div>
-          <h3 data-es="Casa de Lujo" data-en="Luxury House">Casa de Lujo</h3>
-          <p data-es="Alojate en nuestra residencia privada dentro de Arelauquen. Vistas al lago y las montañas, confort absoluto y acceso exclusivo a la cancha de golf del barrio más prestigioso de Bariloche." data-en="Stay at our private residence inside Arelauquen. Views of the lake and mountains, absolute comfort and exclusive access to the golf course of Bariloche's most prestigious neighborhood.">
-            Alojate en nuestra residencia privada dentro de Arelauquen. Vistas al lago y las montañas, confort absoluto y acceso exclusivo a la cancha de golf del barrio más prestigioso de Bariloche.
+          <h3 data-es="Casa Acogedora" data-en="Cozy House">Casa Acogedora</h3>
+          <p data-es="Una casa íntima y cálida dentro de Arelauquen, pensada para grupos chicos. Sin lujos ostentosos: madera, hogar a leña, vistas al entorno y la tranquilidad del barrio privado. Acceso a la cancha de golf y a las áreas comunes del club."
+             data-en="An intimate, warm home inside Arelauquen, designed for small groups. No ostentatious luxury: wood, fireplace, views of the surroundings and the calm of the private estate. Access to the golf course and the club's common areas.">
+            Una casa íntima y cálida dentro de Arelauquen, pensada para grupos chicos. Sin lujos ostentosos: madera, hogar a leña, vistas al entorno y la tranquilidad del barrio privado. Acceso a la cancha de golf y a las áreas comunes del club.
           </p>
           <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
         </div>
@@ -174,6 +234,178 @@
           <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
         </div>
 
+        <div class="exp-card exp-card--extra fade-in">
+          <span class="exp-badge" data-es="Extra" data-en="Add-on">Extra</span>
+          <div class="exp-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 26 L20 22 L30 10 L34 10 L28 24 L40 22 L44 18 L44 22 L36 30 L40 38 L36 38 L28 30 L18 34 L14 40 L12 38 L14 30 L4 28 Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 data-es="Vuelo Panorámico" data-en="Scenic Flight">Vuelo Panorámico</h3>
+          <p data-es="Bariloche desde el aire, con Nicolás como piloto. Sobrevolá el Nahuel Huapi, el cerro Catedral y los lagos del circuito en un avión privado. La Patagonia entera, en una sola hora."
+             data-en="Bariloche from above, with Nicolás as your pilot. Fly over Lake Nahuel Huapi, Cerro Catedral and the circuit's lakes in a private plane. The whole Patagonia, in a single hour.">
+            Bariloche desde el aire, con Nicolás como piloto. Sobrevolá el Nahuel Huapi, el cerro Catedral y los lagos del circuito en un avión privado. La Patagonia entera, en una sola hora.
+          </p>
+          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+        </div>
+
+      </div>
+
+      <div class="disclosure fade-in">
+        <svg class="disclosure-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M12 8v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="12" cy="16.5" r="0.9" fill="currentColor"/>
+        </svg>
+        <p data-es="El alojamiento en Arelauquen es lo único que se contrata por separado. Si ya tenés dónde quedarte en Bariloche, podés sumarte igual a las experiencias en lancha, pesca y rutas — el resto del programa funciona como un combo integrado."
+           data-en="The accommodation at Arelauquen is the only piece booked separately. If you already have a place to stay in Bariloche, you can still join the boat, fishing and trail experiences — the rest of the program runs as an integrated package.">
+          El alojamiento en Arelauquen es lo único que se contrata por separado. Si ya tenés dónde quedarte en Bariloche, podés sumarte igual a las experiencias en lancha, pesca y rutas — el resto del programa funciona como un combo integrado.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GUÍAS ──────────────────────────────────────────────────── -->
+  <section id="guias" class="guias">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-es="Quién te guía" data-en="Who guides you">Quién te guía</p>
+        <h2 data-es="Nuestros guías" data-en="Our guides">Nuestros guías</h2>
+        <p class="section-desc"
+           data-es="Patagónicos de raíz, conocedores del terreno. La diferencia entre un paseo turístico y una experiencia auténtica está en quién te acompaña."
+           data-en="Patagonians by heart, masters of the terrain. The difference between a tourist trip and an authentic experience lies in who guides you.">
+          Patagónicos de raíz, conocedores del terreno. La diferencia entre un paseo turístico y una experiencia auténtica está en quién te acompaña.
+        </p>
+      </div>
+
+      <div class="guia-card fade-in">
+        <div class="guia-photo">
+          <div class="img-placeholder img-ph-guia">
+            <span class="img-ph-label" data-es="Foto de Francisco" data-en="Francisco's photo">Foto de Francisco</span>
+          </div>
+        </div>
+
+        <div class="guia-body">
+          <p class="guia-role" data-es="Guía principal · Pesca · Navegación" data-en="Lead guide · Fishing · Navigation">Guía principal · Pesca · Navegación</p>
+          <h3 class="guia-name">Francisco Probaos</h3>
+
+          <p data-es="Nacido y criado en Bariloche, Francisco creció con el Nahuel Huapi como patio. Pescador de mosca desde los siete años, navegante experto y profundo conocedor de los rincones que no figuran en ningún mapa, lleva más de dos décadas guiando a quienes buscan la Patagonia auténtica."
+             data-en="Born and raised in Bariloche, Francisco grew up with Lake Nahuel Huapi as his backyard. A fly fisherman since age seven, expert sailor and deep connoisseur of the corners that don't appear on any map, he has spent over two decades guiding those who seek the authentic Patagonia.">
+            Nacido y criado en Bariloche, Francisco creció con el Nahuel Huapi como patio. Pescador de mosca desde los siete años, navegante experto y profundo conocedor de los rincones que no figuran en ningún mapa, lleva más de dos décadas guiando a quienes buscan la Patagonia auténtica.
+          </p>
+          <p data-es="Su conocimiento del lago, los ríos y los senderos secretos de la cordillera es lo que transforma una salida cualquiera en un recuerdo imborrable. Habla español e inglés, y tiene la paciencia de quien sabe que la mejor pesca y el mejor atardecer siempre llegan a quien sabe esperar."
+             data-en="His knowledge of the lake, the rivers and the hidden trails of the Andes is what turns an ordinary outing into an unforgettable memory. He speaks Spanish and English, and has the patience of someone who knows that the best fishing and the best sunset always come to those who know how to wait.">
+            Su conocimiento del lago, los ríos y los senderos secretos de la cordillera es lo que transforma una salida cualquiera en un recuerdo imborrable. Habla español e inglés, y tiene la paciencia de quien sabe que la mejor pesca y el mejor atardecer siempre llegan a quien sabe esperar.
+          </p>
+
+          <ul class="guia-stats">
+            <li>
+              <span class="stat-number">20+</span>
+              <span class="stat-label" data-es="años guiando" data-en="years guiding">años guiando</span>
+            </li>
+            <li>
+              <span class="stat-number">ES · EN</span>
+              <span class="stat-label" data-es="idiomas" data-en="languages">idiomas</span>
+            </li>
+            <li>
+              <span class="stat-number">∞</span>
+              <span class="stat-label" data-es="rutas secretas" data-en="secret trails">rutas secretas</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TESTIMONIOS — reviews reales de Google sobre Francisco en Explore Sydney Harbour -->
+      <div class="testimonios fade-in">
+        <div class="testimonios-header">
+          <p class="section-label"
+             data-es="Lo que dicen los viajeros"
+             data-en="What travelers say">Lo que dicen los viajeros</p>
+          <h3 data-es="Reseñas de su trabajo en Sídney"
+              data-en="Reviews from his work in Sydney">Reseñas de su trabajo en Sídney</h3>
+          <p class="testimonios-source"
+             data-es="Antes de volver a la Patagonia, Francisco trabajó como guía en Explore Sydney Harbour, llevando turistas en lancha por la bahía de Sídney. Estas son reseñas reales publicadas en Google."
+             data-en="Before returning to Patagonia, Francisco worked as a guide at Explore Sydney Harbour, taking tourists on boats around Sydney Bay. These are real reviews published on Google.">
+            Antes de volver a la Patagonia, Francisco trabajó como guía en Explore Sydney Harbour, llevando turistas en lancha por la bahía de Sídney. Estas son reseñas reales publicadas en Google.
+          </p>
+        </div>
+
+        <div class="testimonios-grid">
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>What a great experience. Top day out on the water. So many things to see in Sydney Harbour and the small speed boats were so much fun. Our tour guide Francisco was awesome. Really made the effort to ensure we had the best time and took plenty of photos for us. Highly recommended.</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Dave Bonnici</span>
+              <span class="testimonio-meta">Google Reviews · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>My niece, my sister and me had a great time on the water, the boats are easy to drive, no need to be experienced. Our tour guide Francisco was awesome and took photos for us. We recommend this tour, it was a lot of fun.</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Jeremy Grossmann</span>
+              <span class="testimonio-meta">Google Local Guide · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>What a great way to explore Sydney and get vantage view points, definitely a must do! Our guide Francisco was great at teaching us and taking care how to drive the boats and make the most out of the experience!</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Dario Rossetti</span>
+              <span class="testimonio-meta">Google Reviews · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>Had a great time with the incredible group leader Francisco! A perfect way to end my trip in Sydney and being a captain for a day.</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Danijel Švelec</span>
+              <span class="testimonio-meta">Google Reviews · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>This is one of the best experiences you can do in Sydney. Francisco was an excellent guide and it's a great way to see the harbour. 5 Stars.</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Grantly</span>
+              <span class="testimonio-meta">Google Reviews · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>Highly recommend for both locals and tourists who want to explore Sydney Harbour. Francisco was a great tour guide.</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Luke Vespa</span>
+              <span class="testimonio-meta">Google Reviews · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>Francisco was an absolute legend. 2nd time on the boats, loved it.</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Dillon Gibbs</span>
+              <span class="testimonio-meta">Google Local Guide · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+          <figure class="testimonio">
+            <div class="testimonio-stars">★★★★★</div>
+            <blockquote>Francisco was great — we'd go again!</blockquote>
+            <figcaption>
+              <span class="testimonio-name">Peter Scott</span>
+              <span class="testimonio-meta">Google Local Guide · Explore Sydney Harbour</span>
+            </figcaption>
+          </figure>
+
+        </div>
       </div>
     </div>
   </section>
@@ -229,19 +461,268 @@
     </div>
   </section>
 
+  <!-- ── MAPA / LAGOS ───────────────────────────────────────────── -->
+  <section id="mapa" class="mapa">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-es="El territorio" data-en="The territory">El territorio</p>
+        <h2 data-es="Cuatro lagos, un solo paraíso" data-en="Four lakes, one paradise">Cuatro lagos, un solo paraíso</h2>
+        <p class="section-desc"
+           data-es="Arelauquen está rodeada por algunos de los lagos más bellos de la Patagonia. Cada uno tiene su carácter — y todos están a menos de una hora."
+           data-en="Arelauquen is surrounded by some of Patagonia's most beautiful lakes. Each has its own character — all within an hour's drive.">
+          Arelauquen está rodeada por algunos de los lagos más bellos de la Patagonia. Cada uno tiene su carácter — y todos están a menos de una hora.
+        </p>
+      </div>
+
+      <div class="mapa-wrap fade-in">
+        <div id="lagosMap" class="mapa-frame"></div>
+      </div>
+
+      <div class="lagos-grid">
+
+        <div class="lago-card fade-in">
+          <div class="lago-marker">★</div>
+          <h3>Nahuel Huapi</h3>
+          <p class="lago-meta" data-es="557 km² · 464 m de profundidad" data-en="557 km² · 464 m deep">557 km² · 464 m de profundidad</p>
+          <p data-es="El gigante. Aguas turquesa, islas, bahías ocultas. Donde navegamos con la lancha privada y exploramos rincones inaccesibles por tierra."
+             data-en="The giant. Turquoise waters, islands, hidden bays. Where we sail with our private boat and explore corners unreachable by land.">
+            El gigante. Aguas turquesa, islas, bahías ocultas. Donde navegamos con la lancha privada y exploramos rincones inaccesibles por tierra.
+          </p>
+        </div>
+
+<div class="lago-card fade-in">
+          <div class="lago-marker">◆</div>
+          <h3>Gutiérrez</h3>
+          <p class="lago-meta" data-es="16 km² · a 5 min de Arelauquen" data-en="16 km² · 5 min from Arelauquen">16 km² · a 5 min de Arelauquen</p>
+          <p data-es="Nuestro patio. Bordea Arelauquen y se conecta con senderos secretos hacia el cerro Catedral y la cascada de los Duendes."
+             data-en="Our backyard. Borders Arelauquen and connects to secret trails toward Cerro Catedral and the Duendes waterfall.">
+            Nuestro patio. Bordea Arelauquen y se conecta con senderos secretos hacia el cerro Catedral y la cascada de los Duendes.
+          </p>
+        </div>
+
+        <div class="lago-card fade-in">
+          <div class="lago-marker">▲</div>
+          <h3>Mascardi</h3>
+          <p class="lago-meta" data-es="39 km² · ruta a El Bolsón" data-en="39 km² · road to El Bolsón">39 km² · ruta a El Bolsón</p>
+          <p data-es="El más salvaje. Aguas profundas, bosques de coihues centenarios y la mejor pesca de truchas marrones de la región."
+             data-en="The wildest. Deep waters, centuries-old coihue forests, and the region's best brown trout fishing.">
+            El más salvaje. Aguas profundas, bosques de coihues centenarios y la mejor pesca de truchas marrones de la región.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESERVAR / CALENDARIO ──────────────────────────────────── -->
+  <section id="reservar" class="reservar">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-es="Disponibilidad" data-en="Availability">Disponibilidad</p>
+        <h2 data-es="Elegí tus fechas" data-en="Choose your dates">Elegí tus fechas</h2>
+        <p class="section-desc"
+           data-es="Temporada Diciembre 2026 — Marzo 2027. Seleccioná el día de llegada y luego el de salida; los días deben ser consecutivos."
+           data-en="Season December 2026 — March 2027. Select your check-in day and then your check-out; days must be consecutive.">
+          Temporada Diciembre 2026 — Marzo 2027. Seleccioná el día de llegada y luego el de salida; los días deben ser consecutivos.
+        </p>
+      </div>
+
+      <div class="cal-wrap fade-in">
+        <div class="cal-summary">
+          <div class="cal-summary-item">
+            <span class="cal-summary-label" data-es="Llegada" data-en="Check-in">Llegada</span>
+            <span class="cal-summary-val" id="calStart" data-es="—" data-en="—">—</span>
+          </div>
+          <div class="cal-summary-arrow">→</div>
+          <div class="cal-summary-item">
+            <span class="cal-summary-label" data-es="Salida" data-en="Check-out">Salida</span>
+            <span class="cal-summary-val" id="calEnd" data-es="—" data-en="—">—</span>
+          </div>
+          <div class="cal-summary-item">
+            <span class="cal-summary-label" data-es="Noches" data-en="Nights">Noches</span>
+            <span class="cal-summary-val" id="calNights">—</span>
+          </div>
+        </div>
+
+        <div class="cal-months" id="calMonths"></div>
+
+        <div class="cal-actions">
+          <button type="button" class="cal-clear" id="calClear" data-es="Limpiar" data-en="Clear">Limpiar</button>
+          <button type="button" class="cal-confirm" id="calConfirm" disabled
+                  data-es="Confirmar reserva" data-en="Confirm booking">Confirmar reserva</button>
+        </div>
+
+        <p class="cal-hint" id="calHint"
+           data-es="Hacé clic en una fecha para empezar."
+           data-en="Click a date to start.">Hacé clic en una fecha para empezar.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMO LLEGAR ────────────────────────────────────────────── -->
+  <section id="llegar" class="llegar">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-es="Cómo llegar" data-en="Getting here">Cómo llegar</p>
+        <h2 data-es="Tu viaje hasta Arelauquen" data-en="Your trip to Arelauquen">Tu viaje hasta Arelauquen</h2>
+        <p class="section-desc"
+           data-es="Bariloche está conectado por vuelos directos desde Buenos Aires y otras capitales de la región. Coordinamos el traslado desde el aeropuerto si lo necesitás."
+           data-en="Bariloche is connected by direct flights from Buenos Aires and other regional capitals. We arrange airport pickup if you need it.">
+          Bariloche está conectado por vuelos directos desde Buenos Aires y otras capitales de la región. Coordinamos el traslado desde el aeropuerto si lo necesitás.
+        </p>
+      </div>
+
+      <div class="llegar-grid">
+
+        <div class="llegar-step fade-in">
+          <div class="llegar-num">01</div>
+          <h3 data-es="Vuelo a Bariloche" data-en="Fly to Bariloche">Vuelo a Bariloche</h3>
+          <p data-es="Aeropuerto Internacional Teniente Luis Candelaria (BRC). Vuelos directos diarios desde Buenos Aires (≈ 2h 20m), São Paulo y Santiago de Chile en temporada."
+             data-en="Teniente Luis Candelaria International Airport (BRC). Daily direct flights from Buenos Aires (≈ 2h 20m), São Paulo and Santiago de Chile in season.">
+            Aeropuerto Internacional Teniente Luis Candelaria (BRC). Vuelos directos diarios desde Buenos Aires (≈ 2h 20m), São Paulo y Santiago de Chile en temporada.
+          </p>
+        </div>
+
+        <div class="llegar-step fade-in">
+          <div class="llegar-num">02</div>
+          <h3 data-es="Traslado privado" data-en="Private transfer">Traslado privado</h3>
+          <p data-es="Coordinamos el pickup en el aeropuerto sin costo extra. 25 minutos de viaje hasta Arelauquen, costeando el lago Gutiérrez."
+             data-en="We arrange airport pickup at no extra cost. 25-minute drive to Arelauquen along Lake Gutiérrez.">
+            Coordinamos el pickup en el aeropuerto sin costo extra. 25 minutos de viaje hasta Arelauquen, costeando el lago Gutiérrez.
+          </p>
+        </div>
+
+        <div class="llegar-step fade-in">
+          <div class="llegar-num">03</div>
+          <h3 data-es="Llegada a Arelauquen" data-en="Arrival at Arelauquen">Llegada a Arelauquen</h3>
+          <p data-es="Acceso por barrera privada con seguridad 24/7. Te recibimos con un welcome drink y el plan de los próximos días."
+             data-en="Access through private gate with 24/7 security. We welcome you with a drink and the plan for the days ahead.">
+            Acceso por barrera privada con seguridad 24/7. Te recibimos con un welcome drink y el plan de los próximos días.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="llegar-info fade-in">
+        <div class="llegar-info-item">
+          <span class="llegar-info-label" data-es="Aeropuerto" data-en="Airport">Aeropuerto</span>
+          <strong>BRC · 12 km</strong>
+        </div>
+        <div class="llegar-info-item">
+          <span class="llegar-info-label" data-es="Centro de Bariloche" data-en="Bariloche center">Centro de Bariloche</span>
+          <strong>15 km · 20 min</strong>
+        </div>
+        <div class="llegar-info-item">
+          <span class="llegar-info-label" data-es="Huso horario" data-en="Time zone">Huso horario</span>
+          <strong>GMT−3 (ART)</strong>
+        </div>
+        <div class="llegar-info-item">
+          <span class="llegar-info-label" data-es="Mejor temporada" data-en="Best season">Mejor temporada</span>
+          <strong data-es="Dic — Mar (verano)" data-en="Dec — Mar (summer)">Dic — Mar (verano)</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ────────────────────────────────────────────────────── -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <p class="section-label" data-es="Preguntas frecuentes" data-en="FAQ">Preguntas frecuentes</p>
+        <h2 data-es="Lo que suelen preguntarnos" data-en="What guests usually ask">Lo que suelen preguntarnos</h2>
+      </div>
+
+      <div class="faq-list fade-in">
+
+        <details class="faq-item">
+          <summary data-es="¿Necesito visa para entrar a Argentina?"
+                   data-en="Do I need a visa to enter Argentina?">¿Necesito visa para entrar a Argentina?</summary>
+          <p data-es="Pasaportes de la UE, Reino Unido, EE.UU., Canadá, Australia, Nueva Zelanda y la mayoría de Latinoamérica no requieren visa para estadías turísticas de hasta 90 días. Confirmá los requisitos vigentes en el consulado argentino antes de viajar."
+             data-en="Passports from the EU, UK, US, Canada, Australia, New Zealand and most of Latin America don't need a visa for tourist stays of up to 90 days. Always confirm current requirements with the Argentine consulate before traveling.">
+            Pasaportes de la UE, Reino Unido, EE.UU., Canadá, Australia, Nueva Zelanda y la mayoría de Latinoamérica no requieren visa para estadías turísticas de hasta 90 días. Confirmá los requisitos vigentes en el consulado argentino antes de viajar.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-es="¿Cuál es la mejor época para venir?"
+                   data-en="When is the best time to visit?">¿Cuál es la mejor época para venir?</summary>
+          <p data-es="Diciembre a marzo es verano patagónico: días largos (luz hasta las 21 h), temperaturas de 18–28 °C y aguas navegables. La pesca con mosca está habilitada en esta ventana. Marzo trae los colores del otoño temprano."
+             data-en="December to March is Patagonian summer: long days (daylight until 9 PM), 18–28 °C / 65–82 °F, and prime sailing conditions. Fly fishing season is open in this window. March brings the first autumn colors.">
+            Diciembre a marzo es verano patagónico: días largos (luz hasta las 21 h), temperaturas de 18–28 °C y aguas navegables. La pesca con mosca está habilitada en esta ventana. Marzo trae los colores del otoño temprano.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-es="¿Hablan inglés los guías?"
+                   data-en="Do the guides speak English?">¿Hablan inglés los guías?</summary>
+          <p data-es="Sí. Francisco habla español e inglés con fluidez (trabajó como guía en Sídney, Australia). Toda la experiencia se puede vivir 100% en inglés."
+             data-en="Yes. Francisco is fluent in Spanish and English (he worked as a guide in Sydney, Australia). The entire experience can be lived 100% in English.">
+            Sí. Francisco habla español e inglés con fluidez (trabajó como guía en Sídney, Australia). Toda la experiencia se puede vivir 100% en inglés.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-es="¿Qué ropa y equipo conviene traer?"
+                   data-en="What clothing and gear should I bring?">¿Qué ropa y equipo conviene traer?</summary>
+          <p data-es="Capas livianas: el clima en montaña cambia rápido. Recomendamos rompevientos, polar liviano, gorra, lentes de sol con UV y calzado tipo trekking. Para pesca y navegación proveemos todo el equipo técnico."
+             data-en="Layered clothing: mountain weather changes fast. We recommend a windbreaker, light fleece, cap, UV sunglasses and hiking-style shoes. We provide all technical gear for fishing and boating.">
+            Capas livianas: el clima en montaña cambia rápido. Recomendamos rompevientos, polar liviano, gorra, lentes de sol con UV y calzado tipo trekking. Para pesca y navegación proveemos todo el equipo técnico.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-es="¿Cómo se paga? ¿Aceptan dólares o transferencias?"
+                   data-en="How do I pay? Do you accept USD or wire transfers?">¿Cómo se paga? ¿Aceptan dólares o transferencias?</summary>
+          <p data-es="Aceptamos USD efectivo, transferencia internacional (Wise, SWIFT) y pesos argentinos al tipo de cambio del día. La reserva se confirma con un 30% de seña; el saldo se abona al check-in."
+             data-en="We accept USD cash, international wire transfers (Wise, SWIFT) and Argentine pesos at the day's exchange rate. Booking is confirmed with a 30% deposit; the balance is paid at check-in.">
+            Aceptamos USD efectivo, transferencia internacional (Wise, SWIFT) y pesos argentinos al tipo de cambio del día. La reserva se confirma con un 30% de seña; el saldo se abona al check-in.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-es="¿Hay WiFi y señal de celular?"
+                   data-en="Is there WiFi and cell signal?">¿Hay WiFi y señal de celular?</summary>
+          <p data-es="WiFi de fibra en la casa. Señal 4G de Claro/Movistar/Personal en Arelauquen y la mayor parte de las salidas. En algunos rincones del lago y rutas escondidas no hay señal — parte del encanto."
+             data-en="Fiber WiFi at the house. 4G coverage (Claro/Movistar/Personal) in Arelauquen and most outings. Some corners of the lake and hidden trails have no signal — part of the charm.">
+            WiFi de fibra en la casa. Señal 4G de Claro/Movistar/Personal en Arelauquen y la mayor parte de las salidas. En algunos rincones del lago y rutas escondidas no hay señal — parte del encanto.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-es="¿Cuál es la política de cancelación?"
+                   data-en="What's the cancellation policy?">¿Cuál es la política de cancelación?</summary>
+          <p data-es="Cancelación gratuita hasta 30 días antes del check-in (reembolso 100% de la seña). Entre 30 y 14 días, retenemos el 50%. Menos de 14 días, la seña no es reembolsable, pero la reprogramamos sin cargo dentro de la temporada."
+             data-en="Free cancellation up to 30 days before check-in (100% refund of the deposit). Between 30 and 14 days, we retain 50%. Under 14 days, the deposit is non-refundable, but we'll reschedule within the season at no cost.">
+            Cancelación gratuita hasta 30 días antes del check-in (reembolso 100% de la seña). Entre 30 y 14 días, retenemos el 50%. Menos de 14 días, la seña no es reembolsable, pero la reprogramamos sin cargo dentro de la temporada.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary data-es="¿Pueden venir niños? ¿Qué pasa con dietas especiales?"
+                   data-en="Can children come? What about dietary restrictions?">¿Pueden venir niños? ¿Qué pasa con dietas especiales?</summary>
+          <p data-es="Sí, las experiencias son family-friendly desde los 6 años (lancha y rutas; la pesca con mosca pide un poco más de paciencia). Manejamos dietas vegetarianas, veganas, sin gluten y sin lactosa — avisanos al reservar."
+             data-en="Yes, experiences are family-friendly from age 6 (boat and trails; fly fishing demands more patience). We accommodate vegetarian, vegan, gluten-free and dairy-free diets — let us know at booking.">
+            Sí, las experiencias son family-friendly desde los 6 años (lancha y rutas; la pesca con mosca pide un poco más de paciencia). Manejamos dietas vegetarianas, veganas, sin gluten y sin lactosa — avisanos al reservar.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
   <!-- ── CONTACTO ───────────────────────────────────────────────── -->
   <section id="contacto" class="contacto">
     <div class="container">
-      <div class="contacto-grid">
+      <div class="contacto-simple fade-in">
+        <p class="section-label" data-es="Hablemos" data-en="Let's talk">Hablemos</p>
+        <h2 data-es="Reservá por WhatsApp" data-en="Book via WhatsApp">Reservá por WhatsApp</h2>
+        <p class="contacto-lead"
+           data-es="Elegí tus fechas en el calendario y mandanos un mensaje. Te contestamos en el día con disponibilidad, opciones de experiencias y precios."
+           data-en="Pick your dates in the calendar and send us a message. We reply same-day with availability, experience options and prices.">
+          Elegí tus fechas en el calendario y mandanos un mensaje. Te contestamos en el día con disponibilidad, opciones de experiencias y precios.
+        </p>
 
-        <div class="contacto-info fade-in">
-          <p class="section-label" data-es="Hablemos" data-en="Let's talk">Hablemos</p>
-          <h2 data-es="Reservá tu experiencia" data-en="Book your experience">Reservá tu experiencia</h2>
-          <p data-es="Cada salida es personalizada. Contanos qué experiencia buscás y diseñamos algo único para vos." data-en="Every trip is personalized. Tell us what experience you're looking for and we'll design something unique for you.">
-            Cada salida es personalizada. Contanos qué experiencia buscás y diseñamos algo único para vos.
-          </p>
-
-          <div class="contacto-canales">
+        <div class="contacto-canales">
             <a href="https://wa.me/+54XXXXXXXXXX?text=Hola%2C%20me%20gustar%C3%ADa%20consultar%20sobre%20Lago%20Sur%20Experiences"
                class="canal-item canal-whatsapp" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -252,51 +733,6 @@
               Instagram
             </a>
           </div>
-        </div>
-
-        <form class="contacto-form fade-in" id="contactForm" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="nombre" data-es="Nombre" data-en="Name">Nombre</label>
-              <input type="text" id="nombre" name="nombre" required
-                data-placeholder-es="Tu nombre" data-placeholder-en="Your name"
-                placeholder="Tu nombre">
-            </div>
-            <div class="form-group">
-              <label for="email" data-es="Email" data-en="Email">Email</label>
-              <input type="email" id="email" name="email" required
-                data-placeholder-es="tu@email.com" data-placeholder-en="your@email.com"
-                placeholder="tu@email.com">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fecha" data-es="Fecha preferida" data-en="Preferred date">Fecha preferida</label>
-              <input type="date" id="fecha" name="fecha">
-            </div>
-            <div class="form-group">
-              <label for="experiencia" data-es="Experiencia" data-en="Experience">Experiencia</label>
-              <select id="experiencia" name="experiencia">
-                <option value="" data-es="Seleccionar..." data-en="Select...">Seleccionar...</option>
-                <option value="casa" data-es="Casa de Lujo" data-en="Luxury House">Casa de Lujo</option>
-                <option value="lancha" data-es="Paseo en Lancha" data-en="Boat Tour">Paseo en Lancha</option>
-                <option value="pesca" data-es="Pesca con Guía" data-en="Guided Fishing">Pesca con Guía</option>
-                <option value="rutas" data-es="Rutas Secretas" data-en="Secret Trails">Rutas Secretas</option>
-                <option value="combo" data-es="Combinado" data-en="Combined">Combinado</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label for="mensaje" data-es="Mensaje" data-en="Message">Mensaje</label>
-            <textarea id="mensaje" name="mensaje" rows="4"
-              data-placeholder-es="Contanos qué buscás, cuántas personas son, alguna fecha tentativa..."
-              data-placeholder-en="Tell us what you're looking for, how many people, any tentative dates..."
-              placeholder="Contanos qué buscás, cuántas personas son, alguna fecha tentativa..."></textarea>
-          </div>
-          <button type="submit" class="btn-submit" data-es="Enviar consulta" data-en="Send inquiry">Enviar consulta</button>
-          <div id="formMsg" class="form-msg"></div>
-        </form>
-
       </div>
     </div>
   </section>
@@ -345,6 +781,8 @@
     <button class="lightbox-next" onclick="event.stopPropagation(); lightboxNav(1)">›</button>
   </div>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="script.js"></script>
 </body>
 </html>
