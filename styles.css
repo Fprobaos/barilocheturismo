@@ -1809,3 +1809,89 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
   .xp-strip .gallery-item img { height: 220px; }
   .xp-img { height: 320px; }
 }
+
+/* ── PÁGINA INDIVIDUAL DE EXPERIENCIA ────────────────────────── */
+.xp-hero--page { min-height: 78vh; align-items: flex-end; }
+.xp-hero--page .hero-content { text-align: left; max-width: var(--max-w); width: 100%; margin: 0 auto; padding: calc(var(--nav-h) + 6vh) 1.5rem 4rem; }
+.xp-hero--page .hero-title { font-size: clamp(2.8rem, 6vw, 5.2rem); margin-bottom: 1rem; }
+.xp-hero-tag {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.15rem, 2vw, 1.6rem);
+  color: var(--gold-lt);
+  max-width: 640px;
+  line-height: 1.4;
+}
+.xp-hero-badge { position: absolute; top: calc(var(--nav-h) + 1.2rem); right: 1.5rem; z-index: 2; }
+.xp-hero .hero-overlay { background: linear-gradient(180deg, rgba(10,26,46,0.45) 0%, rgba(10,26,46,0.15) 40%, rgba(10,26,46,0.92) 100%); }
+
+.xp-crumbs {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 2.5rem;
+}
+.xp-crumbs a:hover { color: var(--gold); }
+.xp-crumbs span { margin: 0 0.6rem; }
+.xp-crumbs span:last-child { margin: 0; color: var(--cream); }
+
+.xp-detail { padding: 70px 0 40px; }
+.xp-detail-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.xp-detail .xp-body > p:not(.section-label) { font-size: 1.02rem; color: rgba(240,235,224,0.82); }
+.xp-detail .xp-facts { margin-bottom: 0; }
+.xp-aside { position: sticky; top: calc(var(--nav-h) + 1.5rem); }
+.xp-aside-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.xp-aside-card .exp-incluye { margin-bottom: 1.6rem; }
+.xp-aside-card .btn-hero { display: block; text-align: center; margin-top: 0.8rem; }
+.xp-aside-card .exp-cta--soon { display: block; margin-bottom: 0.2rem; }
+.xp-aside-note { margin-top: 1rem; font-size: 0.78rem; color: var(--gray); text-align: center; }
+
+.xp-gallery { padding: 60px 0 40px; }
+.xp-gallery .section-header { margin-bottom: 2.5rem; }
+.xp-gallery .xp-strip { margin-top: 0; }
+
+.xp-others { padding: 70px 0; background: linear-gradient(180deg, var(--navy) 0%, #060f1d 100%); }
+.xp-others .section-header { margin-bottom: 2.5rem; }
+.xp-others-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.2rem;
+}
+.xp-other {
+  position: relative;
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.xp-other:hover { border-color: rgba(201,168,76,0.6); transform: translateY(-4px); }
+.xp-other img { width: 100%; height: 220px; object-fit: cover; transition: transform 0.6s ease; }
+.xp-other:hover img { transform: scale(1.04); }
+.xp-other .exp-badge { top: 1rem; right: 1rem; }
+.xp-other-body { padding: 1.4rem 1.5rem 1.6rem; }
+.xp-other-body h3 { margin-bottom: 0.8rem; color: var(--white); }
+.xp-other-body .exp-cta { display: inline-block; }
+
+.page-experiencias .xp h2 a:hover { color: var(--gold); }
+.page-experiencias a.xp-media { display: block; }
+.page-experiencias .xp .xp-facts { margin-bottom: 2rem; }
+
+@media (max-width: 1024px) {
+  .xp-detail-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .xp-aside { position: static; }
+  .xp-others-grid { grid-template-columns: 1fr; }
+  .xp-hero--page { min-height: 62vh; }
+}
