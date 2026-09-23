@@ -1788,7 +1788,7 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
 
 .xp-strip {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1rem;
   margin-top: 3.5rem;
 }
