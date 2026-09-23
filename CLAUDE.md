@@ -4,9 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Static marketing site for **Lago Sur Experiences** — luxury tourism experiences in Arelauquen, Bariloche (golf, lake, fishing, secret trails). Three files, no build step, no dependencies, no framework.
+Static marketing site for **Lago Sur Experiences** — luxury tourism experiences in Arelauquen, Bariloche (golf, lake, fishing, secret trails). No build step, no dependencies, no framework.
 
-- `index.html` — single-page layout (navbar, hero, sobre, experiencias, galería, contacto, footer)
+- `index.html` — home (navbar, hero, sobre, experiencias, anfitrión, galería, mapa, reservar, llegar, faq, contacto, footer)
+- `experiencias.html` — detail page, one `<article class="xp">` per experience (lancha, pesca, rutas, casa). Navbar/footer/FAB/lightbox are copied from `index.html`, so keep them in sync (a mid-session generator script did this; edit both files by hand otherwise)
 - `styles.css` — all styling (Cormorant Garamond + Montserrat from Google Fonts)
 - `script.js` — all behavior
 
@@ -14,7 +15,20 @@ Static marketing site for **Lago Sur Experiences** — luxury tourism experience
 
 Open `index.html` directly in a browser, or serve the directory with any static server (e.g. `python -m http.server`). There is no build, no lint, and no test setup.
 
+## Deploy
+
+Production is https://lago-sur-experiences.vercel.app, deployed with `vercel --prod --yes` (no git integration). The owner wants every change deployed as soon as it is made.
+
+## SEO / GEO / Ads
+
+- `robots.txt`, `sitemap.xml`, `llms.txt` live at the root and use the canonical domain `lagosurexperiences.com` (same as the `<link rel="canonical">` tags). Update all of them together if the domain changes.
+- JSON-LD: `TravelAgency` + `FAQPage` on the home, `BreadcrumbList` + `ItemList` of `TouristTrip` on the experiences page. The FAQ schema mirrors the `<details>` content — keep them in sync.
+- Google Ads / GA4: `GTAG_ID` and `ADS_CONVERSION` at the top of `script.js` are empty placeholders; nothing loads until they are set. `trackContact()` fires on every WhatsApp click and on calendar confirm.
+
 ## Architecture notes
+
+`script.js` is shared by both pages. Blocks that depend on home-only elements (calendar, map) are guarded with existence checks — keep that pattern when adding features.
+
 
 **Bilingual content (ES/EN)** is driven by data attributes, not separate templates. Every translatable element carries `data-es="..."` and `data-en="..."`; `setLang(lang)` in `script.js` swaps `textContent` for all `[data-es]` nodes and `placeholder` for all `[data-placeholder-es]` inputs. To add translatable copy, add both attributes — don't introduce a new mechanism.
 

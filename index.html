@@ -56,9 +56,84 @@
     },
     "areaServed": "Bariloche, Argentina",
     "availableLanguage": ["es", "en"],
-    "priceRange": "$$$"
+    "priceRange": "$$$",
+    "sameAs": ["https://instagram.com/TU_USUARIO_AQUI"],
+    "hasOfferCatalog": { "@type": "OfferCatalog", "name": "Experiencias", "url": "https://lagosurexperiences.com/experiencias.html" }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Necesito visa para entrar a Argentina?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pasaportes de la UE, Reino Unido, EE.UU., Canadá, Australia, Nueva Zelanda y la mayoría de Latinoamérica no requieren visa para estadías turísticas de hasta 90 días. Confirmá los requisitos vigentes en el consulado argentino antes de viajar."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la mejor época para venir?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Diciembre a marzo es verano patagónico: días largos (luz hasta las 21 h), temperaturas de 18–28 °C y aguas navegables. La pesca con mosca está habilitada en esta ventana. Marzo trae los colores del otoño temprano."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hablan inglés?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Francisco habla español e inglés con fluidez (vivió y trabajó en Sídney, Australia). Toda la experiencia se puede vivir 100% en inglés."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué ropa y equipo conviene traer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Capas livianas: el clima en montaña cambia rápido. Recomendamos rompevientos, polar liviano, gorra, lentes de sol con UV y calzado tipo trekking. Para pesca y navegación proveemos todo el equipo técnico."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se paga? ¿Aceptan dólares o transferencias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Aceptamos USD efectivo, transferencia internacional (Wise, SWIFT) y pesos argentinos al tipo de cambio del día. La reserva se confirma con un 30% de seña; el saldo se abona al check-in."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Hay WiFi y señal de celular?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "WiFi de fibra en la casa. Señal 4G de Claro/Movistar/Personal en Arelauquen y la mayor parte de las salidas. En algunos rincones del lago y rutas escondidas no hay señal — parte del encanto."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuál es la política de cancelación?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Cancelación gratuita hasta 30 días antes del check-in (reembolso 100% de la seña). Entre 30 y 14 días, retenemos el 50%. Menos de 14 días, la seña no es reembolsable, pero la reprogramamos sin cargo dentro de la temporada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Pueden venir niños? ¿Qué pasa con dietas especiales?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, las experiencias son family-friendly desde los 6 años (lancha y rutas; la pesca con mosca pide un poco más de paciencia). Manejamos dietas vegetarianas, veganas, sin gluten y sin lactosa — avisanos al reservar."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Google Search Console: pegar acá la meta de verificación cuando se cree la propiedad -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -80,7 +155,16 @@
 
     <ul class="nav-links" id="navLinks">
       <li><a href="#sobre"         data-es="Arelauquen"   data-en="Arelauquen">Arelauquen</a></li>
-      <li><a href="#experiencias"  data-es="Experiencias" data-en="Experiences">Experiencias</a></li>
+      <li class="nav-dropdown">
+        <a href="#experiencias" class="nav-drop-trigger" data-es="Experiencias" data-en="Experiences">Experiencias</a>
+        <ul class="nav-drop-menu">
+          <li><a href="experiencias.html#lancha" data-es="Paseo en Lancha" data-en="Boat Tour">Paseo en Lancha</a></li>
+          <li><a href="experiencias.html#pesca"  data-es="Pesca con Mosca" data-en="Fly Fishing">Pesca con Mosca</a></li>
+          <li><a href="experiencias.html#rutas"  data-es="Rutas Secretas"  data-en="Secret Trails">Rutas Secretas</a></li>
+          <li><a href="experiencias.html#casa"   data-es="Casa Acogedora"  data-en="Cozy House">Casa Acogedora</a></li>
+          <li class="nav-drop-all"><a href="experiencias.html" data-es="Ver todas en detalle" data-en="See all in detail">Ver todas en detalle</a></li>
+        </ul>
+      </li>
       <li><a href="#guias"         data-es="Anfitrión"    data-en="Host">Anfitrión</a></li>
       <li><a href="#galeria"       data-es="Galería"      data-en="Gallery">Galería</a></li>
       <li><a href="#faq"           data-es="FAQ"          data-en="FAQ">FAQ</a></li>
@@ -199,7 +283,7 @@
             <li data-es="WiFi de fibra y hogar a leña" data-en="Fiber WiFi and wood fireplace">WiFi de fibra y hogar a leña</li>
             <li data-es="Traslado desde el aeropuerto y welcome drink" data-en="Airport transfer and welcome drink">Traslado desde el aeropuerto y welcome drink</li>
           </ul>
-          <span class="exp-cta exp-cta--soon" data-es="Disponible próximamente" data-en="Available soon">Disponible próximamente</span>
+          <a href="experiencias.html#casa" class="exp-cta exp-cta--soon" data-es="Disponible próximamente · Ver detalle" data-en="Available soon · See detail">Disponible próximamente · Ver detalle</a>
         </div>
 
         <div class="exp-card fade-in">
@@ -221,9 +305,9 @@
             <li data-es="Lancha privada para hasta 9 personas" data-en="Private boat for up to 9 people">Lancha privada para hasta 9 personas</li>
             <li data-es="Recorrido por bahías, islas y rincones del Nahuel Huapi" data-en="Route through bays, islands and hidden corners of Nahuel Huapi">Recorrido por bahías, islas y rincones del Nahuel Huapi</li>
             <li data-es="Chalecos y equipo de seguridad a bordo" data-en="Life jackets and safety gear on board">Chalecos y equipo de seguridad a bordo</li>
-            <li data-es="Fotos de la salida" data-en="Photos of the outing">Fotos de la salida</li>
+            <li data-es="Fotos y videos con dron de la salida" data-en="Drone photos and videos of the outing">Fotos y videos con dron de la salida</li>
           </ul>
-          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+          <a href="experiencias.html#lancha" class="exp-cta" data-es="Ver experiencia" data-en="See experience">Ver experiencia</a>
         </div>
 
         <div class="exp-card fade-in">
@@ -246,8 +330,9 @@
             <li data-es="Salida en lancha o vadeo según el spot del día" data-en="Boat or wading outing depending on the day's spot">Salida en lancha o vadeo según el spot del día</li>
             <li data-es="Truchas marrón y arco iris en aguas de lago y río" data-en="Brown and rainbow trout in lake and river waters">Truchas marrón y arco iris en aguas de lago y río</li>
             <li data-es="Modalidad pesca con devolución" data-en="Catch and release">Modalidad pesca con devolución</li>
+            <li data-es="Fotos y videos con dron de la jornada" data-en="Drone photos and videos of the day">Fotos y videos con dron de la jornada</li>
           </ul>
-          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+          <a href="experiencias.html#pesca" class="exp-cta" data-es="Ver experiencia" data-en="See experience">Ver experiencia</a>
         </div>
 
         <div class="exp-card fade-in">
@@ -266,10 +351,16 @@
             <li data-es="Traslado en vehículo hasta el inicio de cada ruta" data-en="Vehicle transfer to each trailhead">Traslado en vehículo hasta el inicio de cada ruta</li>
             <li data-es="Bosques de lengas y coihues fuera de los circuitos turísticos" data-en="Beech and coihue forests off the tourist circuits">Bosques de lengas y coihues fuera de los circuitos turísticos</li>
             <li data-es="Picnic patagónico en el camino" data-en="Patagonian picnic along the way">Picnic patagónico en el camino</li>
+            <li data-es="Fotos y videos con dron de la caminata" data-en="Drone photos and videos of the hike">Fotos y videos con dron de la caminata</li>
           </ul>
-          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+          <a href="experiencias.html#rutas" class="exp-cta" data-es="Ver experiencia" data-en="See experience">Ver experiencia</a>
         </div>
 
+      </div>
+
+      <div class="exp-all fade-in">
+        <a href="experiencias.html" class="btn-hero" data-es="Ver todas las experiencias en detalle" data-en="See all experiences in detail">Ver todas las experiencias en detalle</a>
+        <p data-es="Todas las experiencias incluyen fotos y videos con dron de tu jornada." data-en="Every experience includes drone photos and videos of your day.">Todas las experiencias incluyen fotos y videos con dron de tu jornada.</p>
       </div>
 
       <div class="disclosure fade-in">
@@ -819,8 +910,8 @@
           <p data-es="Bariloche · Patagonia Argentina" data-en="Bariloche · Argentine Patagonia">Bariloche · Patagonia Argentina</p>
         </div>
         <div class="footer-links">
-          <a href="#sobre"        data-es="La Experiencia" data-en="The Experience">La Experiencia</a>
-          <a href="#experiencias" data-es="Experiencias"   data-en="Experiences">Experiencias</a>
+          <a href="#sobre"        data-es="Arelauquen"     data-en="Arelauquen">Arelauquen</a>
+          <a href="experiencias.html" data-es="Experiencias" data-en="Experiences">Experiencias</a>
           <a href="#galeria"      data-es="Galería"        data-en="Gallery">Galería</a>
           <a href="#contacto"     data-es="Contacto"       data-en="Contact">Contacto</a>
         </div>

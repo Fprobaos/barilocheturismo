@@ -3,6 +3,30 @@ const WHATSAPP_NUMBER = '+54XXXXXXXXXX'; // Reemplazá con tu número real
 const WHATSAPP_MSG    = 'Hola, me gustaría consultar sobre Lago Sur Experiences';
 const INSTAGRAM_URL   = 'https://instagram.com/TU_USUARIO_AQUI'; // Reemplazá con tu @
 
+/* ── ANALYTICS / GOOGLE ADS ───────────────────────────────────
+   GTAG_ID: ID de Google Analytics 4 ('G-XXXXXXXXXX') o de Google Ads ('AW-XXXXXXXXX').
+   ADS_CONVERSION: etiqueta de conversión de Google Ads ('AW-XXXXXXXXX/AbCdEfGhIjK').
+   Mientras estén vacíos no se carga ningún script de Google. */
+const GTAG_ID        = '';
+const ADS_CONVERSION = '';
+
+if (GTAG_ID) {
+  const gs = document.createElement('script');
+  gs.async = true;
+  gs.src = `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`;
+  document.head.appendChild(gs);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', GTAG_ID);
+}
+
+function trackContact(label) {
+  if (typeof window.gtag !== 'function') return;
+  gtag('event', 'whatsapp_click', { event_category: 'contact', event_label: label, page: location.pathname });
+  if (ADS_CONVERSION) gtag('event', 'conversion', { send_to: ADS_CONVERSION });
+}
+
 /* ── LANGUAGE ─────────────────────────────────────────────────── */
 let currentLang = 'es';
 
@@ -28,7 +52,7 @@ function setLang(lang) {
   document.getElementById('btnEn').classList.toggle('active', lang === 'en');
   document.documentElement.lang = lang;
 
-  if (typeof renderCalendar === 'function') {
+  if (typeof renderCalendar === 'function' && document.getElementById('calMonths')) {
     updateCalSummary();
     renderCalendar();
   }
@@ -286,14 +310,14 @@ function updateCalSummary() {
   calHint.textContent = calHint.dataset[currentLang];
 }
 
-calClear.addEventListener('click', () => {
+if (calClear) calClear.addEventListener('click', () => {
   calStartDate = null;
   calEndDate = null;
   updateCalSummary();
   renderCalendar();
 });
 
-calConfirm.addEventListener('click', () => {
+if (calConfirm) calConfirm.addEventListener('click', () => {
   if (!calStartDate || !calEndDate) return;
 
   const rango = `${fmtDate(calStartDate, currentLang)} → ${fmtDate(calEndDate, currentLang)}`;
@@ -301,11 +325,14 @@ calConfirm.addEventListener('click', () => {
   const text = currentLang === 'es'
     ? `Hola! Quisiera consultar disponibilidad para Lago Sur Experiences.\nFechas: ${rango} (${nights} noches).`
     : `Hi! I'd like to check availability for Lago Sur Experiences.\nDates: ${rango} (${nights} nights).`;
+  trackContact('calendar_confirm');
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
 });
 
-renderCalendar();
-updateCalSummary();
+if (calMonthsEl) {
+  renderCalendar();
+  updateCalSummary();
+}
 
 /* ── APPLY INSTAGRAM LINKS ────────────────────────────────────── */
 document.querySelectorAll('.canal-instagram, .footer-social a[aria-label="Instagram"]').forEach(a => {
@@ -316,6 +343,7 @@ document.querySelectorAll('.canal-instagram, .footer-social a[aria-label="Instag
 const waLink = encodeURIComponent(WHATSAPP_MSG);
 document.querySelectorAll('.whatsapp-fab, .canal-whatsapp, .footer-social a[aria-label="WhatsApp"]').forEach(a => {
   a.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waLink}`;
+  a.addEventListener('click', () => trackContact(a.classList.contains('whatsapp-fab') ? 'fab' : 'link'));
 });
 
 /* ── MAPA LAGOS (Leaflet + CartoDB Dark Matter) ──────────────── */
