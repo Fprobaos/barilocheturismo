@@ -19,6 +19,11 @@ function setLang(lang) {
     if (ph) el.placeholder = ph;
   });
 
+  document.querySelectorAll('[data-alt-es]').forEach(el => {
+    const alt = lang === 'es' ? el.dataset.altEs : el.dataset.altEn;
+    if (alt) el.alt = alt;
+  });
+
   document.getElementById('btnEs').classList.toggle('active', lang === 'es');
   document.getElementById('btnEn').classList.toggle('active', lang === 'en');
   document.documentElement.lang = lang;
@@ -89,6 +94,7 @@ function openLightbox(index) {
 
 function closeLightbox() {
   lightbox.classList.remove('open');
+  lightboxContent.innerHTML = ''; // detiene cualquier video en reproducción
   document.body.style.overflow = '';
 }
 
@@ -98,14 +104,26 @@ function lightboxNav(dir) {
 }
 
 function renderLightboxItem() {
-  const src = galleryItems[currentIndex].querySelector('img');
+  const item = galleryItems[currentIndex];
+  const src  = item.querySelector('img');
   lightboxContent.innerHTML = '';
 
-  if (src) {
+  if (item.dataset.video) {
+    const video = document.createElement('video');
+    video.src = item.dataset.video;
+    if (item.dataset.poster) video.poster = item.dataset.poster;
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+    video.className = 'lightbox-media';
+    video.setAttribute('aria-label', src ? src.alt : '');
+    lightboxContent.appendChild(video);
+  } else if (src) {
     const img = document.createElement('img');
-    img.src = src.src;
+    img.src = src.dataset.full || src.currentSrc || src.src;
     img.alt = src.alt || '';
-    img.style.cssText = 'max-width:85vw;max-height:80vh;border-radius:4px;display:block;';
+    img.className = 'lightbox-media';
     lightboxContent.appendChild(img);
   } else {
     const ph = galleryItems[currentIndex].querySelector('.img-placeholder');

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Lago Sur Experiences — Boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche. Private guided experiences in the Argentine Patagonia.">
-  <meta name="keywords" content="Bariloche, Arelauquen, Patagonia, fly fishing, boat tour, scenic flight, private guide, Nahuel Huapi">
+  <meta name="description" content="Lago Sur Experiences — Boat tours, fly fishing and secret trails in Arelauquen, Bariloche. Private experiences in the Argentine Patagonia.">
+  <meta name="keywords" content="Bariloche, Arelauquen, Patagonia, fly fishing, boat tour, private host, Nahuel Huapi">
   <title>Lago Sur Experiences | Bariloche · Patagonia</title>
 
   <!-- Canonical -->
@@ -15,7 +15,7 @@
   <meta property="og:site_name" content="Lago Sur Experiences">
   <meta property="og:url" content="https://lagosurexperiences.com/">
   <meta property="og:title" content="Lago Sur Experiences | Bariloche · Patagonia">
-  <meta property="og:description" content="Boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche. Private guided experiences in the Argentine Patagonia.">
+  <meta property="og:description" content="Boat tours, fly fishing and secret trails in Arelauquen, Bariloche. Private experiences in the Argentine Patagonia.">
   <meta property="og:image" content="https://lagosurexperiences.com/og-image.jpg">
   <meta property="og:image:secure_url" content="https://lagosurexperiences.com/og-image.jpg">
   <meta property="og:image:width" content="1200">
@@ -27,7 +27,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Lago Sur Experiences | Bariloche · Patagonia">
-  <meta name="twitter:description" content="Boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche. Private guided experiences in the Argentine Patagonia.">
+  <meta name="twitter:description" content="Boat tours, fly fishing and secret trails in Arelauquen, Bariloche. Private experiences in the Argentine Patagonia.">
   <meta name="twitter:image" content="https://lagosurexperiences.com/og-image.jpg">
   <meta name="twitter:image:alt" content="Lago Nahuel Huapi y la cordillera de los Andes vistos desde Arelauquen, Bariloche">
 
@@ -45,7 +45,7 @@
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "name": "Lago Sur Experiences",
-    "description": "Private guided boat tours, fly fishing, scenic flights and secret trails in Arelauquen, Bariloche, Patagonia.",
+    "description": "Private boat tours, fly fishing and secret trails in Arelauquen, Bariloche, Patagonia.",
     "url": "https://lagosurexperiences.com/",
     "image": "https://lagosurexperiences.com/og-image.jpg",
     "address": {
@@ -82,7 +82,7 @@
       <li><a href="#sobre"         data-es="La Experiencia" data-en="The Experience">La Experiencia</a></li>
       <li><a href="#experiencias"  data-es="Experiencias"   data-en="Experiences">Experiencias</a></li>
       <li><a href="#galeria"       data-es="Galería"        data-en="Gallery">Galería</a></li>
-      <li><a href="#guias"         data-es="Guías"          data-en="Guides">Guías</a></li>
+      <li><a href="#guias"         data-es="Anfitrión"      data-en="Host">Anfitrión</a></li>
       <li><a href="#mapa"          data-es="Mapa"           data-en="Map">Mapa</a></li>
       <li><a href="#reservar"      data-es="Reservar"       data-en="Book">Reservar</a></li>
       <li><a href="#faq"           data-es="FAQ"            data-en="FAQ">FAQ</a></li>
@@ -101,6 +101,10 @@
 
   <!-- ── HERO ──────────────────────────────────────────────────── -->
   <section id="inicio" class="hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata"
+           poster="assets/video/hero-atardecer.jpg" aria-hidden="true" tabindex="-1">
+      <source src="assets/video/hero-atardecer.mp4" type="video/mp4">
+    </video>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
       <p class="hero-location">Arelauquen · Bariloche · Patagonia</p>
@@ -145,9 +149,14 @@
           </div>
         </div>
         <div class="sobre-image fade-in">
-          <div class="img-placeholder img-ph-lago">
-            <span class="img-ph-label" data-es="Tu foto del lago aquí" data-en="Your lake photo here">Tu foto del lago aquí</span>
-          </div>
+          <img class="sobre-img"
+               src="assets/img/arelauquen-golf.jpg"
+               srcset="assets/img/arelauquen-golf-800.jpg 800w, assets/img/arelauquen-golf.jpg 1600w"
+               sizes="(max-width: 1024px) 100vw, 50vw"
+               width="1200" height="1600" loading="lazy"
+               alt="Cancha de golf de Arelauquen con el lago Nahuel Huapi y la cordillera de fondo"
+               data-alt-es="Cancha de golf de Arelauquen con el lago Nahuel Huapi y la cordillera de fondo"
+               data-alt-en="Arelauquen golf course with Lake Nahuel Huapi and the Andes in the background">
           <div class="sobre-badge">
             <span data-es="Barrio Privado" data-en="Private Estate">Barrio Privado</span>
             <strong>Arelauquen</strong>
@@ -170,7 +179,8 @@
 
       <div class="exp-grid">
 
-        <div class="exp-card fade-in">
+        <div class="exp-card exp-card--soon fade-in">
+          <span class="exp-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>
           <div class="exp-icon">
             <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M8 36 C8 36 12 24 24 24 C36 24 40 36 40 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -184,7 +194,7 @@
              data-en="An intimate, warm home inside Arelauquen, designed for small groups. No ostentatious luxury: wood, fireplace, views of the surroundings and the calm of the private estate. Access to the golf course and the club's common areas.">
             Una casa íntima y cálida dentro de Arelauquen, pensada para grupos chicos. Sin lujos ostentosos: madera, hogar a leña, vistas al entorno y la tranquilidad del barrio privado. Acceso a la cancha de golf y a las áreas comunes del club.
           </p>
-          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
+          <span class="exp-cta exp-cta--soon" data-es="Disponible próximamente" data-en="Available soon">Disponible próximamente</span>
         </div>
 
         <div class="exp-card fade-in">
@@ -214,9 +224,9 @@
               <path d="M14 34 Q18 30 22 34" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 data-es="Pesca con Guía" data-en="Guided Fishing">Pesca con Guía</h3>
-          <p data-es="Pescá truchas marrones y arco iris en las mejores aguas de la Patagonia, guiado por alguien que conoce cada recoveco del río y del lago. Una experiencia que pocos tienen el privilegio de vivir." data-en="Fish for brown and rainbow trout in the best waters of Patagonia, guided by someone who knows every corner of the river and lake. An experience that few have the privilege of living.">
-            Pescá truchas marrones y arco iris en las mejores aguas de la Patagonia, guiado por alguien que conoce cada recoveco del río y del lago. Una experiencia que pocos tienen el privilegio de vivir.
+          <h3 data-es="Pesca con Mosca" data-en="Fly Fishing">Pesca con Mosca</h3>
+          <p data-es="Pescá truchas marrones y arco iris en las mejores aguas de la Patagonia, acompañado por alguien que conoce cada recoveco del río y del lago. Una experiencia que pocos tienen el privilegio de vivir." data-en="Fish for brown and rainbow trout in the best waters of Patagonia, alongside someone who knows every corner of the river and lake. An experience that few have the privilege of living.">
+            Pescá truchas marrones y arco iris en las mejores aguas de la Patagonia, acompañado por alguien que conoce cada recoveco del río y del lago. Una experiencia que pocos tienen el privilegio de vivir.
           </p>
           <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
         </div>
@@ -234,22 +244,6 @@
           <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
         </div>
 
-        <div class="exp-card exp-card--extra fade-in">
-          <span class="exp-badge" data-es="Extra" data-en="Add-on">Extra</span>
-          <div class="exp-icon">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 26 L20 22 L30 10 L34 10 L28 24 L40 22 L44 18 L44 22 L36 30 L40 38 L36 38 L28 30 L18 34 L14 40 L12 38 L14 30 L4 28 Z"
-                    stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <h3 data-es="Vuelo Panorámico" data-en="Scenic Flight">Vuelo Panorámico</h3>
-          <p data-es="Bariloche desde el aire, con Nicolás como piloto. Sobrevolá el Nahuel Huapi, el cerro Catedral y los lagos del circuito en un avión privado. La Patagonia entera, en una sola hora."
-             data-en="Bariloche from above, with Nicolás as your pilot. Fly over Lake Nahuel Huapi, Cerro Catedral and the circuit's lakes in a private plane. The whole Patagonia, in a single hour.">
-            Bariloche desde el aire, con Nicolás como piloto. Sobrevolá el Nahuel Huapi, el cerro Catedral y los lagos del circuito en un avión privado. La Patagonia entera, en una sola hora.
-          </p>
-          <a href="#contacto" class="exp-cta" data-es="Consultar" data-en="Inquire">Consultar</a>
-        </div>
-
       </div>
 
       <div class="disclosure fade-in">
@@ -258,9 +252,9 @@
           <path d="M12 8v5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           <circle cx="12" cy="16.5" r="0.9" fill="currentColor"/>
         </svg>
-        <p data-es="El alojamiento en Arelauquen es lo único que se contrata por separado. Si ya tenés dónde quedarte en Bariloche, podés sumarte igual a las experiencias en lancha, pesca y rutas — el resto del programa funciona como un combo integrado."
-           data-en="The accommodation at Arelauquen is the only piece booked separately. If you already have a place to stay in Bariloche, you can still join the boat, fishing and trail experiences — the rest of the program runs as an integrated package.">
-          El alojamiento en Arelauquen es lo único que se contrata por separado. Si ya tenés dónde quedarte en Bariloche, podés sumarte igual a las experiencias en lancha, pesca y rutas — el resto del programa funciona como un combo integrado.
+        <p data-es="El alojamiento en Arelauquen estará disponible próximamente. Si ya tenés dónde quedarte en Bariloche, podés sumarte igual a las experiencias en lancha, pesca y rutas — el programa funciona como un combo integrado."
+           data-en="Accommodation at Arelauquen will be available soon. If you already have a place to stay in Bariloche, you can still join the boat, fishing and trail experiences — the program runs as an integrated package.">
+          El alojamiento en Arelauquen estará disponible próximamente. Si ya tenés dónde quedarte en Bariloche, podés sumarte igual a las experiencias en lancha, pesca y rutas — el programa funciona como un combo integrado.
         </p>
       </div>
     </div>
@@ -270,11 +264,11 @@
   <section id="guias" class="guias">
     <div class="container">
       <div class="section-header fade-in">
-        <p class="section-label" data-es="Quién te guía" data-en="Who guides you">Quién te guía</p>
-        <h2 data-es="Nuestros guías" data-en="Our guides">Nuestros guías</h2>
+        <p class="section-label" data-es="Quién te acompaña" data-en="Who hosts you">Quién te acompaña</p>
+        <h2 data-es="Tu anfitrión" data-en="Your host">Tu anfitrión</h2>
         <p class="section-desc"
            data-es="Patagónicos de raíz, conocedores del terreno. La diferencia entre un paseo turístico y una experiencia auténtica está en quién te acompaña."
-           data-en="Patagonians by heart, masters of the terrain. The difference between a tourist trip and an authentic experience lies in who guides you.">
+           data-en="Patagonians by heart, masters of the terrain. The difference between a tourist trip and an authentic experience lies in who accompanies you.">
           Patagónicos de raíz, conocedores del terreno. La diferencia entre un paseo turístico y una experiencia auténtica está en quién te acompaña.
         </p>
       </div>
@@ -287,12 +281,12 @@
         </div>
 
         <div class="guia-body">
-          <p class="guia-role" data-es="Guía principal · Pesca · Navegación" data-en="Lead guide · Fishing · Navigation">Guía principal · Pesca · Navegación</p>
+          <p class="guia-role" data-es="Anfitrión · Lago · Pesca · Rutas" data-en="Host · Lake · Fishing · Trails">Anfitrión · Lago · Pesca · Rutas</p>
           <h3 class="guia-name">Francisco Probaos</h3>
 
-          <p data-es="Nacido y criado en Bariloche, Francisco creció con el Nahuel Huapi como patio. Pescador de mosca desde los siete años, navegante experto y profundo conocedor de los rincones que no figuran en ningún mapa, lleva más de dos décadas guiando a quienes buscan la Patagonia auténtica."
-             data-en="Born and raised in Bariloche, Francisco grew up with Lake Nahuel Huapi as his backyard. A fly fisherman since age seven, expert sailor and deep connoisseur of the corners that don't appear on any map, he has spent over two decades guiding those who seek the authentic Patagonia.">
-            Nacido y criado en Bariloche, Francisco creció con el Nahuel Huapi como patio. Pescador de mosca desde los siete años, navegante experto y profundo conocedor de los rincones que no figuran en ningún mapa, lleva más de dos décadas guiando a quienes buscan la Patagonia auténtica.
+          <p data-es="Nacido y criado en Bariloche, Francisco creció con el Nahuel Huapi como patio. Pescador de mosca desde los siete años, navegante experto y profundo conocedor de los rincones que no figuran en ningún mapa, lleva más de dos décadas mostrando la Patagonia auténtica a quienes la buscan."
+             data-en="Born and raised in Bariloche, Francisco grew up with Lake Nahuel Huapi as his backyard. A fly fisherman since age seven, expert sailor and deep connoisseur of the corners that don't appear on any map, he has spent over two decades showing the authentic Patagonia to those who seek it.">
+            Nacido y criado en Bariloche, Francisco creció con el Nahuel Huapi como patio. Pescador de mosca desde los siete años, navegante experto y profundo conocedor de los rincones que no figuran en ningún mapa, lleva más de dos décadas mostrando la Patagonia auténtica a quienes la buscan.
           </p>
           <p data-es="Su conocimiento del lago, los ríos y los senderos secretos de la cordillera es lo que transforma una salida cualquiera en un recuerdo imborrable. Habla español e inglés, y tiene la paciencia de quien sabe que la mejor pesca y el mejor atardecer siempre llegan a quien sabe esperar."
              data-en="His knowledge of the lake, the rivers and the hidden trails of the Andes is what turns an ordinary outing into an unforgettable memory. He speaks Spanish and English, and has the patience of someone who knows that the best fishing and the best sunset always come to those who know how to wait.">
@@ -302,7 +296,7 @@
           <ul class="guia-stats">
             <li>
               <span class="stat-number">20+</span>
-              <span class="stat-label" data-es="años guiando" data-en="years guiding">años guiando</span>
+              <span class="stat-label" data-es="años en el lago" data-en="years on the lake">años en el lago</span>
             </li>
             <li>
               <span class="stat-number">ES · EN</span>
@@ -325,9 +319,9 @@
           <h3 data-es="Reseñas de su trabajo en Sídney"
               data-en="Reviews from his work in Sydney">Reseñas de su trabajo en Sídney</h3>
           <p class="testimonios-source"
-             data-es="Antes de volver a la Patagonia, Francisco trabajó como guía en Explore Sydney Harbour, llevando turistas en lancha por la bahía de Sídney. Estas son reseñas reales publicadas en Google."
-             data-en="Before returning to Patagonia, Francisco worked as a guide at Explore Sydney Harbour, taking tourists on boats around Sydney Bay. These are real reviews published on Google.">
-            Antes de volver a la Patagonia, Francisco trabajó como guía en Explore Sydney Harbour, llevando turistas en lancha por la bahía de Sídney. Estas son reseñas reales publicadas en Google.
+             data-es="Antes de volver a la Patagonia, Francisco trabajó en Explore Sydney Harbour, llevando turistas en lancha por la bahía de Sídney. Estas son reseñas reales publicadas en Google."
+             data-en="Before returning to Patagonia, Francisco worked at Explore Sydney Harbour, taking tourists on boats around Sydney Bay. These are real reviews published on Google.">
+            Antes de volver a la Patagonia, Francisco trabajó en Explore Sydney Harbour, llevando turistas en lancha por la bahía de Sídney. Estas son reseñas reales publicadas en Google.
           </p>
         </div>
 
@@ -420,44 +414,96 @@
 
       <div class="gallery-grid">
         <div class="gallery-item fade-in" data-index="0" onclick="openLightbox(0)">
-          <div class="img-placeholder img-ph-1"></div>
+          <img src="assets/img/lancha-estela-800.jpg"
+               srcset="assets/img/lancha-estela-800.jpg 800w, assets/img/lancha-estela.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
+               data-full="assets/img/lancha-estela.jpg" loading="lazy"
+               alt="Lancha navegando el lago Nahuel Huapi entre islas" data-alt-es="Lancha navegando el lago Nahuel Huapi entre islas" data-alt-en="Boat cruising Lake Nahuel Huapi between islands">
           <div class="gallery-overlay">
             <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
         </div>
-        <div class="gallery-item fade-in" data-index="1" onclick="openLightbox(1)">
-          <div class="img-placeholder img-ph-2"></div>
+        <div class="gallery-item gallery-item--video fade-in" data-index="1"
+             data-video="assets/video/lanchas-navegando.mp4" data-poster="assets/video/lanchas-navegando.jpg"
+             onclick="openLightbox(1)">
+          <img src="assets/video/lanchas-navegando.jpg" loading="lazy"
+               alt="Lanchas navegando a toda velocidad por el lago" data-alt-es="Lanchas navegando a toda velocidad por el lago" data-alt-en="Boats speeding across the lake">
+          <span class="gallery-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg><em>Video</em></span>
           <div class="gallery-overlay">
-            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg>
           </div>
         </div>
         <div class="gallery-item fade-in" data-index="2" onclick="openLightbox(2)">
-          <div class="img-placeholder img-ph-3"></div>
+          <img src="assets/img/cala-turquesa-800.jpg"
+               srcset="assets/img/cala-turquesa-800.jpg 800w, assets/img/cala-turquesa.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
+               data-full="assets/img/cala-turquesa.jpg" loading="lazy"
+               alt="Cala de aguas turquesas entre acantilados y bosque" data-alt-es="Cala de aguas turquesas entre acantilados y bosque" data-alt-en="Turquoise cove between cliffs and forest">
           <div class="gallery-overlay">
             <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
         </div>
         <div class="gallery-item fade-in" data-index="3" onclick="openLightbox(3)">
-          <div class="img-placeholder img-ph-4"></div>
+          <img src="assets/img/gomones-agua-turquesa-800.jpg"
+               srcset="assets/img/gomones-agua-turquesa-800.jpg 800w, assets/img/gomones-agua-turquesa.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
+               data-full="assets/img/gomones-agua-turquesa.jpg" loading="lazy"
+               alt="El grupo en los gomones sobre aguas turquesas" data-alt-es="El grupo en los gomones sobre aguas turquesas" data-alt-en="The group on the rafts over turquoise waters">
           <div class="gallery-overlay">
             <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
         </div>
         <div class="gallery-item fade-in" data-index="4" onclick="openLightbox(4)">
-          <div class="img-placeholder img-ph-5"></div>
+          <img src="assets/img/lago-montanas-800.jpg"
+               srcset="assets/img/lago-montanas-800.jpg 800w, assets/img/lago-montanas.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
+               data-full="assets/img/lago-montanas.jpg" loading="lazy"
+               alt="Lago y cordillera al atardecer con una lancha" data-alt-es="Lago y cordillera al atardecer con una lancha" data-alt-en="Lake and Andes at sunset with a boat">
           <div class="gallery-overlay">
             <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
         </div>
         <div class="gallery-item fade-in" data-index="5" onclick="openLightbox(5)">
-          <div class="img-placeholder img-ph-6"></div>
+          <img src="assets/img/atardecer-bote-800.jpg"
+               srcset="assets/img/atardecer-bote-800.jpg 800w, assets/img/atardecer-bote.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
+               data-full="assets/img/atardecer-bote.jpg" loading="lazy"
+               alt="El grupo a bordo del bote al atardecer" data-alt-es="El grupo a bordo del bote al atardecer" data-alt-en="The group aboard the boat at sunset">
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item gallery-item--video fade-in" data-index="6"
+             data-video="assets/video/playa-grupo.mp4" data-poster="assets/video/playa-grupo.jpg"
+             onclick="openLightbox(6)">
+          <img src="assets/video/playa-grupo.jpg" loading="lazy"
+               alt="El grupo en una playa escondida del lago" data-alt-es="El grupo en una playa escondida del lago" data-alt-en="The group on a hidden lake beach">
+          <span class="gallery-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg><em>Video</em></span>
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item fade-in" data-index="7" onclick="openLightbox(7)">
+          <img src="assets/img/lago-orilla-aerea-800.jpg"
+               srcset="assets/img/lago-orilla-aerea-800.jpg 800w, assets/img/lago-orilla-aerea.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
+               data-full="assets/img/lago-orilla-aerea.jpg" loading="lazy"
+               alt="Vista aérea de la orilla y los bajos turquesa del lago" data-alt-es="Vista aérea de la orilla y los bajos turquesa del lago" data-alt-en="Aerial view of the shore and the turquoise shallows">
+          <div class="gallery-overlay">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="gallery-item fade-in" data-index="8" onclick="openLightbox(8)">
+          <img src="assets/img/arelauquen-golf-800.jpg"
+               srcset="assets/img/arelauquen-golf-800.jpg 800w, assets/img/arelauquen-golf.jpg 1600w"
+               sizes="(max-width: 600px) 100vw, (max-width: 768px) 50vw, 33vw"
+               data-full="assets/img/arelauquen-golf.jpg" loading="lazy"
+               alt="Cancha de golf de Arelauquen con el lago y la cordillera" data-alt-es="Cancha de golf de Arelauquen con el lago y la cordillera" data-alt-en="Arelauquen golf course with the lake and the Andes">
           <div class="gallery-overlay">
             <svg viewBox="0 0 24 24" fill="none"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
         </div>
       </div>
-
-      <p class="gallery-hint fade-in" data-es="— Reemplazá estas imágenes con tus fotos reales —" data-en="— Replace these images with your real photos —">— Reemplazá estas imágenes con tus fotos reales —</p>
     </div>
   </section>
 
@@ -653,11 +699,11 @@
         </details>
 
         <details class="faq-item">
-          <summary data-es="¿Hablan inglés los guías?"
-                   data-en="Do the guides speak English?">¿Hablan inglés los guías?</summary>
-          <p data-es="Sí. Francisco habla español e inglés con fluidez (trabajó como guía en Sídney, Australia). Toda la experiencia se puede vivir 100% en inglés."
-             data-en="Yes. Francisco is fluent in Spanish and English (he worked as a guide in Sydney, Australia). The entire experience can be lived 100% in English.">
-            Sí. Francisco habla español e inglés con fluidez (trabajó como guía en Sídney, Australia). Toda la experiencia se puede vivir 100% en inglés.
+          <summary data-es="¿Hablan inglés?"
+                   data-en="Do you speak English?">¿Hablan inglés?</summary>
+          <p data-es="Sí. Francisco habla español e inglés con fluidez (vivió y trabajó en Sídney, Australia). Toda la experiencia se puede vivir 100% en inglés."
+             data-en="Yes. Francisco is fluent in Spanish and English (he lived and worked in Sydney, Australia). The entire experience can be lived 100% in English.">
+            Sí. Francisco habla español e inglés con fluidez (vivió y trabajó en Sídney, Australia). Toda la experiencia se puede vivir 100% en inglés.
           </p>
         </details>
 
