@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://lagosurexperiences.com/sitemap.xml
+Sitemap: https://lago-sur-experiences.vercel.app/sitemap.xml

@@ -21,7 +21,7 @@ Production is https://lago-sur-experiences.vercel.app, deployed with `vercel --p
 
 ## SEO / GEO / Ads
 
-- `robots.txt`, `sitemap.xml`, `llms.txt` live at the root and use the canonical domain `lagosurexperiences.com` (same as the `<link rel="canonical">` tags). Update all of them together if the domain changes.
+- `robots.txt`, `sitemap.xml`, `llms.txt` live at the root and use the canonical URL `https://lago-sur-experiences.vercel.app` (same as the `<link rel="canonical">` tags and the JSON-LD). There is no custom domain yet; when one is bought, replace that base URL in `index.html`, `experiencias.html`, `robots.txt`, `sitemap.xml` and `llms.txt` together, and add the domain in Vercel.
 - JSON-LD: `TravelAgency` + `FAQPage` on the home, `BreadcrumbList` + `ItemList` of `TouristTrip` on the experiences page. The FAQ schema mirrors the `<details>` content — keep them in sync.
 - Google Ads / GA4: `GTAG_ID` and `ADS_CONVERSION` at the top of `script.js` are empty placeholders; nothing loads until they are set. `trackContact()` fires on every WhatsApp click and on calendar confirm.
 
