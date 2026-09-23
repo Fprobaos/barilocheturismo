@@ -4,7 +4,7 @@
 
 ## Experiencias
 
-- [Paseo en Lancha](https://lago-sur-experiences.vercel.app/paseo-en-lancha.html): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 9 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron.
+- [Paseo en Lancha](https://lago-sur-experiences.vercel.app/paseo-en-lancha.html): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 6 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron.
 - [Pesca con Mosca](https://lago-sur-experiences.vercel.app/pesca-con-mosca.html): truchas marrón y arco iris en lagos y ríos de la Patagonia norte. Día completo, todos los niveles. Incluye equipo técnico completo (cañas, moscas, waders), pesca con devolución y fotos y videos con dron.
 - [Rutas Secretas](https://lago-sur-experiences.vercel.app/rutas-secretas.html): caminatas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos. Medio día o día completo, dificultad baja a media. Incluye traslado, picnic patagónico y fotos y videos con dron.
 - [Casa Acogedora](https://lago-sur-experiences.vercel.app/casa-arelauquen.html): casa íntima con hogar a leña dentro de Arelauquen, con acceso al golf y al club. Próximamente.
