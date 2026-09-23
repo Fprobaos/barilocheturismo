@@ -7,7 +7,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 Static marketing site for **Lago Sur Experiences** — luxury tourism experiences in Arelauquen, Bariloche (golf, lake, fishing, secret trails). No build step, no dependencies, no framework.
 
 - `index.html` — home (navbar, hero, sobre, experiencias, anfitrión, galería, mapa, reservar, llegar, faq, contacto, footer)
-- `experiencias.html` — detail page, one `<article class="xp">` per experience (lancha, pesca, rutas, casa). Navbar/footer/FAB/lightbox are copied from `index.html`, so keep them in sync (a mid-session generator script did this; edit both files by hand otherwise)
+- `experiencias.html` — index of experiences (one big card per experience linking to its page)
+- `paseo-en-lancha.html`, `pesca-con-mosca.html`, `rutas-secretas.html`, `casa-arelauquen.html` — one page per experience (hero, detail + sticky "Incluye" card, gallery strip, other experiences, contact)
+- `tools/build_pages.py` — **generates the five pages above** from the `XPS` data list, copying navbar/footer/FAB/lightbox from `index.html`. Edit the data or templates there and run `python tools/build_pages.py` from the repo root; never hand-edit the generated pages. `.vercelignore` keeps `tools/` out of the deploy.
 - `styles.css` — all styling (Cormorant Garamond + Montserrat from Google Fonts)
 - `script.js` — all behavior
 
