@@ -196,9 +196,10 @@ def head(title, desc, keywords, canonical_path, og_img, jsonld):
   <meta name="twitter:image" content="{BASE}/{og_img}">
   <meta name="theme-color" content="#0a1a2e">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
 
   <script type="application/ld+json">
   {json.dumps(jsonld, ensure_ascii=False, indent=2).replace(chr(10), chr(10) + '  ')}
