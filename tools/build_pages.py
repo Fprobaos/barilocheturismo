@@ -75,7 +75,7 @@ XPS = [
          ('Truchas marrón y arco iris en aguas de lago y río','Brown and rainbow trout in lake and river waters'),
          ('Modalidad pesca con devolución','Catch and release'),
          DRON],
-    hero=dict(img='assets/img/lago-montanas.jpg', alt=('Lago y cordillera al atardecer con una lancha','Lake and Andes at sunset with a boat'), pos='center 55%'),
+    hero=dict(img='assets/img/lago-montanas.jpg', alt=('Lago y cordillera al atardecer con una lancha','Lake and Andes at sunset with a boat'), pos='center 100%', top_m=True),
     card_img='assets/img/lago-montanas.jpg',
     strip=[('assets/img/atardecer-bote.jpg', None, 'El grupo a bordo del bote al atardecer','The group aboard the boat at sunset'),
            ('assets/img/lago-orilla-aerea.jpg', None, 'Vista aérea con dron de la orilla y los bajos turquesa del lago','Drone aerial view of the shore and the turquoise shallows'),
@@ -106,7 +106,6 @@ XPS = [
     card_img='assets/img/lago-cordillera-nubes.jpg',
     strip=[('assets/img/cala-turquesa.jpg', None, 'Cala de aguas turquesas entre acantilados y bosque','Turquoise cove between cliffs and forest'),
            ('assets/img/picos-lago.jpg', None, 'Paredones de granito sobre el lago turquesa, con la lancha en el centro','Granite walls over the turquoise lake, with the boat in the middle'),
-           ('assets/video/playa-rocas.jpg', 'assets/video/playa-rocas.mp4', 'Pareja saludando al dron en una playa de piedras del lago','Couple waving at the drone on a stony lake beach'),
            ('assets/video/lago-nevado.jpg', 'assets/video/lago-nevado.mp4', 'Laguna escondida con un cerro nevado de fondo, filmada desde el dron','Hidden lagoon with a snow-capped peak behind, filmed from the drone'),
            ('assets/img/brazo-lago-turquesa.jpg', None, 'Brazo del lago de aguas turquesas entre montañas de bosque, visto desde el dron','Turquoise arm of the lake between forested mountains, seen from the drone')],
     meta_title='Rutas Secretas en la cordillera de Bariloche | Lago Sur Experiences',
@@ -305,7 +304,7 @@ for x in XPS:
 
 {nav_for(x['slug'])}
   <!-- ── HERO ──────────────────────────────────────────────────── -->
-  <header class="xp-hero xp-hero--page">
+  <header class="xp-hero xp-hero--page{' xp-hero--top-m' if x['hero'].get('top_m') else ''}">
 {hero_media(x['hero'], 'xp-hero-img')}
     <div class="hero-overlay"></div>
 {badge}    <div class="hero-content fade-in">
@@ -399,8 +398,8 @@ hub = head('Experiencias en Bariloche: lancha, pesca con mosca y rutas secretas 
 {nav_for()}
   <!-- ── HERO ──────────────────────────────────────────────────── -->
   <header class="xp-hero">
-    <img class="xp-hero-img" src="assets/img/lago-orilla-aerea.jpg" srcset="assets/img/lago-orilla-aerea-800.jpg 800w, assets/img/lago-orilla-aerea.jpg 1600w" sizes="100vw"
-         alt="Vista aérea con dron de la orilla y los bajos turquesa del lago Nahuel Huapi" data-alt-es="Vista aérea con dron de la orilla y los bajos turquesa del lago Nahuel Huapi" data-alt-en="Drone aerial view of the shore and turquoise shallows of Lake Nahuel Huapi" fetchpriority="high">
+    <img class="xp-hero-img" src="assets/img/cala-turquesa.jpg" srcset="assets/img/cala-turquesa-800.jpg 800w, assets/img/cala-turquesa.jpg 1600w" sizes="100vw"
+         style="object-position:center 60%" alt="Cala de aguas turquesas entre acantilados y bosque en el lago Nahuel Huapi" data-alt-es="Cala de aguas turquesas entre acantilados y bosque en el lago Nahuel Huapi" data-alt-en="Turquoise cove between cliffs and forest on Lake Nahuel Huapi" fetchpriority="high">
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
       <p class="hero-location">Arelauquen · Bariloche · Patagonia</p>

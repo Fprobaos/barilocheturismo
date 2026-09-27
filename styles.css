@@ -464,6 +464,7 @@ section { padding: 100px 0; }
   background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--transition);
+  pointer-events: none; /* si no, tapa los links "Ver experiencia" */
 }
 .exp-card:hover {
   border-color: rgba(201,168,76,0.5);
@@ -1991,4 +1992,10 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
   .xp-aside { position: static; }
   .xp-others-grid { grid-template-columns: 1fr; }
   .xp-hero--page { min-height: 62vh; }
+}
+
+/* Hero con el sujeto abajo (Pesca): en celular el texto va arriba para no taparlo */
+@media (max-width: 768px) {
+  .xp-hero--top-m { align-items: flex-start; }
+  .xp-hero--top-m .hero-overlay { background: linear-gradient(180deg, rgba(10,26,46,0.9) 0%, rgba(10,26,46,0.55) 45%, rgba(10,26,46,0.1) 70%, rgba(10,26,46,0.85) 100%); }
 }

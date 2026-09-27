@@ -365,7 +365,7 @@ if (typeof L !== 'undefined' && document.getElementById('lagosMap')) {
   const lagos = [
     { name: 'Nahuel Huapi', coords: [-41.07, -71.52] },
     { name: 'Lago Gutiérrez', coords: [-41.20, -71.415] },
-    { name: 'Lago Mascardi', coords: [-41.34, -71.55],
+    { name: 'Lago Mascardi', coords: [-41.31608, -71.49477], // GPS de la foto 360°
       pano: 'assets/pano/lago-mascardi.jpg', thumb: 'assets/pano/lago-mascardi-thumb.jpg', yaw: 20 },
   ];
 
