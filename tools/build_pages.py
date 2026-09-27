@@ -75,7 +75,7 @@ XPS = [
          ('Truchas marrón y arco iris en aguas de lago y río','Brown and rainbow trout in lake and river waters'),
          ('Modalidad pesca con devolución','Catch and release'),
          DRON],
-    hero=dict(img='assets/img/lago-montanas.jpg', alt=('Lago y cordillera al atardecer con una lancha','Lake and Andes at sunset with a boat'), pos='center 100%', top_m=True),
+    hero=dict(img='assets/img/lago-montanas.jpg', alt=('Lago y cordillera al atardecer con una lancha','Lake and Andes at sunset with a boat'), pos='center 55%'),
     card_img='assets/img/lago-montanas.jpg',
     strip=[('assets/img/atardecer-bote.jpg', None, 'El grupo a bordo del bote al atardecer','The group aboard the boat at sunset'),
            ('assets/img/lago-orilla-aerea.jpg', None, 'Vista aérea con dron de la orilla y los bajos turquesa del lago','Drone aerial view of the shore and the turquoise shallows'),
@@ -304,7 +304,7 @@ for x in XPS:
 
 {nav_for(x['slug'])}
   <!-- ── HERO ──────────────────────────────────────────────────── -->
-  <header class="xp-hero xp-hero--page{' xp-hero--top-m' if x['hero'].get('top_m') else ''}">
+  <header class="xp-hero xp-hero--page">
 {hero_media(x['hero'], 'xp-hero-img')}
     <div class="hero-overlay"></div>
 {badge}    <div class="hero-content fade-in">

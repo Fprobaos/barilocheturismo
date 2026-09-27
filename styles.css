@@ -1993,9 +1993,3 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
   .xp-others-grid { grid-template-columns: 1fr; }
   .xp-hero--page { min-height: 62vh; }
 }
-
-/* Hero con el sujeto abajo (Pesca): en celular el texto va arriba para no taparlo */
-@media (max-width: 768px) {
-  .xp-hero--top-m { align-items: flex-start; }
-  .xp-hero--top-m .hero-overlay { background: linear-gradient(180deg, rgba(10,26,46,0.9) 0%, rgba(10,26,46,0.55) 45%, rgba(10,26,46,0.1) 70%, rgba(10,26,46,0.85) 100%); }
-}
