@@ -44,4 +44,6 @@ Production is https://lago-sur-experiences.vercel.app, deployed with `vercel --p
 
 **Scroll/visibility behaviors**: `IntersectionObserver` adds `.visible` to `.fade-in` elements (one-shot, unobserved after firing); navbar gets `.scrolled` after 40px; smooth-scroll handler offsets by `navbar.offsetHeight` so anchors don't hide under the fixed nav.
 
+**Lakes map** (home only): Leaflet with Esri World Imagery tiles (CARTO now requires an API key). Pins come from the `lagos` array in `script.js`; giving an entry `pano` (equirectangular 2:1 JPG, 4096×2048, in `assets/pano/`), `thumb` (160px square crop) and optional start `yaw` turns its dot into a round thumbnail that opens a fullscreen Pannellum 360° viewer, lazy-loaded from jsdelivr on first open.
+
 **Lightbox** iterates `.gallery-item` nodes, supports keyboard nav (Esc / ←/→), and clones `.img-placeholder` when an item has no `<img>`.
