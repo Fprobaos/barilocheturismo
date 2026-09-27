@@ -1553,6 +1553,9 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
   background: #0a1622;
 }
 
+/* Satélite un poco más oscuro para que resalten los pines y etiquetas */
+.mapa-frame .leaflet-tile-pane { filter: brightness(0.8) saturate(1.1); }
+
 /* Leaflet dark overrides */
 .leaflet-container {
   background: #0a1622 !important;
@@ -1583,6 +1586,100 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--gold);
 }
+/* Lagos con foto 360° */
+.lago-pin-pano {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: center / cover no-repeat var(--navy);
+  border: 2px solid var(--gold);
+  box-shadow: 0 0 0 3px rgba(10,26,46,0.85), 0 6px 16px rgba(0,0,0,0.5);
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.lago-pin-pano::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 50%;
+  border: 1px solid var(--gold);
+  animation: pano-pulse 2.4s ease-out infinite;
+  pointer-events: none;
+}
+.lago-pin-pano em {
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  transform: translateX(-50%);
+  padding: 1px 6px;
+  border-radius: 8px;
+  background: var(--gold);
+  color: var(--navy);
+  font: 600 0.55rem/1.4 var(--font-sans);
+  font-style: normal;
+  letter-spacing: 0.05em;
+}
+.lago-pin--pano:hover .lago-pin-pano,
+.lago-pin--pano:focus .lago-pin-pano { transform: scale(1.12); }
+@keyframes pano-pulse {
+  from { opacity: 0.9; transform: scale(1); }
+  to   { opacity: 0;   transform: scale(1.5); }
+}
+@media (prefers-reduced-motion: reduce) { .lago-pin-pano::after { animation: none; opacity: 0; } }
+
+.mapa-hint {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 500;
+  margin: 0;
+  padding: 0.35rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: rgba(10,26,46,0.9);
+  color: var(--cream);
+  font-size: 0.75rem;
+  pointer-events: none;
+}
+
+.pano-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: none;
+  background: #050f1a;
+}
+.pano-modal.open { display: block; }
+.pano-view { width: 100%; height: 100%; }
+.pano-caption {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 2001;
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius);
+  background: rgba(10,26,46,0.75);
+  pointer-events: none;
+}
+.pano-caption h3 { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 400; color: var(--cream); margin: 0; }
+.pano-caption p { font-size: 0.75rem; color: var(--gray); margin: 0.15rem 0 0; }
+.pano-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 2001;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  background: rgba(10,26,46,0.75);
+  color: var(--cream);
+  font-size: 2rem;
+  line-height: 1;
+}
+.pano-close:hover { background: var(--gold); color: var(--navy); }
+
 .lago-pin--home .lago-pin-dot {
   background: var(--cream);
   box-shadow: 0 0 0 2px var(--cream), 0 0 12px rgba(240,235,224,0.6);

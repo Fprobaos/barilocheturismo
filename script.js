@@ -347,7 +347,7 @@ document.querySelectorAll('.whatsapp-fab, .canal-whatsapp, .footer-social a[aria
   a.addEventListener('click', () => trackContact(a.classList.contains('whatsapp-fab') ? 'fab' : 'link'));
 });
 
-/* ── MAPA LAGOS (Leaflet + CartoDB Dark Matter) ──────────────── */
+/* ── MAPA LAGOS (Leaflet + satélite de Esri, sin API key) ───── */
 if (typeof L !== 'undefined' && document.getElementById('lagosMap')) {
   const map = L.map('lagosMap', {
     center: [-41.20, -71.48],
@@ -356,16 +356,17 @@ if (typeof L !== 'undefined' && document.getElementById('lagosMap')) {
     zoomControl: true,
   });
 
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; OpenStreetMap &copy; CARTO',
-    subdomains: 'abcd',
-    maxZoom: 19,
+  // CARTO dejó de servir teselas sin API key; Esri World Imagery no la pide
+  L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, Maxar, Earthstar Geographics',
+    maxZoom: 18,
   }).addTo(map);
 
   const lagos = [
-    { name: 'Nahuel Huapi', coords: [-41.02, -71.55] },
-    { name: 'Lago Gutiérrez', coords: [-41.22, -71.43] },
-    { name: 'Lago Mascardi', coords: [-41.34, -71.55] },
+    { name: 'Nahuel Huapi', coords: [-41.07, -71.52] },
+    { name: 'Lago Gutiérrez', coords: [-41.20, -71.415] },
+    { name: 'Lago Mascardi', coords: [-41.34, -71.55],
+      pano: 'assets/pano/lago-mascardi.jpg', thumb: 'assets/pano/lago-mascardi-thumb.jpg', yaw: 20 },
   ];
 
   const lakeIcon = L.divIcon({
@@ -375,15 +376,24 @@ if (typeof L !== 'undefined' && document.getElementById('lagosMap')) {
     iconAnchor: [7, 7],
   });
 
+  // Lagos con foto 360° del dron: miniatura redonda en vez de punto, abre el visor
+  const panoIcon = l => L.divIcon({
+    className: 'lago-pin lago-pin--pano',
+    html: `<span class="lago-pin-pano" style="background-image:url('${l.thumb}')"><em>360°</em></span>`,
+    iconSize: [48, 48],
+    iconAnchor: [24, 24],
+  });
+
   lagos.forEach(l => {
-    L.marker(l.coords, { icon: lakeIcon })
+    const marker = L.marker(l.coords, { icon: l.pano ? panoIcon(l) : lakeIcon, title: l.pano ? `${l.name} · 360°` : l.name })
       .addTo(map)
       .bindTooltip(l.name, {
         permanent: true,
         direction: 'right',
-        offset: [10, 0],
+        offset: [l.pano ? 28 : 10, 0],
         className: 'lago-tooltip',
       });
+    if (l.pano) marker.on('click', () => openPano(l));
   });
 
   // Arelauquen marker
@@ -393,7 +403,7 @@ if (typeof L !== 'undefined' && document.getElementById('lagosMap')) {
     iconSize: [16, 16],
     iconAnchor: [8, 8],
   });
-  L.marker([-41.183, -71.465], { icon: homeIcon })
+  L.marker([-41.167, -71.382], { icon: homeIcon })
     .addTo(map)
     .bindTooltip('Arelauquen', {
       permanent: true,
@@ -402,3 +412,70 @@ if (typeof L !== 'undefined' && document.getElementById('lagosMap')) {
       className: 'lago-tooltip lago-tooltip--home',
     });
 }
+
+/* ── VISOR 360° (Pannellum, se carga recién al abrir el primero) ─ */
+let pannellumReady = null;
+function loadPannellum() {
+  if (!pannellumReady) pannellumReady = new Promise((resolve, reject) => {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css';
+    document.head.appendChild(css);
+    const js = document.createElement('script');
+    js.src = 'https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js';
+    js.onload = resolve;
+    js.onerror = () => { pannellumReady = null; reject(); };
+    document.head.appendChild(js);
+  });
+  return pannellumReady;
+}
+
+let panoModal = null, panoViewer = null;
+function openPano(l) {
+  if (!panoModal) {
+    panoModal = document.createElement('div');
+    panoModal.className = 'pano-modal';
+    panoModal.setAttribute('role', 'dialog');
+    panoModal.setAttribute('aria-modal', 'true');
+    panoModal.innerHTML = `
+      <div class="pano-view" id="panoView"></div>
+      <div class="pano-caption"><h3></h3><p></p></div>
+      <button class="pano-close" aria-label="Cerrar">×</button>`;
+    panoModal.querySelector('.pano-close').addEventListener('click', closePano);
+    document.body.appendChild(panoModal);
+  }
+  panoModal.querySelector('.pano-caption h3').textContent = `${l.name} · 360°`;
+  panoModal.querySelector('.pano-caption p').textContent = currentLang === 'es'
+    ? 'Arrastrá para mirar alrededor' : 'Drag to look around';
+  panoModal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  panoModal.querySelector('.pano-close').focus();
+
+  loadPannellum().then(() => {
+    if (!panoModal.classList.contains('open')) return;
+    panoViewer = pannellum.viewer('panoView', {
+      type: 'equirectangular',
+      panorama: l.pano,
+      autoLoad: true,
+      yaw: l.yaw || 0,
+      hfov: 100,
+      autoRotate: -2,
+      autoRotateInactivityDelay: 4000,
+      showControls: false,
+      compass: false,
+    });
+  }).catch(() => {
+    panoModal.querySelector('.pano-caption p').textContent = currentLang === 'es'
+      ? 'No se pudo cargar el visor 360°.' : 'The 360° viewer could not be loaded.';
+  });
+}
+
+function closePano() {
+  if (panoViewer) { panoViewer.destroy(); panoViewer = null; }
+  panoModal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && panoModal && panoModal.classList.contains('open')) closePano();
+});
