@@ -8,7 +8,7 @@ const INSTAGRAM_URL   = ''; // 'https://instagram.com/tu_usuario' — vacío = s
    GA4_ID: ID de Google Analytics 4 ('G-XXXXXXXXXX').
    ADS_CONVERSION: acción de conversión de Google Ads ('AW-XXXXXXXXX/AbCdEfGhIjK').
    Se pueden cargar uno, otro o los dos; mientras estén vacíos no se carga nada de Google. */
-const GA4_ID         = '';
+const GA4_ID         = 'G-YT2CQRS3HS';
 const ADS_CONVERSION = '';
 
 const ADS_ID  = ADS_CONVERSION.split('/')[0];
