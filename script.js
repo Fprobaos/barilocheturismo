@@ -1,7 +1,7 @@
 /* ── CONFIG — Editá estos valores ─────────────────────────────── */
-const WHATSAPP_NUMBER = '+54XXXXXXXXXX'; // Reemplazá con tu número real
+const WHATSAPP_NUMBER = '5491150208678'; // Formato wa.me: 54 + 9 + área sin 0 + número sin 15
 const WHATSAPP_MSG    = 'Hola, me gustaría consultar sobre Lago Sur Experiences';
-const INSTAGRAM_URL   = 'https://instagram.com/TU_USUARIO_AQUI'; // Reemplazá con tu @
+const INSTAGRAM_URL   = ''; // 'https://instagram.com/tu_usuario' — vacío = se ocultan los botones de Instagram
 
 /* ── ANALYTICS / GOOGLE ADS ───────────────────────────────────
    GTAG_ID: ID de Google Analytics 4 ('G-XXXXXXXXXX') o de Google Ads ('AW-XXXXXXXXX').
@@ -336,7 +336,8 @@ if (calMonthsEl) {
 
 /* ── APPLY INSTAGRAM LINKS ────────────────────────────────────── */
 document.querySelectorAll('.canal-instagram, .footer-social a[aria-label="Instagram"]').forEach(a => {
-  a.href = INSTAGRAM_URL;
+  if (INSTAGRAM_URL) a.href = INSTAGRAM_URL;
+  else a.remove();
 });
 
 /* ── APPLY WHATSAPP LINKS ─────────────────────────────────────── */

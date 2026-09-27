@@ -219,7 +219,7 @@ def contact_section(h2, lead):
         <h2 data-es="{h2[0]}" data-en="{h2[1]}">{h2[0]}</h2>
         <p class="contacto-lead" data-es="{lead[0]}" data-en="{lead[1]}">{lead[0]}</p>
         <div class="contacto-canales">
-          <a href="https://wa.me/+54XXXXXXXXXX" class="canal-item canal-whatsapp" target="_blank" rel="noopener">
+          <a href="https://wa.me/5491150208678" class="canal-item canal-whatsapp" target="_blank" rel="noopener">
             {WA_SVG}
             WhatsApp
           </a>

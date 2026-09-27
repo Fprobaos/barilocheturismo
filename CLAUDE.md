@@ -38,7 +38,7 @@ Production is https://lago-sur-experiences.vercel.app, deployed with `vercel --p
 - `WHATSAPP_NUMBER`, `WHATSAPP_MSG` — applied to every `.whatsapp-fab`, `.canal-whatsapp`, and the WhatsApp footer link, plus the contact-form submission which opens `wa.me/...` in a new tab.
 - `INSTAGRAM_URL` — applied to every `.canal-instagram` and the Instagram footer link.
 
-These are placeholder values (`+54XXXXXXXXXX`, `TU_USUARIO_AQUI`) intended to be replaced before deploy.
+`WHATSAPP_NUMBER` is the real number in wa.me format (`5491150208678`; the WhatsApp account itself is still being set up). `INSTAGRAM_URL` is empty until the account exists — while empty, `script.js` removes every Instagram button, so the static `href="#"` never shows. When it exists, set it there and add it as `sameAs` in the home `TravelAgency` JSON-LD.
 
 **Contact form** does not POST anywhere — it builds a prefilled WhatsApp message and opens `wa.me`. Any "backend" change means changing that flow.
 
