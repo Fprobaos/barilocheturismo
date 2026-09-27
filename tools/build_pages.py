@@ -225,7 +225,7 @@ def contact_section(h2, lead):
         <h2 data-es="{h2[0]}" data-en="{h2[1]}">{h2[0]}</h2>
         <p class="contacto-lead" data-es="{lead[0]}" data-en="{lead[1]}">{lead[0]}</p>
         <div class="contacto-canales">
-          <a href="https://wa.me/5491150208678" class="canal-item canal-whatsapp" target="_blank" rel="noopener">
+          <a href="#contacto" class="canal-item canal-whatsapp" target="_blank" rel="noopener">
             {WA_SVG}
             WhatsApp
           </a>
@@ -303,9 +303,9 @@ for x in XPS:
 
 ''' if x['strip'] else ''
     if soon:
-        cta = '            <span class="exp-cta exp-cta--soon" data-es="Disponible próximamente" data-en="Available soon">Disponible próximamente</span>\n            <a href="https://wa.me/5491150208678" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Avisame cuando esté lista" data-en="Notify me when it is ready">Avisame cuando esté lista</a>'
+        cta = '            <span class="exp-cta exp-cta--soon" data-es="Disponible próximamente" data-en="Available soon">Disponible próximamente</span>\n            <a href="#contacto" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Avisame cuando esté lista" data-en="Notify me when it is ready">Avisame cuando esté lista</a>'
     else:
-        cta = '            <a href="https://wa.me/5491150208678" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp">Consultar por WhatsApp</a>'
+        cta = '            <a href="#contacto" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp">Consultar por WhatsApp</a>'
     badge = '    <span class="exp-badge xp-hero-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>\n' if soon else ''
     page = head(x['meta_title'], x['meta_desc'], x['keywords'], f"{x['slug']}.html", x['card_img'], jsonld) + f'''<body class="page-experiencias page-xp" data-xp="{x['slug']}" data-wa-es="{wa_msg(x)[0]}" data-wa-en="{wa_msg(x)[1]}">
 

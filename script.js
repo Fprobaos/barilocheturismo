@@ -1,5 +1,5 @@
 /* ── CONFIG — Editá estos valores ─────────────────────────────── */
-const WHATSAPP_NUMBER = '5491150208678'; // Formato wa.me: 54 + 9 + área sin 0 + número sin 15
+const WHATSAPP_NUMBER = ''; // Formato wa.me: 54 + 9 + área sin 0 + número sin 15. Vacío = los botones llevan a #contacto
 const WHATSAPP_MSG    = 'Hola, me gustaría consultar sobre Lago Sur Experiences';
 const WHATSAPP_MSG_EN = "Hi, I'd like to ask about Lago Sur Experiences";
 const INSTAGRAM_URL   = ''; // 'https://instagram.com/tu_usuario' — vacío = se ocultan los botones de Instagram
@@ -332,6 +332,7 @@ if (calConfirm) calConfirm.addEventListener('click', () => {
   const text = currentLang === 'es'
     ? `Hola! Quisiera consultar disponibilidad para Lago Sur Experiences.\nFechas: ${rango} (${nights} noches).`
     : `Hi! I'd like to check availability for Lago Sur Experiences.\nDates: ${rango} (${nights} nights).`;
+  if (!WHATSAPP_NUMBER) { location.hash = 'contacto'; return; }
   trackContact('calendar_confirm');
   window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, '_blank');
 });
@@ -351,14 +352,17 @@ document.querySelectorAll('.canal-instagram, .footer-social a[aria-label="Instag
 /* En las páginas de experiencia el <body> trae data-wa-es / data-wa-en con un mensaje
    que nombra la experiencia; el href se recalcula al hacer click para respetar el idioma. */
 function waHref() {
+  if (!WHATSAPP_NUMBER) return '#contacto';
   const b = document.body.dataset;
   const msg = currentLang === 'en' ? (b.waEn || WHATSAPP_MSG_EN) : (b.waEs || WHATSAPP_MSG);
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
 document.querySelectorAll('.whatsapp-fab, .canal-whatsapp, .footer-social a[aria-label="WhatsApp"], .xp-cta-wa').forEach(a => {
   a.href = waHref();
+  if (!WHATSAPP_NUMBER) a.removeAttribute('target');
   a.addEventListener('click', () => {
     a.href = waHref();
+    if (!WHATSAPP_NUMBER) return;
     trackContact(a.classList.contains('whatsapp-fab') ? 'fab' : a.classList.contains('xp-cta-wa') ? 'cta' : 'link');
   });
 });
