@@ -46,7 +46,7 @@ XPS = [
          ('Chalecos y equipo de seguridad a bordo','Life jackets and safety gear on board'),
          ('Parada para nadar o hacer picnic en una playa escondida','Stop to swim or picnic on a hidden beach'),
          DRON],
-    hero=dict(video='assets/video/lanchas-navegando.mp4', poster='assets/video/lanchas-navegando.jpg',
+    hero=dict(video='assets/video/lanchas-navegando-hero.mp4', poster='assets/video/lanchas-navegando-hero.jpg',
               alt=('Lanchas navegando a toda velocidad por el lago Nahuel Huapi','Boats speeding across Lake Nahuel Huapi')),
     card_img='assets/img/playa-turquesa-aerea.jpg',
     strip=[('assets/img/lancha-estela.jpg', None, 'Lancha navegando el lago Nahuel Huapi entre islas','Boat cruising Lake Nahuel Huapi between islands'),
@@ -209,6 +209,13 @@ def head(title, desc, keywords, canonical_path, og_img, jsonld):
 </head>
 '''
 
+def wa_msg(x):
+    if x['slug'] == 'casa-arelauquen':
+        return ('Hola, quiero que me avisen cuando la casa en Arelauquen esté disponible',
+                'Hi, please let me know when the house in Arelauquen is available')
+    return (f"Hola, quiero consultar por {x['title'][0]} con Lago Sur Experiences",
+            f"Hi, I would like to ask about {x['title'][1]} with Lago Sur Experiences")
+
 def contact_section(h2, lead):
     return f'''  <!-- ── CONTACTO ───────────────────────────────────────────────── -->
   <section id="contacto" class="contacto">
@@ -296,11 +303,11 @@ for x in XPS:
 
 ''' if x['strip'] else ''
     if soon:
-        cta = '            <span class="exp-cta exp-cta--soon" data-es="Disponible próximamente" data-en="Available soon">Disponible próximamente</span>\n            <a href="#contacto" class="btn-hero xp-cta" data-es="Avisame cuando esté lista" data-en="Notify me when it is ready">Avisame cuando esté lista</a>'
+        cta = '            <span class="exp-cta exp-cta--soon" data-es="Disponible próximamente" data-en="Available soon">Disponible próximamente</span>\n            <a href="https://wa.me/5491150208678" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Avisame cuando esté lista" data-en="Notify me when it is ready">Avisame cuando esté lista</a>'
     else:
-        cta = '            <a href="#contacto" class="btn-hero xp-cta" data-es="Consultar esta experiencia" data-en="Inquire about this experience">Consultar esta experiencia</a>'
+        cta = '            <a href="https://wa.me/5491150208678" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp">Consultar por WhatsApp</a>'
     badge = '    <span class="exp-badge xp-hero-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>\n' if soon else ''
-    page = head(x['meta_title'], x['meta_desc'], x['keywords'], f"{x['slug']}.html", x['card_img'], jsonld) + f'''<body class="page-experiencias page-xp">
+    page = head(x['meta_title'], x['meta_desc'], x['keywords'], f"{x['slug']}.html", x['card_img'], jsonld) + f'''<body class="page-experiencias page-xp" data-xp="{x['slug']}" data-wa-es="{wa_msg(x)[0]}" data-wa-en="{wa_msg(x)[1]}">
 
 {nav_for(x['slug'])}
   <!-- ── HERO ──────────────────────────────────────────────────── -->

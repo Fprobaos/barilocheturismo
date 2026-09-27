@@ -1,37 +1,44 @@
 /* ── CONFIG — Editá estos valores ─────────────────────────────── */
 const WHATSAPP_NUMBER = '5491150208678'; // Formato wa.me: 54 + 9 + área sin 0 + número sin 15
 const WHATSAPP_MSG    = 'Hola, me gustaría consultar sobre Lago Sur Experiences';
+const WHATSAPP_MSG_EN = "Hi, I'd like to ask about Lago Sur Experiences";
 const INSTAGRAM_URL   = ''; // 'https://instagram.com/tu_usuario' — vacío = se ocultan los botones de Instagram
 
 /* ── ANALYTICS / GOOGLE ADS ───────────────────────────────────
-   GTAG_ID: ID de Google Analytics 4 ('G-XXXXXXXXXX') o de Google Ads ('AW-XXXXXXXXX').
-   ADS_CONVERSION: etiqueta de conversión de Google Ads ('AW-XXXXXXXXX/AbCdEfGhIjK').
-   Mientras estén vacíos no se carga ningún script de Google. */
-const GTAG_ID        = '';
+   GA4_ID: ID de Google Analytics 4 ('G-XXXXXXXXXX').
+   ADS_CONVERSION: acción de conversión de Google Ads ('AW-XXXXXXXXX/AbCdEfGhIjK').
+   Se pueden cargar uno, otro o los dos; mientras estén vacíos no se carga nada de Google. */
+const GA4_ID         = '';
 const ADS_CONVERSION = '';
 
-if (GTAG_ID) {
+const ADS_ID  = ADS_CONVERSION.split('/')[0];
+const TAG_IDS = [GA4_ID, ADS_ID].filter(Boolean);
+
+if (TAG_IDS.length) {
   const gs = document.createElement('script');
   gs.async = true;
-  gs.src = `https://www.googletagmanager.com/gtag/js?id=${GTAG_ID}`;
+  gs.src = `https://www.googletagmanager.com/gtag/js?id=${TAG_IDS[0]}`;
   document.head.appendChild(gs);
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
   gtag('js', new Date());
-  gtag('config', GTAG_ID);
+  TAG_IDS.forEach(id => gtag('config', id));
 }
 
 function trackContact(label) {
   if (typeof window.gtag !== 'function') return;
-  gtag('event', 'whatsapp_click', { event_category: 'contact', event_label: label, page: location.pathname });
-  if (ADS_CONVERSION) gtag('event', 'conversion', { send_to: ADS_CONVERSION });
+  const xp = document.body.dataset.xp || 'general';
+  gtag('event', 'whatsapp_click', { contact_method: label, experience: xp, page_path: location.pathname, transport_type: 'beacon' });
+  if (ADS_CONVERSION) gtag('event', 'conversion', { send_to: ADS_CONVERSION, transport_type: 'beacon' });
 }
 
 /* ── LANGUAGE ─────────────────────────────────────────────────── */
 let currentLang = 'es';
+const LANG_KEY  = 'lagosur-lang';
 
 function setLang(lang) {
   currentLang = lang;
+  try { sessionStorage.setItem(LANG_KEY, lang); } catch (e) {}
 
   document.querySelectorAll('[data-es]').forEach(el => {
     const text = el.dataset[lang];
@@ -341,10 +348,19 @@ document.querySelectorAll('.canal-instagram, .footer-social a[aria-label="Instag
 });
 
 /* ── APPLY WHATSAPP LINKS ─────────────────────────────────────── */
-const waLink = encodeURIComponent(WHATSAPP_MSG);
-document.querySelectorAll('.whatsapp-fab, .canal-whatsapp, .footer-social a[aria-label="WhatsApp"]').forEach(a => {
-  a.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waLink}`;
-  a.addEventListener('click', () => trackContact(a.classList.contains('whatsapp-fab') ? 'fab' : 'link'));
+/* En las páginas de experiencia el <body> trae data-wa-es / data-wa-en con un mensaje
+   que nombra la experiencia; el href se recalcula al hacer click para respetar el idioma. */
+function waHref() {
+  const b = document.body.dataset;
+  const msg = currentLang === 'en' ? (b.waEn || WHATSAPP_MSG_EN) : (b.waEs || WHATSAPP_MSG);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
+document.querySelectorAll('.whatsapp-fab, .canal-whatsapp, .footer-social a[aria-label="WhatsApp"], .xp-cta-wa').forEach(a => {
+  a.href = waHref();
+  a.addEventListener('click', () => {
+    a.href = waHref();
+    trackContact(a.classList.contains('whatsapp-fab') ? 'fab' : a.classList.contains('xp-cta-wa') ? 'cta' : 'link');
+  });
 });
 
 /* ── MAPA LAGOS (Leaflet + satélite de Esri, sin API key) ───── */
@@ -479,3 +495,12 @@ function closePano() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && panoModal && panoModal.classList.contains('open')) closePano();
 });
+
+/* ── IDIOMA INICIAL: ?lang=en (anuncios en inglés) o el último elegido en la sesión ── */
+(() => {
+  let lang = new URLSearchParams(location.search).get('lang');
+  if (lang !== 'en' && lang !== 'es') {
+    try { lang = sessionStorage.getItem(LANG_KEY); } catch (e) { lang = null; }
+  }
+  if (lang === 'en') setLang('en');
+})();

@@ -25,7 +25,8 @@ Production is https://lago-sur-experiences.vercel.app, deployed with `vercel --p
 
 - `robots.txt`, `sitemap.xml`, `llms.txt` live at the root and use the canonical URL `https://lago-sur-experiences.vercel.app` (same as the `<link rel="canonical">` tags and the JSON-LD). There is no custom domain yet; when one is bought, replace that base URL in `index.html`, `experiencias.html`, `robots.txt`, `sitemap.xml` and `llms.txt` together, and add the domain in Vercel.
 - JSON-LD: `TravelAgency` + `FAQPage` on the home, `BreadcrumbList` + `ItemList` of `TouristTrip` on the experiences page. The FAQ schema mirrors the `<details>` content — keep them in sync.
-- Google Ads / GA4: `GTAG_ID` and `ADS_CONVERSION` at the top of `script.js` are empty placeholders; nothing loads until they are set. `trackContact()` fires on every WhatsApp click and on calendar confirm.
+- Google Ads / GA4: `GA4_ID` and `ADS_CONVERSION` (`AW-…/label`) at the top of `script.js` are empty placeholders; the Google tag loads and configures whichever is set. `trackContact()` fires a GA4 `whatsapp_click` event (with `experience` from `<body data-xp>`) plus the Ads conversion on every WhatsApp click and on calendar confirm.
+- Experience pages carry `data-wa-es` / `data-wa-en` on `<body>`: every WhatsApp link on that page (FAB, contact, the hero `.xp-cta-wa`) sends a message naming the experience. `?lang=en` in any URL opens the site in English (for English-language ads); the choice is kept in `sessionStorage` while browsing.
 
 ## Architecture notes
 
