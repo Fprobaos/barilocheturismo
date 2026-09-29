@@ -50,7 +50,7 @@ Production is https://lagosur.site (domain bought through Vercel on 2026-09-29; 
 **Loading performance** (Lighthouse mobile 97–100 as of 2026-09-29 — keep it that way):
 - Hero videos are `<video data-src data-src-mobile preload="none" poster>`; `script.js` sets the source 1.5 s after `load` (phones ≤768px get the 480p `-mobile.mp4`, reduced-motion/Save-Data keep the poster). The poster is preloaded with `fetchpriority="high"`. A new video hero needs a `-mobile.mp4` next to it.
 - Hero text uses `.hero-in` (pure CSS animation), not `.fade-in`, so it paints without waiting for JS.
-- `gtag.js` is fetched 2.5 s after `load`; `gtag()` calls queue in `dataLayer` until then.
+- `gtag.js` is fetched 2.5 s after `load` (or immediately on the first WhatsApp click, via `loadTag()`); `gtag()` calls queue in `dataLayer` until then.
 - Leaflet JS/CSS are injected only when the map nears the viewport (`loadLeaflet()` → `initLagosMap()`).
 - Gallery video cells are static (owner prefers no autoplay): the grid shows `<name>-thumb.jpg`, the lightbox plays the full `<name>.mp4` looped. A new gallery video needs its `.jpg` poster and `-thumb.jpg`.
 - `vercel.json` caches `/assets/img|video|pano` and icons for a week and fonts for a year (immutable). Replacing an asset under the same name can take up to a week to reach returning visitors — use a new filename when that matters.

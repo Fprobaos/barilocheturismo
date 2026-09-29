@@ -18,7 +18,7 @@ function afterLoad(fn, delay = 0) {
    ADS_CONVERSION: acción de conversión de Google Ads ('AW-XXXXXXXXX/AbCdEfGhIjK').
    Se pueden cargar uno, otro o los dos; mientras estén vacíos no se carga nada de Google. */
 const GA4_ID         = 'G-YT2CQRS3HS';
-const ADS_CONVERSION = '';
+const ADS_CONVERSION = 'AW-18478604506/e49hCJ6N84odENrBpOtE'; // "Click en Whatsapp" (Google Ads)
 
 const ADS_ID  = ADS_CONVERSION.split('/')[0];
 const TAG_IDS = [GA4_ID, ADS_ID].filter(Boolean);
@@ -30,17 +30,23 @@ if (TAG_IDS.length) {
   TAG_IDS.forEach(id => gtag('config', id));
   // La librería de Google se descarga cuando la página ya cargó; mientras tanto
   // los eventos (incluidos los clics en WhatsApp) quedan en cola en dataLayer.
-  const loadTag = () => {
-    const gs = document.createElement('script');
-    gs.async = true;
-    gs.src = `https://www.googletagmanager.com/gtag/js?id=${TAG_IDS[0]}`;
-    document.head.appendChild(gs);
-  };
   afterLoad(loadTag, 2500);
+}
+
+// Idempotente: la llama afterLoad y también el primer clic en WhatsApp, para que un clic
+// temprano (antes de que baje gtag.js) no se pierda si el celular abre la app enseguida.
+function loadTag() {
+  if (!TAG_IDS.length || loadTag.done) return;
+  loadTag.done = true;
+  const gs = document.createElement('script');
+  gs.async = true;
+  gs.src = `https://www.googletagmanager.com/gtag/js?id=${TAG_IDS[0]}`;
+  document.head.appendChild(gs);
 }
 
 function trackContact(label) {
   if (typeof window.gtag !== 'function') return;
+  loadTag();
   const xp = document.body.dataset.xp || 'general';
   gtag('event', 'whatsapp_click', { contact_method: label, experience: xp, page_path: location.pathname, transport_type: 'beacon' });
   if (ADS_CONVERSION) gtag('event', 'conversion', { send_to: ADS_CONVERSION, transport_type: 'beacon' });
