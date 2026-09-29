@@ -11,7 +11,7 @@ def block(start, end, inclusive_end=True):
 nav      = block('  <!-- ── NAVBAR', '</nav>\n')
 footer   = block('  <!-- ── FOOTER', '</footer>\n')
 fab      = block('  <!-- ── WHATSAPP FAB', '  </a>\n')
-lightbox = block('  <!-- ── LIGHTBOX', '  <script src="https://unpkg.com/leaflet', False)
+lightbox = block('  <!-- ── LIGHTBOX', '  <script src="script.js"', False)
 WA_SVG   = fab[fab.index('<svg'):fab.index('</svg>') + 6]
 
 def nav_for(active_slug=None):
@@ -126,7 +126,7 @@ def gitem(n, src, video, alt_es, alt_en):
     if video:
         return f'''        <div class="gallery-item gallery-item--video fade-in" data-index="{n}"
              data-video="{video}" data-poster="{src}" onclick="openLightbox({n})">
-          <img src="{src}" loading="lazy" alt="{alt_es}" data-alt-es="{alt_es}" data-alt-en="{alt_en}">
+          <img src="{src.replace('.jpg', '-thumb.jpg')}" loading="lazy" alt="{alt_es}" data-alt-es="{alt_es}" data-alt-en="{alt_en}">
           <span class="gallery-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg><em>Video</em></span>
           <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg></div>
         </div>'''
@@ -139,14 +139,14 @@ def gitem(n, src, video, alt_es, alt_en):
 
 def hero_media(h, cls):
     if 'video' in h:
-        return f'''    <video class="{cls}" autoplay muted loop playsinline preload="metadata" poster="{h['poster']}" aria-label="{h['alt'][0]}">
-      <source src="{h['video']}" type="video/mp4">
-    </video>'''
+        return f'''    <video class="{cls}" muted loop playsinline preload="none" poster="{h['poster']}" aria-label="{h['alt'][0]}"
+           data-src="{h['video']}" data-src-mobile="{h['video'].replace('.mp4', '-mobile.mp4')}"></video>'''
     base = h['img'].rsplit('.', 1)[0]
     return f'''    <img class="{cls}" src="{h['img']}" srcset="{base}-800.jpg 800w, {h['img']} 1600w" sizes="100vw" fetchpriority="high"
          style="object-position:{h.get('pos','center')}" alt="{h['alt'][0]}" data-alt-es="{h['alt'][0]}" data-alt-en="{h['alt'][1]}">'''
 
-def head(title, desc, keywords, canonical_path, og_img, jsonld):
+def head(title, desc, keywords, canonical_path, og_img, jsonld, preload_img=None):
+    pre = f'  <link rel="preload" href="/{preload_img}" as="image" fetchpriority="high">\n' if preload_img else ''
     return f'''<!DOCTYPE html>
 <html lang="es">
 <head>
@@ -180,9 +180,9 @@ def head(title, desc, keywords, canonical_path, og_img, jsonld):
   <script type="application/ld+json">
   {json.dumps(jsonld, ensure_ascii=False, indent=2).replace(chr(10), chr(10) + '  ')}
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="/assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+{pre}  <link rel="stylesheet" href="styles.css">
 </head>
 '''
 
@@ -284,7 +284,7 @@ for x in XPS:
     else:
         cta = '            <a href="#contacto" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp">Consultar por WhatsApp</a>'
     badge = '    <span class="exp-badge xp-hero-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>\n' if soon else ''
-    page = head(x['meta_title'], x['meta_desc'], x['keywords'], x['slug'], x['card_img'], jsonld) + f'''<body class="page-experiencias page-xp" data-xp="{x['slug']}" data-wa-es="{wa_msg(x)[0]}" data-wa-en="{wa_msg(x)[1]}">
+    page = head(x['meta_title'], x['meta_desc'], x['keywords'], x['slug'], x['card_img'], jsonld, x['hero'].get('poster')) + f'''<body class="page-experiencias page-xp" data-xp="{x['slug']}" data-wa-es="{wa_msg(x)[0]}" data-wa-en="{wa_msg(x)[1]}">
 
 {nav_for(x['slug'])}
   <!-- ── HERO ──────────────────────────────────────────────────── -->

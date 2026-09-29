@@ -4,6 +4,11 @@ const WHATSAPP_MSG    = 'Hola, me gustaría consultar sobre Lago Sur Experiences
 const WHATSAPP_MSG_EN = "Hi, I'd like to ask about Lago Sur Experiences";
 const INSTAGRAM_URL   = ''; // 'https://instagram.com/tu_usuario' — vacío = se ocultan los botones de Instagram
 
+function afterLoad(fn) {
+  if (document.readyState === 'complete') setTimeout(fn, 0);
+  else window.addEventListener('load', () => setTimeout(fn, 0), { once: true });
+}
+
 /* ── ANALYTICS / GOOGLE ADS ───────────────────────────────────
    GA4_ID: ID de Google Analytics 4 ('G-XXXXXXXXXX').
    ADS_CONVERSION: acción de conversión de Google Ads ('AW-XXXXXXXXX/AbCdEfGhIjK').
@@ -15,14 +20,19 @@ const ADS_ID  = ADS_CONVERSION.split('/')[0];
 const TAG_IDS = [GA4_ID, ADS_ID].filter(Boolean);
 
 if (TAG_IDS.length) {
-  const gs = document.createElement('script');
-  gs.async = true;
-  gs.src = `https://www.googletagmanager.com/gtag/js?id=${TAG_IDS[0]}`;
-  document.head.appendChild(gs);
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
   gtag('js', new Date());
   TAG_IDS.forEach(id => gtag('config', id));
+  // La librería de Google se descarga cuando la página ya cargó; mientras tanto
+  // los eventos (incluidos los clics en WhatsApp) quedan en cola en dataLayer.
+  const loadTag = () => {
+    const gs = document.createElement('script');
+    gs.async = true;
+    gs.src = `https://www.googletagmanager.com/gtag/js?id=${TAG_IDS[0]}`;
+    document.head.appendChild(gs);
+  };
+  afterLoad(loadTag);
 }
 
 function trackContact(label) {
@@ -30,6 +40,22 @@ function trackContact(label) {
   const xp = document.body.dataset.xp || 'general';
   gtag('event', 'whatsapp_click', { contact_method: label, experience: xp, page_path: location.pathname, transport_type: 'beacon' });
   if (ADS_CONVERSION) gtag('event', 'conversion', { send_to: ADS_CONVERSION, transport_type: 'beacon' });
+}
+
+/* ── HERO VIDEO ───────────────────────────────────────────────
+   El video de fondo se descarga recién cuando terminó de cargar la página (primero se ve
+   la foto de portada). En pantallas chicas usa la versión liviana (-mobile.mp4). Con
+   "reducir movimiento" o ahorro de datos queda solo la foto. */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const heroVideo = document.querySelector('video[data-src]');
+if (heroVideo && !reduceMotion && !(navigator.connection && navigator.connection.saveData)) {
+  afterLoad(() => {
+    const small = window.matchMedia('(max-width: 768px)').matches;
+    heroVideo.muted = true;
+    heroVideo.autoplay = true;
+    heroVideo.src = (small && heroVideo.dataset.srcMobile) || heroVideo.dataset.src;
+    heroVideo.play().catch(() => {});
+  });
 }
 
 /* ── LANGUAGE ─────────────────────────────────────────────────── */
@@ -109,36 +135,6 @@ document.querySelectorAll('.fade-in').forEach((el, i) => {
   el.style.transitionDelay = `${(i % 4) * 0.1}s`;
   observer.observe(el);
 });
-
-/* ── GALLERY VIDEO LOOPS ──────────────────────────────────────
-   Cada celda de video reproduce en silencio y en loop su versión liviana (<nombre>-tile.mp4)
-   solo mientras está en pantalla; al tocarla, el lightbox abre el video completo. */
-const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const loopItems = document.querySelectorAll('.gallery-item--video[data-video]');
-if (loopItems.length && !reduceMotion && 'IntersectionObserver' in window) {
-  const loopObs = new IntersectionObserver(entries => {
-    entries.forEach(({ target, isIntersecting }) => {
-      let v = target.querySelector('.gallery-loop');
-      if (isIntersecting) {
-        if (!v) {
-          v = document.createElement('video');
-          v.className = 'gallery-loop';
-          v.muted = true;
-          v.loop = true;
-          v.playsInline = true;
-          v.setAttribute('aria-hidden', 'true');
-          v.src = target.dataset.video.replace(/\.mp4$/, '-tile.mp4');
-          v.addEventListener('playing', () => v.classList.add('playing'), { once: true });
-          target.querySelector('img').after(v);
-        }
-        v.play().catch(() => {});
-      } else if (v) {
-        v.pause();
-      }
-    });
-  }, { rootMargin: '200px 0px' });
-  loopItems.forEach(el => loopObs.observe(el));
-}
 
 /* ── GALLERY LIGHTBOX ─────────────────────────────────────────── */
 const galleryItems   = document.querySelectorAll('.gallery-item');
@@ -399,7 +395,36 @@ document.querySelectorAll('.whatsapp-fab, .canal-whatsapp, .footer-social a[aria
 });
 
 /* ── MAPA LAGOS (Leaflet + satélite de Esri, sin API key) ───── */
-if (typeof L !== 'undefined' && document.getElementById('lagosMap')) {
+// Leaflet se descarga recién cuando el mapa está por entrar en pantalla
+const lagosMapEl = document.getElementById('lagosMap');
+if (lagosMapEl && 'IntersectionObserver' in window) {
+  const mapObs = new IntersectionObserver(entries => {
+    if (!entries.some(e => e.isIntersecting)) return;
+    mapObs.disconnect();
+    loadLeaflet().then(initLagosMap).catch(() => {});
+  }, { rootMargin: '600px 0px' });
+  mapObs.observe(lagosMapEl);
+}
+
+function loadLeaflet() {
+  return new Promise((resolve, reject) => {
+    const css = document.createElement('link');
+    css.rel = 'stylesheet';
+    css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+    css.integrity = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
+    css.crossOrigin = '';
+    document.head.appendChild(css);
+    const js = document.createElement('script');
+    js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+    js.integrity = 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=';
+    js.crossOrigin = '';
+    js.onload = resolve;
+    js.onerror = reject;
+    document.head.appendChild(js);
+  });
+}
+
+function initLagosMap() {
   const map = L.map('lagosMap', {
     center: [-41.20, -71.48],
     zoom: 10,

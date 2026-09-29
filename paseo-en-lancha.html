@@ -86,8 +86,9 @@
     ]
   }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="/assets/fonts/montserrat.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/video/lanchas-navegando-hero.jpg" as="image" fetchpriority="high">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body class="page-experiencias page-xp" data-xp="paseo-en-lancha" data-wa-es="Hola, quiero consultar por Paseo en Lancha con Lago Sur Experiences" data-wa-en="Hi, I would like to ask about Boat Tour with Lago Sur Experiences">
@@ -131,9 +132,8 @@
 
   <!-- ── HERO ──────────────────────────────────────────────────── -->
   <header class="xp-hero xp-hero--page">
-    <video class="xp-hero-img" autoplay muted loop playsinline preload="metadata" poster="assets/video/lanchas-navegando-hero.jpg" aria-label="Lanchas navegando a toda velocidad por el lago Nahuel Huapi">
-      <source src="assets/video/lanchas-navegando-hero.mp4" type="video/mp4">
-    </video>
+    <video class="xp-hero-img" muted loop playsinline preload="none" poster="assets/video/lanchas-navegando-hero.jpg" aria-label="Lanchas navegando a toda velocidad por el lago Nahuel Huapi"
+           data-src="assets/video/lanchas-navegando-hero.mp4" data-src-mobile="assets/video/lanchas-navegando-hero-mobile.mp4"></video>
     <div class="hero-overlay"></div>
     <div class="hero-content fade-in">
       <p class="hero-location"><span class="xp-num">01</span> · <span data-es="Lago" data-en="Lake">Lago</span> · Arelauquen · Bariloche</p>
@@ -219,7 +219,7 @@
         </div>
         <div class="gallery-item gallery-item--video fade-in" data-index="3"
              data-video="assets/video/costa-turquesa.mp4" data-poster="assets/video/costa-turquesa.jpg" onclick="openLightbox(3)">
-          <img src="assets/video/costa-turquesa.jpg" loading="lazy" alt="Nadando en aguas transparentes junto a una roca, con la cordillera de fondo" data-alt-es="Nadando en aguas transparentes junto a una roca, con la cordillera de fondo" data-alt-en="Swimming in crystal-clear water by a rock, with the Andes behind">
+          <img src="assets/video/costa-turquesa-thumb.jpg" loading="lazy" alt="Nadando en aguas transparentes junto a una roca, con la cordillera de fondo" data-alt-es="Nadando en aguas transparentes junto a una roca, con la cordillera de fondo" data-alt-en="Swimming in crystal-clear water by a rock, with the Andes behind">
           <span class="gallery-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg><em>Video</em></span>
           <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg></div>
         </div>
@@ -237,13 +237,13 @@
         </div>
         <div class="gallery-item gallery-item--video fade-in" data-index="6"
              data-video="assets/video/lancha-estela-bosque.mp4" data-poster="assets/video/lancha-estela-bosque.jpg" onclick="openLightbox(6)">
-          <img src="assets/video/lancha-estela-bosque.jpg" loading="lazy" alt="La lancha abriendo estela en el lago, con bosque y cerros nevados de fondo" data-alt-es="La lancha abriendo estela en el lago, con bosque y cerros nevados de fondo" data-alt-en="The boat carving a wake across the lake, with forest and snowy peaks behind">
+          <img src="assets/video/lancha-estela-bosque-thumb.jpg" loading="lazy" alt="La lancha abriendo estela en el lago, con bosque y cerros nevados de fondo" data-alt-es="La lancha abriendo estela en el lago, con bosque y cerros nevados de fondo" data-alt-en="The boat carving a wake across the lake, with forest and snowy peaks behind">
           <span class="gallery-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg><em>Video</em></span>
           <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg></div>
         </div>
         <div class="gallery-item gallery-item--video fade-in" data-index="7"
              data-video="assets/video/lancha-agua-turquesa.mp4" data-poster="assets/video/lancha-agua-turquesa.jpg" onclick="openLightbox(7)">
-          <img src="assets/video/lancha-agua-turquesa.jpg" loading="lazy" alt="Vista con dron de la lancha sobre agua turquesa, subiendo hacia los cerros" data-alt-es="Vista con dron de la lancha sobre agua turquesa, subiendo hacia los cerros" data-alt-en="Drone view of the boat on turquoise water, rising toward the peaks">
+          <img src="assets/video/lancha-agua-turquesa-thumb.jpg" loading="lazy" alt="Vista con dron de la lancha sobre agua turquesa, subiendo hacia los cerros" data-alt-es="Vista con dron de la lancha sobre agua turquesa, subiendo hacia los cerros" data-alt-en="Drone view of the boat on turquoise water, rising toward the peaks">
           <span class="gallery-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg><em>Video</em></span>
           <div class="gallery-overlay"><svg viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5z" fill="white"/></svg></div>
         </div>
