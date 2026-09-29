@@ -110,6 +110,36 @@ document.querySelectorAll('.fade-in').forEach((el, i) => {
   observer.observe(el);
 });
 
+/* ── GALLERY VIDEO LOOPS ──────────────────────────────────────
+   Cada celda de video reproduce en silencio y en loop su versión liviana (<nombre>-tile.mp4)
+   solo mientras está en pantalla; al tocarla, el lightbox abre el video completo. */
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const loopItems = document.querySelectorAll('.gallery-item--video[data-video]');
+if (loopItems.length && !reduceMotion && 'IntersectionObserver' in window) {
+  const loopObs = new IntersectionObserver(entries => {
+    entries.forEach(({ target, isIntersecting }) => {
+      let v = target.querySelector('.gallery-loop');
+      if (isIntersecting) {
+        if (!v) {
+          v = document.createElement('video');
+          v.className = 'gallery-loop';
+          v.muted = true;
+          v.loop = true;
+          v.playsInline = true;
+          v.setAttribute('aria-hidden', 'true');
+          v.src = target.dataset.video.replace(/\.mp4$/, '-tile.mp4');
+          v.addEventListener('playing', () => v.classList.add('playing'), { once: true });
+          target.querySelector('img').after(v);
+        }
+        v.play().catch(() => {});
+      } else if (v) {
+        v.pause();
+      }
+    });
+  }, { rootMargin: '200px 0px' });
+  loopItems.forEach(el => loopObs.observe(el));
+}
+
 /* ── GALLERY LIGHTBOX ─────────────────────────────────────────── */
 const galleryItems   = document.querySelectorAll('.gallery-item');
 const lightbox       = document.getElementById('lightbox');
@@ -145,6 +175,7 @@ function renderLightboxItem() {
     if (item.dataset.poster) video.poster = item.dataset.poster;
     video.controls = true;
     video.autoplay = true;
+    video.loop = true;
     video.playsInline = true;
     video.preload = 'metadata';
     video.className = 'lightbox-media';
