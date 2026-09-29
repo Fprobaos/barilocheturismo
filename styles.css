@@ -1214,10 +1214,17 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
   padding: 2.5rem;
 }
 
-.guia-photo .img-placeholder {
+.guia-photo .img-placeholder,
+.guia-photo .guia-img {
   width: 100%;
   aspect-ratio: 4 / 5;
   border-radius: var(--radius);
+}
+.guia-photo .guia-img {
+  display: block;
+  height: auto;
+  object-fit: cover;
+  object-position: center 15%; /* recorta abajo, no la cara */
 }
 
 .img-ph-guia {
