@@ -38,9 +38,9 @@ XPS = [
         'We set out on our private boat, with room for up to six people, and leave the noise of downtown behind. Within minutes the lake opens into arms and bays you only get to know by sailing.'),
     p2=('El recorrido se arma según el día y el grupo: una cala de agua turquesa para nadar, una playa escondida para un picnic, o simplemente apagar el motor y escuchar el silencio de la cordillera. Mientras tanto, el dron registra la salida desde el aire para que te lleves las fotos y los videos.',
         'The route is shaped by the day and the group: a turquoise cove for a swim, a hidden beach for a picnic, or simply cutting the engine to listen to the silence of the Andes. Meanwhile, the drone captures the outing from above so you take the photos and videos home.'),
-    p3=('No hay dos salidas iguales. Si el viento acompaña cruzamos a las islas; si el lago está planchado buscamos las calas del brazo norte, donde el agua se pone transparente y las montañas se reflejan enteras. Cerramos siempre con el atardecer sobre la cordillera.',
-        'No two outings are alike. If the wind allows we cross to the islands; if the lake is glassy we head for the coves of the northern arm, where the water turns transparent and the mountains reflect in full. We always close with sunset over the Andes.'),
-    facts=[('Duración','Duration','Medio día','Half day'),('Grupo','Group','Hasta 6 personas','Up to 6 people'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Idiomas','Languages','ES · EN','ES · EN')],
+    p3=('No hay dos salidas iguales. Si el viento acompaña cruzamos a las islas; si el lago está planchado buscamos las calas del brazo norte, donde el agua se pone transparente y las montañas se reflejan enteras. Cerramos siempre con el atardecer sobre la cordillera. Y si te gusta pescar, sumá la pesca con mosca como adicional por persona.',
+        'No two outings are alike. If the wind allows we cross to the islands; if the lake is glassy we head for the coves of the northern arm, where the water turns transparent and the mountains reflect in full. We always close with sunset over the Andes. And if you like fishing, add fly fishing as a per-person extra.'),
+    facts=[('Duración','Duration','Medio día','Half day'),('Grupo','Group','Hasta 6 personas','Up to 6 people'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Adicional','Add-on','Pesca con mosca','Fly fishing')],
     inc=[('Lancha privada para hasta 6 personas','Private boat for up to 6 people'),
          ('Recorrido por bahías, islas y rincones del Nahuel Huapi','Route through bays, islands and hidden corners of Nahuel Huapi'),
          ('Chalecos y equipo de seguridad a bordo','Life jackets and safety gear on board'),
@@ -56,42 +56,15 @@ XPS = [
            ('assets/img/cala-turquesa.jpg', None, 'Cala de aguas turquesas entre acantilados y bosque','Turquoise cove between cliffs and forest'),
            ('assets/img/lago-orilla-aerea.jpg', None, 'Vista aérea con dron de la orilla y los bajos turquesa del lago','Drone aerial view of the shore and the turquoise shallows')],
     meta_title='Paseo en Lancha por el Nahuel Huapi | Lago Sur Experiences · Bariloche',
-    meta_desc='Navegación privada por bahías, islas y calas turquesa del lago Nahuel Huapi desde Arelauquen, Bariloche. Lancha para hasta 6 personas, medio día, fotos y videos con dron incluidos.',
-    keywords='paseo en lancha Bariloche, navegación Nahuel Huapi, excursión lancha privada Bariloche, Arelauquen',
+    meta_desc='Navegación privada por bahías, islas y calas turquesa del lago Nahuel Huapi desde Arelauquen, Bariloche. Lancha para hasta 6 personas, medio día, pesca con mosca opcional, fotos y videos con dron incluidos.',
+    keywords='paseo en lancha Bariloche, navegación Nahuel Huapi, excursión lancha privada Bariloche, pesca con mosca Bariloche, Arelauquen',
     ld_type='TouristTrip', tourist=['Familias','Parejas','Grupos privados']),
 
-  dict(slug='pesca-con-mosca', id='pesca', num='02', kicker=('Pesca','Fishing'), title=('Pesca con Mosca','Fly Fishing'),
-    tag=('Truchas marrón y arco iris en aguas donde casi nadie lanza una línea.',
-         'Brown and rainbow trout in waters where almost no one casts a line.'),
-    p1=('La Patagonia norte es uno de los grandes destinos de pesca con mosca del mundo. Nosotros la vivimos desde adentro: bocas de río, orillas del lago y pozones que Francisco conoce desde los siete años.',
-        'Northern Patagonia is one of the great fly-fishing destinations in the world. We live it from the inside: river mouths, lake shores and pools Francisco has known since he was seven.'),
-    p2=('Proveemos todo el equipo técnico y adaptamos la jornada a tu nivel, desde el primer lanzamiento hasta la búsqueda de una trucha grande. La salida se hace en lancha o con vadeo, según el spot del día, y el dron registra las mejores capturas.',
-        'We provide all the technical gear and adapt the day to your level, from your first cast to chasing a trophy trout. Outings are by boat or wading, depending on the spot of the day, and the drone captures the best catches.'),
-    p3=('Pescamos con devolución, con moscas atadas para las aguas de la zona y respetando los reglamentos de temporada. Si es tu primera vez, la mañana arranca con una clase corta en la orilla; si ya pescás, vamos directo a los lugares que pocos conocen.',
-        'We fish catch-and-release, with flies tied for local waters and in line with seasonal regulations. If it is your first time, the morning starts with a short lesson on the shore; if you already fish, we go straight to the spots few people know.'),
-    facts=[('Duración','Duration','Día completo','Full day'),('Grupo','Group','Grupos reducidos','Small groups'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Nivel','Level','Todos los niveles','All levels')],
-    inc=[('Equipo técnico completo: cañas, moscas y waders','Full technical gear: rods, flies and waders'),
-         ('Salida en lancha o vadeo según el spot del día','Boat or wading outing depending on the spot of the day'),
-         ('Truchas marrón y arco iris en aguas de lago y río','Brown and rainbow trout in lake and river waters'),
-         ('Modalidad pesca con devolución','Catch and release'),
-         DRON],
-    hero=dict(img='assets/img/lago-montanas.jpg', alt=('Lago y cordillera al atardecer con una lancha','Lake and Andes at sunset with a boat'), pos='center 55%'),
-    card_img='assets/img/lago-montanas.jpg',
-    strip=[('assets/img/atardecer-bote.jpg', None, 'El grupo a bordo del bote al atardecer','The group aboard the boat at sunset'),
-           ('assets/img/lago-orilla-aerea.jpg', None, 'Vista aérea con dron de la orilla y los bajos turquesa del lago','Drone aerial view of the shore and the turquoise shallows'),
-           ('assets/video/playa-grupo.jpg', 'assets/video/playa-grupo.mp4', 'El grupo en una playa escondida del lago','The group on a hidden lake beach'),
-           ('assets/video/orilla-piedras.jpg', 'assets/video/orilla-piedras.mp4', 'Orilla de piedras y troncos con agua transparente, vista desde el dron','Stony shore with driftwood and crystal-clear water, seen from the drone'),
-           ('assets/img/lancha-atardecer-cordillera.jpg', None, 'La lancha sola en el lago al caer la tarde, con cerros nevados al fondo','The boat alone on the lake at dusk, with snow-capped peaks behind')],
-    meta_title='Pesca con Mosca en Bariloche | Lago Sur Experiences · Arelauquen',
-    meta_desc='Jornada privada de pesca con mosca de truchas marrón y arco iris en lagos y ríos de la Patagonia norte. Equipo completo incluido, todos los niveles, pesca con devolución, fotos y videos con dron.',
-    keywords='pesca con mosca Bariloche, fly fishing Bariloche, pesca de truchas Patagonia, guía de pesca Nahuel Huapi',
-    ld_type='TouristTrip', tourist=['Pescadores','Principiantes','Expertos']),
-
-  dict(slug='rutas-secretas', id='rutas', num='03', kicker=('Cordillera','Andes'), title=('Rutas Secretas','Secret Trails'),
+  dict(slug='rutas-secretas', id='rutas', num='02', kicker=('Cordillera','Andes'), title=('Rutas Secretas','Secret Trails'),
     tag=('Cascadas, miradores y bosques de lengas que no figuran en ningún mapa.',
          'Waterfalls, viewpoints and beech forests that appear on no map.'),
-    p1=('Lejos de los circuitos turísticos, la cordillera guarda senderos que solo conocen quienes crecieron acá. Te llevamos en vehículo hasta el inicio de cada ruta y caminamos a un ritmo pensado para disfrutar, no para llegar.',
-        'Far from the tourist circuits, the Andes hide trails known only to those who grew up here. We drive you to each trailhead and walk at a pace meant for enjoying, not arriving.'),
+    p1=('Lejos de los circuitos turísticos, la cordillera guarda senderos que solo conocen quienes la recorren hace años. Te llevamos en vehículo hasta el inicio de cada ruta y caminamos a un ritmo pensado para disfrutar, no para llegar.',
+        'Far from the tourist circuits, the Andes hide trails known only to those who have walked them for years. We drive you to each trailhead and walk at a pace meant for enjoying, not arriving.'),
     p2=('Cada salida termina en un lugar especial: una cascada oculta, un mirador sobre el lago o una playa desierta, con un picnic patagónico para cerrar el día y el dron sobrevolando el paisaje para tus fotos y videos.',
         'Every outing ends somewhere special: a hidden waterfall, a lookout over the lake or a deserted beach, with a Patagonian picnic to close the day and the drone flying over the landscape for your photos and videos.'),
     p3=('Elegimos la ruta según el grupo y el clima: lagunas escondidas al pie de los cerros nevados, playas de piedra a las que solo se llega caminando, bosques de lengas centenarias. Sin multitudes, sin horarios ajenos, con la Patagonia entera para ustedes.',
@@ -113,25 +86,25 @@ XPS = [
     keywords='trekking Bariloche, caminatas privadas Bariloche, senderos secretos Patagonia, excursiones Arelauquen',
     ld_type='TouristTrip', tourist=['Familias','Parejas','Amantes del trekking']),
 
-  dict(slug='casa-arelauquen', id='casa', num='04', kicker=('Alojamiento','Stay'), title=('Casa Acogedora','Cozy House'), soon=True,
+  dict(slug='casa-arelauquen', id='casa', num='03', kicker=('Alojamiento','Stay'), title=('Casa Acogedora','Cozy House'), soon=True,
     tag=('Un refugio de madera y hogar a leña dentro del barrio más exclusivo de Bariloche.',
          'A wood-and-fireplace refuge inside the most exclusive estate in Bariloche.'),
-    p1=('La casa está pensada para grupos chicos que buscan tranquilidad antes que ostentación. Madera noble, hogar a leña encendido al atardecer y ventanales que enmarcan el bosque y la cordillera.',
-        'The house is designed for small groups who value calm over ostentation. Noble wood, a fireplace lit at sunset and windows that frame the forest and the Andes.'),
+    p1=('La casa está pensada para hasta 6 personas que buscan tranquilidad antes que ostentación. Madera noble, hogar a leña encendido al atardecer y ventanales que enmarcan el bosque y la cordillera.',
+        'The house is designed for up to 6 guests who value calm over ostentation. Noble wood, a fireplace lit at sunset and windows that frame the forest and the Andes.'),
     p2=('Quedarse en Arelauquen significa acceder a la cancha de golf, a las áreas comunes del club y a la seguridad de un barrio privado con barrera las 24 horas, a 25 minutos del aeropuerto.',
         'Staying in Arelauquen means access to the golf course, the club common areas and the security of a gated estate with 24-hour access, 25 minutes from the airport.'),
     p3=('Estamos terminando de prepararla. Si querés que te avisemos cuando esté disponible, escribinos por WhatsApp y te reservamos prioridad para la temporada.',
         'We are finishing getting it ready. If you would like to be notified when it is available, message us on WhatsApp and we will hold priority for you this season.'),
-    facts=[('Capacidad','Capacity','Grupos chicos','Small groups'),('Ubicación','Location','Arelauquen','Arelauquen'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Estado','Status','Próximamente','Coming soon')],
+    facts=[('Capacidad','Capacity','Hasta 6 personas','Up to 6 people'),('Ubicación','Location','Arelauquen','Arelauquen'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Estado','Status','Próximamente','Coming soon')],
     inc=[('Alojamiento dentro del barrio privado Arelauquen','Accommodation inside the Arelauquen private estate'),
          ('Acceso a la cancha de golf y áreas comunes del club','Access to the golf course and club common areas'),
          ('WiFi de fibra y hogar a leña','Fiber WiFi and wood fireplace'),
-         ('Traslado desde el aeropuerto y welcome drink','Airport transfer and welcome drink')],
+         ('Welcome drink a la llegada','Welcome drink on arrival')],
     hero=dict(img='assets/img/arelauquen-golf.jpg', alt=('Cancha de golf de Arelauquen con el lago Nahuel Huapi y la cordillera','Arelauquen golf course with Lake Nahuel Huapi and the Andes'), pos='center 45%'),
     card_img='assets/img/arelauquen-golf.jpg',
     strip=[],
     meta_title='Casa en Arelauquen, Bariloche (próximamente) | Lago Sur Experiences',
-    meta_desc='Casa íntima con hogar a leña dentro del barrio privado Arelauquen, Bariloche, con acceso a la cancha de golf y al club. Próximamente. Consultá por WhatsApp.',
+    meta_desc='Casa íntima para hasta 6 personas, con hogar a leña, dentro del barrio privado Arelauquen, Bariloche, con acceso a la cancha de golf y al club. Próximamente. Consultá por WhatsApp.',
     keywords='alojamiento Arelauquen, casa Bariloche barrio privado, hospedaje golf Bariloche',
     ld_type='LodgingBusiness', tourist=[]),
 ]
@@ -399,7 +372,7 @@ hub_ld = {"@context": "https://schema.org", "@graph": [
      "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{BASE}/{x['slug']}.html", "name": x['title'][0]} for i, x in enumerate(XPS)]}]}
 
 hub = head('Experiencias en Bariloche: lancha, pesca con mosca y rutas secretas | Lago Sur Experiences',
-           'Paseos privados en lancha por el Nahuel Huapi, pesca con mosca y rutas secretas en la cordillera, desde Arelauquen, Bariloche. Grupos reducidos, español e inglés, fotos y videos con dron incluidos. Reserva por WhatsApp.',
+           'Paseos privados en lancha por el Nahuel Huapi con pesca con mosca opcional y rutas secretas en la cordillera, desde Arelauquen, Bariloche. Grupos reducidos, español e inglés, fotos y videos con dron incluidos. Reserva por WhatsApp.',
            'experiencias Bariloche, paseo en lancha Nahuel Huapi, pesca con mosca Bariloche, trekking Bariloche, Arelauquen, turismo de lujo Patagonia, fotos con dron',
            'experiencias.html', 'og-image.jpg', hub_ld) + f'''<body class="page-experiencias">
 
@@ -412,7 +385,7 @@ hub = head('Experiencias en Bariloche: lancha, pesca con mosca y rutas secretas 
     <div class="hero-content fade-in">
       <p class="hero-location">Arelauquen · Bariloche · Patagonia</p>
       <h1 class="hero-title" data-es="Las experiencias" data-en="The experiences">Las experiencias</h1>
-      <p class="hero-sub" data-es="Cuatro maneras de vivir la Patagonia que pocos conocen" data-en="Four ways to live the Patagonia only few discover">Cuatro maneras de vivir la Patagonia que pocos conocen</p>
+      <p class="hero-sub" data-es="Tres maneras de vivir la Patagonia que pocos conocen" data-en="Three ways to live the Patagonia only few discover">Tres maneras de vivir la Patagonia que pocos conocen</p>
     </div>
   </header>
 
@@ -422,13 +395,12 @@ hub = head('Experiencias en Bariloche: lancha, pesca con mosca y rutas secretas 
       <div class="section-header fade-in">
         <p class="section-label" data-es="A medida, en grupos reducidos" data-en="Tailor-made, in small groups">A medida, en grupos reducidos</p>
         <p class="xp-intro-text"
-           data-es="Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi, pesca con mosca, rutas secretas por la cordillera y, próximamente, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp."
-           data-en="Lago Sur Experiences offers private experiences in Arelauquen, Bariloche: boat tours on Lake Nahuel Huapi, fly fishing, secret trails across the Andes and, coming soon, a house inside the private estate. Everything is tailor-made, in Spanish or English, includes drone photos and videos of your day and is booked via WhatsApp.">
-          Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi, pesca con mosca, rutas secretas por la cordillera y, próximamente, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp.
+           data-es="Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, próximamente, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp."
+           data-en="Lago Sur Experiences offers private experiences in Arelauquen, Bariloche: boat tours on Lake Nahuel Huapi (with optional fly fishing), secret trails across the Andes and, coming soon, a house inside the private estate. Everything is tailor-made, in Spanish or English, includes drone photos and videos of your day and is booked via WhatsApp.">
+          Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, próximamente, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp.
         </p>
         <nav class="xp-jump" aria-label="Experiencias">
           <a href="paseo-en-lancha.html" data-es="Lancha" data-en="Boat">Lancha</a>
-          <a href="pesca-con-mosca.html"  data-es="Pesca"  data-en="Fishing">Pesca</a>
           <a href="rutas-secretas.html"  data-es="Rutas"  data-en="Trails">Rutas</a>
           <a href="casa-arelauquen.html"   data-es="Casa"   data-en="House">Casa</a>
         </nav>

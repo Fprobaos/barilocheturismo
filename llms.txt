@@ -1,18 +1,17 @@
 # Lago Sur Experiences
 
-> Experiencias privadas de turismo en Arelauquen, Bariloche, Patagonia Argentina: paseos en lancha por el lago Nahuel Huapi, pesca con mosca, rutas secretas por la cordillera y, próximamente, alojamiento en una casa dentro del barrio privado Arelauquen. Grupos reducidos, atención en español e inglés, reserva por WhatsApp. Temporada: diciembre a marzo.
+> Experiencias privadas de turismo en Arelauquen, Bariloche, Patagonia Argentina: paseos en lancha por el lago Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, próximamente, alojamiento en una casa dentro del barrio privado Arelauquen. Grupos reducidos, atención en español e inglés, reserva por WhatsApp. Temporada: diciembre a marzo.
 
 ## Experiencias
 
-- [Paseo en Lancha](https://lago-sur-experiences.vercel.app/paseo-en-lancha.html): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 6 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron.
-- [Pesca con Mosca](https://lago-sur-experiences.vercel.app/pesca-con-mosca.html): truchas marrón y arco iris en lagos y ríos de la Patagonia norte. Día completo, todos los niveles. Incluye equipo técnico completo (cañas, moscas, waders), pesca con devolución y fotos y videos con dron.
+- [Paseo en Lancha](https://lago-sur-experiences.vercel.app/paseo-en-lancha.html): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 6 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron. Pesca con mosca opcional, como adicional por persona.
 - [Rutas Secretas](https://lago-sur-experiences.vercel.app/rutas-secretas.html): caminatas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos. Medio día o día completo, dificultad baja a media. Incluye traslado, picnic patagónico y fotos y videos con dron.
-- [Casa Acogedora](https://lago-sur-experiences.vercel.app/casa-arelauquen.html): casa íntima con hogar a leña dentro de Arelauquen, con acceso al golf y al club. Próximamente.
+- [Casa Acogedora](https://lago-sur-experiences.vercel.app/casa-arelauquen.html): casa íntima con hogar a leña para hasta 6 personas dentro de Arelauquen, con acceso al golf y al club. Próximamente.
 
 ## Datos útiles
 
 - Ubicación: Arelauquen, barrio privado a 12 km del aeropuerto de Bariloche (BRC) y a 15 km del centro.
-- Anfitrión: Francisco Probaos, nacido en Bariloche, bilingüe (español e inglés), ex Explore Sydney Harbour.
+- Anfitrión: Francisco Probaos, timonel de yate a motor, más de 20 años viniendo al sur, bilingüe (español e inglés), ex guía de lanchas en Explore Sydney Harbour (Sídney, Australia).
 - Idiomas: español e inglés.
 - Reservas y consultas: WhatsApp, respuesta en el día.
 - Preguntas frecuentes: https://lago-sur-experiences.vercel.app/#faq
@@ -22,6 +21,5 @@
 - [Inicio](https://lago-sur-experiences.vercel.app/)
 - [Experiencias, índice](https://lago-sur-experiences.vercel.app/experiencias.html)
 - [Paseo en Lancha](https://lago-sur-experiences.vercel.app/paseo-en-lancha.html)
-- [Pesca con Mosca](https://lago-sur-experiences.vercel.app/pesca-con-mosca.html)
 - [Rutas Secretas](https://lago-sur-experiences.vercel.app/rutas-secretas.html)
 - [Casa en Arelauquen](https://lago-sur-experiences.vercel.app/casa-arelauquen.html)
