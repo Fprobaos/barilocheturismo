@@ -46,7 +46,7 @@ XPS = [
          ('Chalecos y equipo de seguridad a bordo','Life jackets and safety gear on board'),
          ('Parada para nadar o hacer picnic en una playa escondida','Stop to swim or picnic on a hidden beach'),
          DRON],
-    hero=dict(video='assets/video/lanchas-navegando-hero.mp4', poster='assets/video/lanchas-navegando-hero.jpg',
+    hero=dict(video='assets/video/lanchas-navegando-hero-v2.mp4', poster='assets/video/lanchas-navegando-hero.jpg',
               alt=('Lanchas navegando a toda velocidad por el lago Nahuel Huapi','Boats speeding across Lake Nahuel Huapi')),
     card_img='assets/img/playa-turquesa-aerea.jpg',
     strip=[('assets/img/lancha-estela.jpg', None, 'Lancha navegando el lago Nahuel Huapi entre islas','Boat cruising Lake Nahuel Huapi between islands'),
