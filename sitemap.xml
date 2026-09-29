@@ -15,6 +15,11 @@
     <image:image><image:loc>https://lagosur.site/assets/img/lago-cordillera-nubes.jpg</image:loc></image:image>
     <image:image><image:loc>https://lagosur.site/assets/img/lancha-atardecer-cordillera.jpg</image:loc></image:image>
     <image:image><image:loc>https://lagosur.site/assets/img/brazo-lago-turquesa.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/grupo-lancha-cerro-nevado.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/bajos-turquesa-punta-arena.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/gomones-cordillera-contraluz.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/lanchas-sol-reflejo.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/lancha-costa-bosque.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://lagosur.site/experiencias</loc>
@@ -36,6 +41,9 @@
     <image:image><image:loc>https://lagosur.site/assets/img/playa-turquesa-aerea.jpg</image:loc></image:image>
     <image:image><image:loc>https://lagosur.site/assets/img/gomones-agua-turquesa.jpg</image:loc></image:image>
     <image:image><image:loc>https://lagosur.site/assets/img/cala-turquesa.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/grupo-lancha-cerro-nevado.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/gomones-cordillera-contraluz.jpg</image:loc></image:image>
+    <image:image><image:loc>https://lagosur.site/assets/img/lancha-costa-bosque.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://lagosur.site/rutas-secretas</loc>
