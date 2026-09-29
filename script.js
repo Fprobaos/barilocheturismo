@@ -4,9 +4,13 @@ const WHATSAPP_MSG    = 'Hola, me gustaría consultar sobre Lago Sur Experiences
 const WHATSAPP_MSG_EN = "Hi, I'd like to ask about Lago Sur Experiences";
 const INSTAGRAM_URL   = ''; // 'https://instagram.com/tu_usuario' — vacío = se ocultan los botones de Instagram
 
-function afterLoad(fn) {
-  if (document.readyState === 'complete') setTimeout(fn, 0);
-  else window.addEventListener('load', () => setTimeout(fn, 0), { once: true });
+// Corre fn cuando la página terminó de cargar, pasados `delay` ms y con el navegador libre,
+// para que lo pesado (video de fondo, Analytics) no compita con lo que se está pintando.
+function afterLoad(fn, delay = 0) {
+  const idle = window.requestIdleCallback || (cb => setTimeout(cb, 1));
+  const run = () => setTimeout(() => idle(fn, { timeout: 2000 }), delay);
+  if (document.readyState === 'complete') run();
+  else window.addEventListener('load', run, { once: true });
 }
 
 /* ── ANALYTICS / GOOGLE ADS ───────────────────────────────────
@@ -32,7 +36,7 @@ if (TAG_IDS.length) {
     gs.src = `https://www.googletagmanager.com/gtag/js?id=${TAG_IDS[0]}`;
     document.head.appendChild(gs);
   };
-  afterLoad(loadTag);
+  afterLoad(loadTag, 2500);
 }
 
 function trackContact(label) {
@@ -55,7 +59,7 @@ if (heroVideo && !reduceMotion && !(navigator.connection && navigator.connection
     heroVideo.autoplay = true;
     heroVideo.src = (small && heroVideo.dataset.srcMobile) || heroVideo.dataset.src;
     heroVideo.play().catch(() => {});
-  });
+  }, 1500);
 }
 
 /* ── LANGUAGE ─────────────────────────────────────────────────── */
