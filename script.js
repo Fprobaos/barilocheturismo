@@ -1,5 +1,5 @@
 /* ── CONFIG — Editá estos valores ─────────────────────────────── */
-const WHATSAPP_NUMBER = ''; // Formato wa.me: 54 + 9 + área sin 0 + número sin 15. Vacío = los botones llevan a #contacto
+const WHATSAPP_NUMBER = '5491178122900'; // Formato wa.me: 54 + 9 + área sin 0 + número sin 15. Vacío = los botones llevan a #contacto
 const WHATSAPP_MSG    = 'Hola, me gustaría consultar sobre Lago Sur Experiences';
 const WHATSAPP_MSG_EN = "Hi, I'd like to ask about Lago Sur Experiences";
 const INSTAGRAM_URL   = ''; // 'https://instagram.com/tu_usuario' — vacío = se ocultan los botones de Instagram
