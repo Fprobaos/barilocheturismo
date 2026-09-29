@@ -10,7 +10,7 @@ Static marketing site for **Lago Sur Experiences** — luxury tourism experience
 - `experiencias.html` — index of experiences (one big card per experience linking to its page)
 - `paseo-en-lancha.html`, `rutas-secretas.html`, `casa-arelauquen.html` — one page per experience (hero, detail + sticky "Incluye" card, gallery strip, other experiences, contact)
 - `tools/build_pages.py` — **generates the four pages above** from the `XPS` data list, copying navbar/footer/FAB/lightbox from `index.html`. Edit the data or templates there and run `python tools/build_pages.py` from the repo root; never hand-edit the generated pages. `.vercelignore` keeps `tools/` out of the deploy. Fly fishing is no longer its own experience (it is an add-on to the boat tour); `vercel.json` redirects the old `/pesca-con-mosca` to `/paseo-en-lancha`.
-- `styles.css` — all styling (Cormorant Garamond + Montserrat from Google Fonts)
+- `styles.css` — all styling. Fonts (Cormorant Garamond + Montserrat) are self-hosted variable latin woff2 files in `assets/fonts/`, declared at the top of `styles.css` and preloaded in every `<head>`; don't add the Google Fonts stylesheet back (it was render-blocking).
 - `script.js` — all behavior
 
 ## Running
@@ -46,6 +46,14 @@ Production is https://lagosur.site (domain bought through Vercel on 2026-09-29; 
 **Contact form** does not POST anywhere — it builds a prefilled WhatsApp message and opens `wa.me`. Any "backend" change means changing that flow.
 
 **Scroll/visibility behaviors**: `IntersectionObserver` adds `.visible` to `.fade-in` elements (one-shot, unobserved after firing); navbar gets `.scrolled` after 40px; smooth-scroll handler offsets by `navbar.offsetHeight` so anchors don't hide under the fixed nav.
+
+**Loading performance** (Lighthouse mobile 97–100 as of 2026-09-29 — keep it that way):
+- Hero videos are `<video data-src data-src-mobile preload="none" poster>`; `script.js` sets the source 1.5 s after `load` (phones ≤768px get the 480p `-mobile.mp4`, reduced-motion/Save-Data keep the poster). The poster is preloaded with `fetchpriority="high"`. A new video hero needs a `-mobile.mp4` next to it.
+- Hero text uses `.hero-in` (pure CSS animation), not `.fade-in`, so it paints without waiting for JS.
+- `gtag.js` is fetched 2.5 s after `load`; `gtag()` calls queue in `dataLayer` until then.
+- Leaflet JS/CSS are injected only when the map nears the viewport (`loadLeaflet()` → `initLagosMap()`).
+- Gallery video cells are static (owner prefers no autoplay): the grid shows `<name>-thumb.jpg`, the lightbox plays the full `<name>.mp4` looped. A new gallery video needs its `.jpg` poster and `-thumb.jpg`.
+- `vercel.json` caches `/assets/img|video|pano` and icons for a week and fonts for a year (immutable). Replacing an asset under the same name can take up to a week to reach returning visitors — use a new filename when that matters.
 
 **Lakes map** (home only): Leaflet with Esri World Imagery tiles (CARTO now requires an API key). Pins come from the `lagos` array in `script.js`; giving an entry `pano` (equirectangular 2:1 JPG, 4096×2048, in `assets/pano/`), `thumb` (160px square crop) and optional start `yaw` turns its dot into a round thumbnail that opens a fullscreen Pannellum 360° viewer, lazy-loaded from jsdelivr on first open.
 
