@@ -19,11 +19,11 @@ Open `index.html` directly in a browser, or serve the directory with any static 
 
 ## Deploy
 
-Production is https://lago-sur-experiences.vercel.app, deployed with `vercel --prod --yes` (no git integration). The owner wants every change deployed as soon as it is made.
+Production is https://lagosur.site (domain bought through Vercel on 2026-09-29; `lago-sur-experiences.vercel.app` redirects to it), deployed with `vercel --prod --yes` (no git integration). The owner wants every change deployed as soon as it is made.
 
 ## SEO / GEO / Ads
 
-- `robots.txt`, `sitemap.xml`, `llms.txt` live at the root and use the canonical URL `https://lago-sur-experiences.vercel.app` (same as the `<link rel="canonical">` tags and the JSON-LD). There is no custom domain yet; when one is bought, replace that base URL in `index.html`, `experiencias.html`, `robots.txt`, `sitemap.xml` and `llms.txt` together, and add the domain in Vercel.
+- `robots.txt`, `sitemap.xml`, `llms.txt` live at the root and use the canonical URL `https://lagosur.site` (same as the `<link rel="canonical">` tags and the JSON-LD). If the domain ever changes, replace that base URL in `index.html`, `tools/build_pages.py` (`BASE`), `robots.txt`, `sitemap.xml` and `llms.txt` together. `robots.txt` explicitly allows search and AI crawlers; `llms.txt` carries the key facts (experiences, season, payments, cancellation) — keep it in sync with the pages and the FAQ.
 - JSON-LD: `TravelAgency` + `FAQPage` on the home, `BreadcrumbList` + `ItemList` of `TouristTrip` on the experiences page. The FAQ schema mirrors the `<details>` content — keep them in sync.
 - Google Ads / GA4: `GA4_ID` and `ADS_CONVERSION` (`AW-…/label`) at the top of `script.js` are empty placeholders; the Google tag loads and configures whichever is set. `trackContact()` fires a GA4 `whatsapp_click` event (with `experience` from `<body data-xp>`) plus the Ads conversion on every WhatsApp click and on calendar confirm.
 - Experience pages carry `data-wa-es` / `data-wa-en` on `<body>`: every WhatsApp link on that page (FAB, contact, the hero `.xp-cta-wa`) sends a message naming the experience. `?lang=en` in any URL opens the site in English (for English-language ads); the choice is kept in `sessionStorage` while browsing.

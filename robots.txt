@@ -1,4 +1,25 @@
+# Lago Sur Experiences: todo el sitio es público.
+# Los buscadores y los asistentes de IA pueden rastrearlo y citarlo.
 User-agent: *
 Allow: /
 
-Sitemap: https://lago-sur-experiences.vercel.app/sitemap.xml
+# Buscadores y asistentes de IA, habilitados de forma explícita
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: DuckAssistBot
+Allow: /
+
+Sitemap: https://lagosur.site/sitemap.xml
+# Resumen para modelos de lenguaje: https://lagosur.site/llms.txt

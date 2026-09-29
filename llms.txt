@@ -4,9 +4,9 @@
 
 ## Experiencias
 
-- [Paseo en Lancha](https://lago-sur-experiences.vercel.app/paseo-en-lancha.html): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 6 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron. Pesca con mosca opcional, como adicional por persona.
-- [Rutas Secretas](https://lago-sur-experiences.vercel.app/rutas-secretas.html): caminatas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos. Medio día o día completo, dificultad baja a media. Incluye traslado, picnic patagónico y fotos y videos con dron.
-- [Casa Acogedora](https://lago-sur-experiences.vercel.app/casa-arelauquen.html): casa íntima con hogar a leña para hasta 6 personas dentro de Arelauquen, con acceso al golf y al club. Próximamente.
+- [Paseo en Lancha](https://lagosur.site/paseo-en-lancha.html): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 6 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron. Pesca con mosca opcional, como adicional por persona.
+- [Rutas Secretas](https://lagosur.site/rutas-secretas.html): caminatas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos. Medio día o día completo, dificultad baja a media. Incluye traslado, picnic patagónico y fotos y videos con dron.
+- [Casa Acogedora](https://lagosur.site/casa-arelauquen.html): casa íntima con hogar a leña para hasta 6 personas dentro de Arelauquen, con acceso al golf y al club. Próximamente.
 
 ## Datos útiles
 
@@ -14,12 +14,16 @@
 - Anfitrión: Francisco Probaos, timonel de yate a motor, más de 20 años viniendo al sur, bilingüe (español e inglés), ex guía de lanchas en Explore Sydney Harbour (Sídney, Australia).
 - Idiomas: español e inglés.
 - Reservas y consultas: WhatsApp, respuesta en el día.
-- Preguntas frecuentes: https://lago-sur-experiences.vercel.app/#faq
+- Temporada: diciembre a marzo (verano patagónico).
+- Pagos: USD efectivo, transferencia internacional (Wise, SWIFT) o pesos argentinos. Seña del 30% para confirmar.
+- Cancelación: gratis hasta 30 días antes; entre 30 y 14 días se retiene el 50% de la seña; con menos de 14 días se reprograma sin cargo dentro de la temporada.
+- Niños: desde los 6 años. Dietas vegetarianas, veganas, sin gluten y sin lactosa, avisando al reservar.
+- Preguntas frecuentes: https://lagosur.site/#faq
 
 ## Páginas
 
-- [Inicio](https://lago-sur-experiences.vercel.app/)
-- [Experiencias, índice](https://lago-sur-experiences.vercel.app/experiencias.html)
-- [Paseo en Lancha](https://lago-sur-experiences.vercel.app/paseo-en-lancha.html)
-- [Rutas Secretas](https://lago-sur-experiences.vercel.app/rutas-secretas.html)
-- [Casa en Arelauquen](https://lago-sur-experiences.vercel.app/casa-arelauquen.html)
+- [Inicio](https://lagosur.site/)
+- [Experiencias, índice](https://lagosur.site/experiencias.html)
+- [Paseo en Lancha](https://lagosur.site/paseo-en-lancha.html)
+- [Rutas Secretas](https://lagosur.site/rutas-secretas.html)
+- [Casa en Arelauquen](https://lagosur.site/casa-arelauquen.html)

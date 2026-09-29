@@ -1,7 +1,7 @@
 # Genera experiencias.html (índice) + una página por experiencia a partir de index.html
 import io, json
 
-BASE = 'https://lago-sur-experiences.vercel.app'
+BASE = 'https://lagosur.site'
 idx = io.open('index.html', encoding='utf-8').read()
 
 def block(start, end, inclusive_end=True):
@@ -55,8 +55,8 @@ XPS = [
            ('assets/video/costa-turquesa.jpg', 'assets/video/costa-turquesa.mp4', 'Nadando en aguas transparentes junto a una roca, con la cordillera de fondo','Swimming in crystal-clear water by a rock, with the Andes behind'),
            ('assets/img/cala-turquesa.jpg', None, 'Cala de aguas turquesas entre acantilados y bosque','Turquoise cove between cliffs and forest'),
            ('assets/img/lago-orilla-aerea.jpg', None, 'Vista aérea con dron de la orilla y los bajos turquesa del lago','Drone aerial view of the shore and the turquoise shallows')],
-    meta_title='Paseo en Lancha por el Nahuel Huapi | Lago Sur Experiences · Bariloche',
-    meta_desc='Navegación privada por bahías, islas y calas turquesa del lago Nahuel Huapi desde Arelauquen, Bariloche. Lancha para hasta 6 personas, medio día, pesca con mosca opcional, fotos y videos con dron incluidos.',
+    meta_title='Paseo en lancha privado por el Nahuel Huapi, Bariloche | Lago Sur',
+    meta_desc='Navegación privada por bahías, islas y calas turquesa del Nahuel Huapi desde Arelauquen, Bariloche. Hasta 6 personas, pesca con mosca opcional y fotos con dron.',
     keywords='paseo en lancha Bariloche, navegación Nahuel Huapi, excursión lancha privada Bariloche, pesca con mosca Bariloche, Arelauquen',
     ld_type='TouristTrip', tourist=['Familias','Parejas','Grupos privados']),
 
@@ -81,8 +81,8 @@ XPS = [
            ('assets/img/picos-lago.jpg', None, 'Paredones de granito sobre el lago turquesa, con la lancha en el centro','Granite walls over the turquoise lake, with the boat in the middle'),
            ('assets/video/lago-nevado.jpg', 'assets/video/lago-nevado.mp4', 'Laguna escondida con un cerro nevado de fondo, filmada desde el dron','Hidden lagoon with a snow-capped peak behind, filmed from the drone'),
            ('assets/img/brazo-lago-turquesa.jpg', None, 'Brazo del lago de aguas turquesas entre montañas de bosque, visto desde el dron','Turquoise arm of the lake between forested mountains, seen from the drone')],
-    meta_title='Rutas Secretas en la cordillera de Bariloche | Lago Sur Experiences',
-    meta_desc='Caminatas privadas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos de Bariloche. Traslado, picnic patagónico y fotos y videos con dron incluidos.',
+    meta_title='Rutas Secretas: trekking privado en Bariloche | Lago Sur',
+    meta_desc='Caminatas privadas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos de Bariloche. Con traslado, picnic y fotos con dron.',
     keywords='trekking Bariloche, caminatas privadas Bariloche, senderos secretos Patagonia, excursiones Arelauquen',
     ld_type='TouristTrip', tourist=['Familias','Parejas','Amantes del trekking']),
 
@@ -103,8 +103,8 @@ XPS = [
     hero=dict(img='assets/img/arelauquen-golf.jpg', alt=('Cancha de golf de Arelauquen con el lago Nahuel Huapi y la cordillera','Arelauquen golf course with Lake Nahuel Huapi and the Andes'), pos='center 45%'),
     card_img='assets/img/arelauquen-golf.jpg',
     strip=[],
-    meta_title='Casa en Arelauquen, Bariloche (próximamente) | Lago Sur Experiences',
-    meta_desc='Casa íntima para hasta 6 personas, con hogar a leña, dentro del barrio privado Arelauquen, Bariloche, con acceso a la cancha de golf y al club. Próximamente. Consultá por WhatsApp.',
+    meta_title='Casa en Arelauquen, Bariloche (próximamente) | Lago Sur',
+    meta_desc='Casa para hasta 6 personas con hogar a leña dentro del barrio privado Arelauquen, Bariloche, con acceso al golf y al club. Próximamente.',
     keywords='alojamiento Arelauquen, casa Bariloche barrio privado, hospedaje golf Bariloche',
     ld_type='LodgingBusiness', tourist=[]),
 ]
@@ -161,6 +161,7 @@ def head(title, desc, keywords, canonical_path, og_img, jsonld):
   <meta property="og:title" content="{title}">
   <meta property="og:description" content="{desc}">
   <meta property="og:image" content="{BASE}/{og_img}">
+  <meta property="og:image:alt" content="{title}">
   <meta property="og:locale" content="es_AR">
   <meta property="og:locale:alternate" content="en_US">
   <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +247,7 @@ def ld_item(x):
          "image": f"{BASE}/{x['card_img']}", "description": x['meta_desc']}
     if x['ld_type'] == 'TouristTrip':
         d["touristType"] = x['tourist']
-        d["provider"] = {"@type": "Organization", "name": "Lago Sur Experiences", "url": BASE + "/"}
+        d["provider"] = {"@type": "TravelAgency", "@id": BASE + "/#org", "name": "Lago Sur Experiences", "url": BASE + "/"}
         d["itinerary"] = {"@type": "Place", "name": "Arelauquen, Bariloche", "address": {"@type": "PostalAddress", "addressLocality": "Bariloche", "addressRegion": "Río Negro", "addressCountry": "AR"}}
     else:
         d["address"] = {"@type": "PostalAddress", "addressLocality": "Bariloche", "addressRegion": "Río Negro", "addressCountry": "AR"}
@@ -371,8 +372,8 @@ hub_ld = {"@context": "https://schema.org", "@graph": [
     {"@type": "ItemList", "name": "Experiencias Lago Sur en Arelauquen, Bariloche",
      "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{BASE}/{x['slug']}.html", "name": x['title'][0]} for i, x in enumerate(XPS)]}]}
 
-hub = head('Experiencias en Bariloche: lancha, pesca con mosca y rutas secretas | Lago Sur Experiences',
-           'Paseos privados en lancha por el Nahuel Huapi con pesca con mosca opcional y rutas secretas en la cordillera, desde Arelauquen, Bariloche. Grupos reducidos, español e inglés, fotos y videos con dron incluidos. Reserva por WhatsApp.',
+hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
+           'Paseos privados en lancha por el Nahuel Huapi, pesca con mosca opcional y rutas secretas en la cordillera, desde Arelauquen, Bariloche. En español o inglés.',
            'experiencias Bariloche, paseo en lancha Nahuel Huapi, pesca con mosca Bariloche, trekking Bariloche, Arelauquen, turismo de lujo Patagonia, fotos con dron',
            'experiencias.html', 'og-image.jpg', hub_ld) + f'''<body class="page-experiencias">
 
