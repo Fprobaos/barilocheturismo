@@ -291,7 +291,7 @@ for x in XPS:
   <header class="xp-hero xp-hero--page">
 {hero_media(x['hero'], 'xp-hero-img')}
     <div class="hero-overlay"></div>
-{badge}    <div class="hero-content fade-in">
+{badge}    <div class="hero-content hero-in">
       <p class="hero-location"><span class="xp-num">{x['num']}</span> · <span data-es="{x['kicker'][0]}" data-en="{x['kicker'][1]}">{x['kicker'][0]}</span> · Arelauquen · Bariloche</p>
       <h1 class="hero-title" data-es="{x['title'][0]}" data-en="{x['title'][1]}">{x['title'][0]}</h1>
       <p class="xp-hero-tag" data-es="{x['tag'][0]}" data-en="{x['tag'][1]}">{x['tag'][0]}</p>
@@ -385,7 +385,7 @@ hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
     <img class="xp-hero-img" src="assets/img/cala-turquesa.jpg" srcset="assets/img/cala-turquesa-800.jpg 800w, assets/img/cala-turquesa.jpg 1600w" sizes="100vw"
          style="object-position:center 60%" alt="Cala de aguas turquesas entre acantilados y bosque en el lago Nahuel Huapi" data-alt-es="Cala de aguas turquesas entre acantilados y bosque en el lago Nahuel Huapi" data-alt-en="Turquoise cove between cliffs and forest on Lake Nahuel Huapi" fetchpriority="high">
     <div class="hero-overlay"></div>
-    <div class="hero-content fade-in">
+    <div class="hero-content hero-in">
       <p class="hero-location">Arelauquen · Bariloche · Patagonia</p>
       <h1 class="hero-title" data-es="Las experiencias" data-en="The experiences">Las experiencias</h1>
       <p class="hero-sub" data-es="Tres maneras de vivir la Patagonia que pocos conocen" data-en="Three ways to live the Patagonia only few discover">Tres maneras de vivir la Patagonia que pocos conocen</p>

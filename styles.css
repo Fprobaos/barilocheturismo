@@ -81,6 +81,13 @@ section { padding: 100px 0; }
   opacity: 1;
   transform: translateY(0);
 }
+/* El texto del hero entra con CSS puro, sin esperar a script.js (así se pinta enseguida) */
+.hero-in { animation: heroIn 0.8s ease-out both; }
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-in { animation: none; } }
 
 /* ── SECTION HEADER ──────────────────────────────────────────── */
 .section-label {
