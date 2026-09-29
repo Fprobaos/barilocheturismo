@@ -423,3 +423,91 @@ hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
 '''
 io.open('experiencias.html', 'w', encoding='utf-8', newline='').write(hub)
 print("experiencias.html OK")
+
+# ───────────────────────────── privacidad.html ─────────────────────────────
+from html import escape as esc
+
+def t(tag, es, en, cls=''):
+    c = f' class="{cls}"' if cls else ''
+    return f'<{tag}{c} data-es="{esc(es)}" data-en="{esc(en)}">{esc(es)}</{tag}>'
+
+PRIV = [
+    ('h2', 'Quiénes somos', 'Who we are'),
+    ('p', 'Lago Sur Experiences organiza experiencias privadas en Arelauquen, San Carlos de Bariloche, Río Negro, Argentina. Por cualquier consulta sobre tus datos, escribinos por WhatsApp al +54 9 11 7812-2900.',
+          'Lago Sur Experiences runs private experiences in Arelauquen, San Carlos de Bariloche, Río Negro, Argentina. For any question about your data, message us on WhatsApp at +54 9 11 7812-2900.'),
+    ('h2', 'Qué datos usamos', 'What data we use'),
+    ('p', 'El sitio no tiene cuentas de usuario ni guarda formularios. El formulario de contacto y el calendario solo arman un mensaje que se envía desde tu propio WhatsApp.',
+          'The site has no user accounts and does not store forms. The contact form and the calendar only compose a message that is sent from your own WhatsApp.'),
+    ('p', 'Los datos que nos mandás por WhatsApp (nombre, fechas, cantidad de personas y lo que quieras contarnos) los usamos solo para responder tu consulta y organizar la experiencia. No los vendemos ni los compartimos con fines publicitarios.',
+          'The details you send us on WhatsApp (name, dates, group size and anything else you tell us) are used only to answer your enquiry and organise the experience. We do not sell them or share them for advertising.'),
+    ('h2', 'Cookies y medición', 'Cookies and measurement', 'cookies'),
+    ('p', 'Usamos Google Analytics 4 para saber cuántas personas visitan el sitio y qué páginas miran, y Google Ads para saber si una consulta por WhatsApp llegó desde un anuncio. Estas herramientas pueden guardar cookies como _ga y _gcl_au.',
+          'We use Google Analytics 4 to know how many people visit the site and which pages they view, and Google Ads to know whether a WhatsApp enquiry came from an ad. These tools may set cookies such as _ga and _gcl_au.'),
+    ('p', 'Si estás en la Unión Europea, el Espacio Económico Europeo, el Reino Unido o Suiza, esas cookies solo se activan si las aceptás en el aviso. Si las rechazás, Google no guarda cookies y solo recibe señales sin identificadores (modo de consentimiento de Google).',
+          'If you are in the European Union, the European Economic Area, the United Kingdom or Switzerland, these cookies are only set if you accept them in the notice. If you reject them, Google stores no cookies and only receives signals without identifiers (Google Consent Mode).'),
+    ('p', 'El sitio también guarda en tu navegador el idioma elegido y tu decisión sobre las cookies. Eso queda en tu dispositivo y no se envía a nadie.',
+          'The site also stores your chosen language and your cookie choice in your browser. That stays on your device and is not sent to anyone.'),
+    ('h2', 'Servicios de terceros', 'Third-party services'),
+    ('li', 'Vercel: aloja el sitio.', 'Vercel: hosts the site.'),
+    ('li', 'Google: Analytics y Ads, según lo que elijas sobre las cookies.', 'Google: Analytics and Ads, according to your cookie choice.'),
+    ('li', 'WhatsApp (Meta): recibe los mensajes que nos mandás.', 'WhatsApp (Meta): carries the messages you send us.'),
+    ('li', 'Esri: imágenes satelitales del mapa de lagos.', 'Esri: satellite imagery for the lakes map.'),
+    ('li', 'jsDelivr: carga el visor de fotos 360°.', 'jsDelivr: loads the 360° photo viewer.'),
+    ('h2', 'Tus derechos', 'Your rights'),
+    ('p', 'Podés pedirnos por WhatsApp acceder a tus datos, corregirlos o borrarlos. En Argentina rige la Ley 25.326 de Protección de Datos Personales y la autoridad de control es la Agencia de Acceso a la Información Pública. Si estás en la Unión Europea o el Reino Unido también tenés los derechos del RGPD y podés reclamar ante la autoridad de protección de datos de tu país.',
+          'You can ask us on WhatsApp to access, correct or delete your data. Argentine Personal Data Protection Law 25.326 applies, and the supervisory authority is the Agencia de Acceso a la Información Pública. If you are in the European Union or the United Kingdom you also have your GDPR rights and may complain to your country’s data protection authority.'),
+    ('h2', 'Cambiar tu elección de cookies', 'Change your cookie choice'),
+    ('p', 'Podés cambiar tu decisión cuando quieras con este botón o con el link “Cookies” al pie de cada página.',
+          'You can change your choice at any time with this button or with the “Cookies” link at the bottom of every page.'),
+]
+
+body_parts, in_list = [], False
+for item in PRIV:
+    tag, es, en = item[:3]
+    if tag == 'li' and not in_list:
+        body_parts.append('      <ul>'); in_list = True
+    if tag != 'li' and in_list:
+        body_parts.append('      </ul>'); in_list = False
+    html = t(tag, es, en)
+    if len(item) > 3:
+        html = html.replace(f'<{tag} ', f'<{tag} id="{item[3]}" ', 1)
+    body_parts.append(('        ' if tag == 'li' else '      ') + html)
+if in_list:
+    body_parts.append('      </ul>')
+
+priv_ld = {"@context": "https://schema.org", "@type": "WebPage", "name": "Privacidad y cookies",
+           "url": BASE + "/privacidad", "isPartOf": {"@id": BASE + "/#org"}}
+
+priv = head('Privacidad y cookies | Lago Sur Experiences',
+            'Qué datos usa Lago Sur Experiences, cómo funcionan las cookies de Google Analytics y Google Ads y cómo cambiar tu elección.',
+            'privacidad, cookies, Lago Sur Experiences',
+            'privacidad', 'og-image.jpg', priv_ld) + f'''<body class="page-privacidad">
+
+{nav_for()}
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <header class="xp-hero" style="min-height:44vh">
+    <img class="xp-hero-img" src="assets/img/lago-montanas.jpg" srcset="assets/img/lago-montanas-800.jpg 800w, assets/img/lago-montanas.jpg 1600w" sizes="100vw"
+         alt="" fetchpriority="high">
+    <div class="hero-overlay"></div>
+    <div class="hero-content hero-in">
+      <h1 class="hero-title" data-es="Privacidad y cookies" data-en="Privacy and cookies">Privacidad y cookies</h1>
+    </div>
+  </header>
+
+  <!-- ── CONTENIDO ─────────────────────────────────────────────── -->
+  <section class="legal">
+    <div class="container">
+{chr(10).join(body_parts)}
+      <button type="button" class="btn-hero" data-cookie-settings data-es="Configurar cookies" data-en="Cookie settings">Configurar cookies</button>
+      {t('p', 'Última actualización: 29 de septiembre de 2026', 'Last updated: September 29, 2026', 'legal-updated')}
+    </div>
+  </section>
+
+{foot2}
+{fab}
+{lightbox}  <script src="script.js"></script>
+</body>
+</html>
+'''
+io.open('privacidad.html', 'w', encoding='utf-8', newline='').write(priv)
+print("privacidad.html OK")

@@ -23,9 +23,28 @@ const ADS_CONVERSION = 'AW-18478604506/e49hCJ6N84odENrBpOtE'; // "Click en Whats
 const ADS_ID  = ADS_CONVERSION.split('/')[0];
 const TAG_IDS = [GA4_ID, ADS_ID].filter(Boolean);
 
+/* Consentimiento (Consent Mode v2): en la UE/EEE, Reino Unido y Suiza las cookies de Google
+   arrancan denegadas hasta que el visitante acepte en el banner; en el resto, concedidas
+   (Google decide la región por IP). La elección queda guardada en localStorage. */
+const CONSENT_KEY     = 'lagosur-consent';
+const CONSENT_REGIONS = ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT',
+                         'LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH'];
+function consentState(ok) {
+  const v = ok ? 'granted' : 'denied';
+  return { ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v };
+}
+function savedConsent() {
+  try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; }
+}
+
 if (TAG_IDS.length) {
   window.dataLayer = window.dataLayer || [];
   window.gtag = function () { dataLayer.push(arguments); };
+  gtag('consent', 'default', { ...consentState(false), region: CONSENT_REGIONS, wait_for_update: 500 });
+  gtag('consent', 'default', consentState(true));
+  gtag('set', 'ads_data_redaction', true);
+  gtag('set', 'url_passthrough', true);
+  if (savedConsent()) gtag('consent', 'update', consentState(savedConsent() === 'granted'));
   gtag('js', new Date());
   TAG_IDS.forEach(id => gtag('config', id));
   // La librería de Google se descarga cuando la página ya cargó; mientras tanto
@@ -100,6 +119,46 @@ function setLang(lang) {
     renderCalendar();
   }
 }
+
+/* ── BANNER DE COOKIES ────────────────────────────────────────
+   Aparece solo a quien navega con zona horaria de Europa y todavía no eligió (ahí las cookies
+   arrancan denegadas). Cualquiera lo puede reabrir con [data-cookie-settings] (link "Cookies"
+   del footer y botón de /privacidad). */
+const inEurope = (() => {
+  try {
+    return /^(Europe\/|Atlantic\/(Canary|Madeira|Azores|Reykjavik|Faroe))/
+      .test(Intl.DateTimeFormat().resolvedOptions().timeZone);
+  } catch (e) { return false; }
+})();
+
+function showCookieBanner() {
+  if (!TAG_IDS.length || document.querySelector('.cookie-banner')) return;
+  const b = document.createElement('div');
+  b.className = 'cookie-banner';
+  b.setAttribute('role', 'dialog');
+  b.setAttribute('aria-label', 'Cookies');
+  b.innerHTML = `
+    <p><span data-es="Usamos cookies de Google Analytics y Google Ads para medir las visitas y los anuncios. Podés aceptarlas o rechazarlas."
+             data-en="We use Google Analytics and Google Ads cookies to measure visits and ads. You can accept or reject them."></span>
+       <a href="/privacidad" data-es="Más información" data-en="Learn more"></a></p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn cookie-reject" data-es="Rechazar" data-en="Reject"></button>
+      <button type="button" class="cookie-btn cookie-accept" data-es="Aceptar" data-en="Accept"></button>
+    </div>`;
+  b.querySelectorAll('[data-es]').forEach(el => { el.textContent = el.dataset[currentLang]; });
+  const choose = ok => {
+    try { localStorage.setItem(CONSENT_KEY, ok ? 'granted' : 'denied'); } catch (e) {}
+    gtag('consent', 'update', consentState(ok));
+    b.remove();
+  };
+  b.querySelector('.cookie-accept').addEventListener('click', () => choose(true));
+  b.querySelector('.cookie-reject').addEventListener('click', () => choose(false));
+  document.body.appendChild(b);
+}
+
+if (inEurope && !savedConsent()) showCookieBanner();
+document.querySelectorAll('[data-cookie-settings]').forEach(el =>
+  el.addEventListener('click', e => { e.preventDefault(); showCookieBanner(); }));
 
 /* ── NAVBAR SCROLL ────────────────────────────────────────────── */
 const navbar = document.getElementById('navbar');
