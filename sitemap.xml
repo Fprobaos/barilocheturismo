@@ -17,7 +17,7 @@
     <image:image><image:loc>https://lagosur.site/assets/img/brazo-lago-turquesa.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://lagosur.site/experiencias.html</loc>
+    <loc>https://lagosur.site/experiencias</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -28,7 +28,7 @@
     <image:image><image:loc>https://lagosur.site/assets/img/lago-cordillera-nubes.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://lagosur.site/paseo-en-lancha.html</loc>
+    <loc>https://lagosur.site/paseo-en-lancha</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -38,7 +38,7 @@
     <image:image><image:loc>https://lagosur.site/assets/img/cala-turquesa.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://lagosur.site/rutas-secretas.html</loc>
+    <loc>https://lagosur.site/rutas-secretas</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -48,7 +48,7 @@
     <image:image><image:loc>https://lagosur.site/assets/img/brazo-lago-turquesa.jpg</image:loc></image:image>
   </url>
   <url>
-    <loc>https://lagosur.site/casa-arelauquen.html</loc>
+    <loc>https://lagosur.site/casa-arelauquen</loc>
     <lastmod>2026-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

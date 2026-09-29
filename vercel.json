@@ -1,5 +1,7 @@
 {
+  "cleanUrls": true,
   "redirects": [
-    { "source": "/pesca-con-mosca.html", "destination": "/paseo-en-lancha.html", "permanent": true }
+    { "source": "/pesca-con-mosca", "destination": "/paseo-en-lancha", "permanent": true },
+    { "source": "/pesca-con-mosca.html", "destination": "/paseo-en-lancha", "permanent": true }
   ]
 }

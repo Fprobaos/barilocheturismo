@@ -4,9 +4,9 @@
 
 ## Experiencias
 
-- [Paseo en Lancha](https://lagosur.site/paseo-en-lancha.html): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 6 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron. Pesca con mosca opcional, como adicional por persona.
-- [Rutas Secretas](https://lagosur.site/rutas-secretas.html): caminatas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos. Medio día o día completo, dificultad baja a media. Incluye traslado, picnic patagónico y fotos y videos con dron.
-- [Casa Acogedora](https://lagosur.site/casa-arelauquen.html): casa íntima con hogar a leña para hasta 6 personas dentro de Arelauquen, con acceso al golf y al club. Próximamente.
+- [Paseo en Lancha](https://lagosur.site/paseo-en-lancha): navegación privada por bahías, islas y calas turquesa del Nahuel Huapi. Lancha para hasta 6 personas. Medio día. Incluye chalecos, equipo de seguridad y fotos y videos con dron. Pesca con mosca opcional, como adicional por persona.
+- [Rutas Secretas](https://lagosur.site/rutas-secretas): caminatas a cascadas ocultas, miradores y bosques de lengas fuera de los circuitos turísticos. Medio día o día completo, dificultad baja a media. Incluye traslado, picnic patagónico y fotos y videos con dron.
+- [Casa Acogedora](https://lagosur.site/casa-arelauquen): casa íntima con hogar a leña para hasta 6 personas dentro de Arelauquen, con acceso al golf y al club. Próximamente.
 
 ## Datos útiles
 
@@ -23,7 +23,7 @@
 ## Páginas
 
 - [Inicio](https://lagosur.site/)
-- [Experiencias, índice](https://lagosur.site/experiencias.html)
-- [Paseo en Lancha](https://lagosur.site/paseo-en-lancha.html)
-- [Rutas Secretas](https://lagosur.site/rutas-secretas.html)
-- [Casa en Arelauquen](https://lagosur.site/casa-arelauquen.html)
+- [Experiencias, índice](https://lagosur.site/experiencias)
+- [Paseo en Lancha](https://lagosur.site/paseo-en-lancha)
+- [Rutas Secretas](https://lagosur.site/rutas-secretas)
+- [Casa en Arelauquen](https://lagosur.site/casa-arelauquen)

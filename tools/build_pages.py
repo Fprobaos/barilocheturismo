@@ -15,18 +15,18 @@ lightbox = block('  <!-- ── LIGHTBOX', '  <script src="https://unpkg.com/lea
 WA_SVG   = fab[fab.index('<svg'):fab.index('</svg>') + 6]
 
 def nav_for(active_slug=None):
-    n = (nav.replace('href="#inicio"', 'href="index.html"')
-            .replace('href="#sobre"', 'href="index.html#sobre"')
-            .replace('href="#experiencias" class="nav-drop-trigger"', 'href="experiencias.html" class="nav-drop-trigger active"')
-            .replace('href="#guias"', 'href="index.html#guias"')
-            .replace('href="#galeria"', 'href="index.html#galeria"')
-            .replace('href="#faq"', 'href="index.html#faq"'))
+    n = (nav.replace('href="#inicio"', 'href="/"')
+            .replace('href="#sobre"', 'href="/#sobre"')
+            .replace('href="#experiencias" class="nav-drop-trigger"', 'href="/experiencias" class="nav-drop-trigger active"')
+            .replace('href="#guias"', 'href="/#guias"')
+            .replace('href="#galeria"', 'href="/#galeria"')
+            .replace('href="#faq"', 'href="/#faq"'))
     if active_slug:
-        n = n.replace(f'<a href="{active_slug}.html"', f'<a href="{active_slug}.html" class="active"')
+        n = n.replace(f'<a href="/{active_slug}"', f'<a href="/{active_slug}" class="active"')
     return n
 
-foot2 = (footer.replace('href="#sobre"', 'href="index.html#sobre"')
-               .replace('href="#galeria"', 'href="index.html#galeria"'))
+foot2 = (footer.replace('href="#sobre"', 'href="/#sobre"')
+               .replace('href="#galeria"', 'href="/#galeria"'))
 
 DRON = ('Fotos y videos con dron de tu jornada', 'Drone photos and videos of your day')
 
@@ -204,7 +204,7 @@ def contact_section(h2, lead):
             {WA_SVG}
             WhatsApp
           </a>
-          <a href="index.html#reservar" class="canal-item" data-es="Ver calendario" data-en="See calendar">Ver calendario</a>
+          <a href="/#reservar" class="canal-item" data-es="Ver calendario" data-en="See calendar">Ver calendario</a>
         </div>
       </div>
     </div>
@@ -218,7 +218,7 @@ def others_section(current):
         if x['slug'] == current: continue
         base = x['card_img'].rsplit('.', 1)[0]
         soon = '<span class="exp-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>' if x.get('soon') else ''
-        cards.append(f'''        <a href="{x['slug']}.html" class="xp-other fade-in">
+        cards.append(f'''        <a href="/{x['slug']}" class="xp-other fade-in">
           {soon}
           <img src="{base}-800.jpg" loading="lazy" alt="{x['title'][0]}" data-alt-es="{x['title'][0]}" data-alt-en="{x['title'][1]}">
           <div class="xp-other-body">
@@ -243,7 +243,7 @@ def others_section(current):
 '''
 
 def ld_item(x):
-    d = {"@type": x['ld_type'], "name": x['title'][0], "url": f"{BASE}/{x['slug']}.html",
+    d = {"@type": x['ld_type'], "name": x['title'][0], "url": f"{BASE}/{x['slug']}",
          "image": f"{BASE}/{x['card_img']}", "description": x['meta_desc']}
     if x['ld_type'] == 'TouristTrip':
         d["touristType"] = x['tourist']
@@ -259,8 +259,8 @@ for x in XPS:
     jsonld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Inicio", "item": BASE + "/"},
-            {"@type": "ListItem", "position": 2, "name": "Experiencias", "item": BASE + "/experiencias.html"},
-            {"@type": "ListItem", "position": 3, "name": x['title'][0], "item": f"{BASE}/{x['slug']}.html"}]},
+            {"@type": "ListItem", "position": 2, "name": "Experiencias", "item": BASE + "/experiencias"},
+            {"@type": "ListItem", "position": 3, "name": x['title'][0], "item": f"{BASE}/{x['slug']}"}]},
         ld_item(x)]}
     strip = '\n'.join(gitem(i, s, v, a, b) for i, (s, v, a, b) in enumerate(x['strip']))
     strip_section = f'''  <!-- ── GALERÍA ───────────────────────────────────────────────── -->
@@ -282,7 +282,7 @@ for x in XPS:
     else:
         cta = '            <a href="#contacto" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp">Consultar por WhatsApp</a>'
     badge = '    <span class="exp-badge xp-hero-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>\n' if soon else ''
-    page = head(x['meta_title'], x['meta_desc'], x['keywords'], f"{x['slug']}.html", x['card_img'], jsonld) + f'''<body class="page-experiencias page-xp" data-xp="{x['slug']}" data-wa-es="{wa_msg(x)[0]}" data-wa-en="{wa_msg(x)[1]}">
+    page = head(x['meta_title'], x['meta_desc'], x['keywords'], x['slug'], x['card_img'], jsonld) + f'''<body class="page-experiencias page-xp" data-xp="{x['slug']}" data-wa-es="{wa_msg(x)[0]}" data-wa-en="{wa_msg(x)[1]}">
 
 {nav_for(x['slug'])}
   <!-- ── HERO ──────────────────────────────────────────────────── -->
@@ -300,7 +300,7 @@ for x in XPS:
   <section class="xp-detail">
     <div class="container">
       <nav class="xp-crumbs fade-in" aria-label="Breadcrumb">
-        <a href="index.html" data-es="Inicio" data-en="Home">Inicio</a><span>/</span><a href="experiencias.html" data-es="Experiencias" data-en="Experiences">Experiencias</a><span>/</span><span data-es="{x['title'][0]}" data-en="{x['title'][1]}">{x['title'][0]}</span>
+        <a href="/" data-es="Inicio" data-en="Home">Inicio</a><span>/</span><a href="/experiencias" data-es="Experiencias" data-en="Experiences">Experiencias</a><span>/</span><span data-es="{x['title'][0]}" data-en="{x['title'][1]}">{x['title'][0]}</span>
       </nav>
       <div class="xp-detail-grid">
         <div class="xp-body fade-in">
@@ -346,19 +346,19 @@ for i, x in enumerate(XPS):
     hub_cards.append(f'''  <article class="xp{' xp--soon' if soon else ''}" id="{x['id']}">
     <div class="container">
       <div class="xp-grid{flip}">
-        <a href="{x['slug']}.html" class="xp-media fade-in">
+        <a href="/{x['slug']}" class="xp-media fade-in">
 {badge}          <img class="xp-img" src="{x['card_img']}" srcset="{base}-800.jpg 800w, {x['card_img']} 1600w" sizes="(max-width: 1024px) 100vw, 50vw" loading="lazy"
                alt="{x['hero']['alt'][0]}" data-alt-es="{x['hero']['alt'][0]}" data-alt-en="{x['hero']['alt'][1]}">
         </a>
         <div class="xp-body fade-in">
           <p class="section-label"><span class="xp-num">{x['num']}</span> · <span data-es="{x['kicker'][0]}" data-en="{x['kicker'][1]}">{x['kicker'][0]}</span></p>
-          <h2><a href="{x['slug']}.html" data-es="{x['title'][0]}" data-en="{x['title'][1]}">{x['title'][0]}</a></h2>
+          <h2><a href="/{x['slug']}" data-es="{x['title'][0]}" data-en="{x['title'][1]}">{x['title'][0]}</a></h2>
           <p class="xp-tagline" data-es="{x['tag'][0]}" data-en="{x['tag'][1]}">{x['tag'][0]}</p>
           <p data-es="{x['p1'][0]}" data-en="{x['p1'][1]}">{x['p1'][0]}</p>
           <div class="xp-facts">
 {facts(x['facts'])}
           </div>
-          <a href="{x['slug']}.html" class="btn-hero xp-cta" data-es="{btn_es}" data-en="{btn_en}">{btn_es}</a>
+          <a href="/{x['slug']}" class="btn-hero xp-cta" data-es="{btn_es}" data-en="{btn_en}">{btn_es}</a>
         </div>
       </div>
     </div>
@@ -368,14 +368,14 @@ for i, x in enumerate(XPS):
 hub_ld = {"@context": "https://schema.org", "@graph": [
     {"@type": "BreadcrumbList", "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Inicio", "item": BASE + "/"},
-        {"@type": "ListItem", "position": 2, "name": "Experiencias", "item": BASE + "/experiencias.html"}]},
+        {"@type": "ListItem", "position": 2, "name": "Experiencias", "item": BASE + "/experiencias"}]},
     {"@type": "ItemList", "name": "Experiencias Lago Sur en Arelauquen, Bariloche",
-     "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{BASE}/{x['slug']}.html", "name": x['title'][0]} for i, x in enumerate(XPS)]}]}
+     "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{BASE}/{x['slug']}", "name": x['title'][0]} for i, x in enumerate(XPS)]}]}
 
 hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
            'Paseos privados en lancha por el Nahuel Huapi, pesca con mosca opcional y rutas secretas en la cordillera, desde Arelauquen, Bariloche. En español o inglés.',
            'experiencias Bariloche, paseo en lancha Nahuel Huapi, pesca con mosca Bariloche, trekking Bariloche, Arelauquen, turismo de lujo Patagonia, fotos con dron',
-           'experiencias.html', 'og-image.jpg', hub_ld) + f'''<body class="page-experiencias">
+           'experiencias', 'og-image.jpg', hub_ld) + f'''<body class="page-experiencias">
 
 {nav_for()}
   <!-- ── HERO ──────────────────────────────────────────────────── -->
@@ -401,9 +401,9 @@ hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
           Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, próximamente, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp.
         </p>
         <nav class="xp-jump" aria-label="Experiencias">
-          <a href="paseo-en-lancha.html" data-es="Lancha" data-en="Boat">Lancha</a>
-          <a href="rutas-secretas.html"  data-es="Rutas"  data-en="Trails">Rutas</a>
-          <a href="casa-arelauquen.html"   data-es="Casa"   data-en="House">Casa</a>
+          <a href="/paseo-en-lancha" data-es="Lancha" data-en="Boat">Lancha</a>
+          <a href="/rutas-secretas"  data-es="Rutas"  data-en="Trails">Rutas</a>
+          <a href="/casa-arelauquen"   data-es="Casa"   data-en="House">Casa</a>
         </nav>
       </div>
     </div>

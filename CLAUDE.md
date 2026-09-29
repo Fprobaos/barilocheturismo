@@ -9,13 +9,15 @@ Static marketing site for **Lago Sur Experiences** — luxury tourism experience
 - `index.html` — home (navbar, hero, sobre, experiencias, anfitrión, galería, mapa, reservar, llegar, faq, contacto, footer)
 - `experiencias.html` — index of experiences (one big card per experience linking to its page)
 - `paseo-en-lancha.html`, `rutas-secretas.html`, `casa-arelauquen.html` — one page per experience (hero, detail + sticky "Incluye" card, gallery strip, other experiences, contact)
-- `tools/build_pages.py` — **generates the four pages above** from the `XPS` data list, copying navbar/footer/FAB/lightbox from `index.html`. Edit the data or templates there and run `python tools/build_pages.py` from the repo root; never hand-edit the generated pages. `.vercelignore` keeps `tools/` out of the deploy. Fly fishing is no longer its own experience (it is an add-on to the boat tour); `vercel.json` redirects the old `pesca-con-mosca.html` to `paseo-en-lancha.html`.
+- `tools/build_pages.py` — **generates the four pages above** from the `XPS` data list, copying navbar/footer/FAB/lightbox from `index.html`. Edit the data or templates there and run `python tools/build_pages.py` from the repo root; never hand-edit the generated pages. `.vercelignore` keeps `tools/` out of the deploy. Fly fishing is no longer its own experience (it is an add-on to the boat tour); `vercel.json` redirects the old `/pesca-con-mosca` to `/paseo-en-lancha`.
 - `styles.css` — all styling (Cormorant Garamond + Montserrat from Google Fonts)
 - `script.js` — all behavior
 
 ## Running
 
-Open `index.html` directly in a browser, or serve the directory with any static server (e.g. `python -m http.server`). There is no build, no lint, and no test setup.
+Serve the directory with `npx serve` (it resolves clean URLs like `/paseo-en-lancha` and supports Range requests for the videos). Links are root-absolute clean URLs, so opening the files directly or using `python -m http.server` breaks navigation. There is no build, no lint, and no test setup.
+
+**URLs:** `vercel.json` sets `cleanUrls: true` — pages live at `/experiencias`, `/paseo-en-lancha`, etc., and any `.html` URL 308-redirects to its clean form. Every internal link, canonical, sitemap entry, JSON-LD URL and `llms.txt` link uses the clean form; keep it that way.
 
 ## Deploy
 
