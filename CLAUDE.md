@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Static marketing site for **Lago Sur Experiences** — luxury tourism experiences in Arelauquen, Bariloche (boat tours with optional fly fishing, secret trails, and a house coming soon). No build step, no dependencies, no framework.
+Static marketing site for **Lago Sur Experiences** — luxury tourism experiences in Arelauquen, Bariloche (boat tours with optional fly fishing, secret trails, and a house available from December). No build step, no dependencies, no framework.
 
 - `index.html` — home (navbar, hero, sobre, experiencias, anfitrión, galería, mapa, reservar, llegar, faq, contacto, footer)
 - `experiencias.html` — index of experiences (one big card per experience linking to its page)

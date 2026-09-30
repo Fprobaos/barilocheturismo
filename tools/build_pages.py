@@ -91,16 +91,16 @@ XPS = [
     keywords='trekking Bariloche, caminatas privadas Bariloche, senderos secretos Patagonia, excursiones Arelauquen',
     ld_type='TouristTrip', tourist=['Familias','Parejas','Amantes del trekking']),
 
-  dict(slug='casa-arelauquen', id='casa', num='03', kicker=('Alojamiento','Stay'), title=('Casa Acogedora','Cozy House'), soon=True,
+  dict(slug='casa-arelauquen', id='casa', num='03', kicker=('Alojamiento','Stay'), title=('Casa Acogedora','Cozy House'), badge=('Desde diciembre','From December'),
     tag=('Un refugio de madera y hogar a leña dentro del barrio más exclusivo de Bariloche.',
          'A wood-and-fireplace refuge inside the most exclusive estate in Bariloche.'),
     p1=('La casa está pensada para hasta 6 personas que buscan tranquilidad y calidez. Madera noble, hogar a leña encendido al atardecer y ventanales que enmarcan el bosque y la cordillera.',
         'The house is designed for up to 6 guests looking for calm and warmth. Noble wood, a fireplace lit at sunset and windows that frame the forest and the Andes.'),
     p2=('Quedarse en Arelauquen significa acceder a la cancha de golf, a las áreas comunes del club y a la seguridad de un barrio privado con barrera las 24 horas, a 25 minutos del aeropuerto.',
         'Staying in Arelauquen means access to the golf course, the club common areas and the security of a gated estate with 24-hour access, 25 minutes from the airport.'),
-    p3=('Estamos terminando de prepararla. Si querés que te avisemos cuando esté disponible, escribinos por WhatsApp y te reservamos prioridad para la temporada.',
-        'We are finishing getting it ready. If you would like to be notified when it is available, message us on WhatsApp and we will hold priority for you this season.'),
-    facts=[('Capacidad','Capacity','Hasta 6 personas','Up to 6 people'),('Ubicación','Location','Arelauquen','Arelauquen'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Estado','Status','Próximamente','Coming soon')],
+    p3=('Se puede reservar a partir de diciembre, para toda la temporada de verano. Escribinos por WhatsApp con tus fechas y cuántos son, y combiná la estadía con el paseo en lancha y las rutas secretas.',
+        'It can be booked from December onwards, for the whole summer season. Message us on WhatsApp with your dates and group size, and combine your stay with the boat tour and the secret trails.'),
+    facts=[('Capacidad','Capacity','Hasta 6 personas','Up to 6 people'),('Ubicación','Location','Arelauquen','Arelauquen'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Disponible','Available','Desde diciembre','From December')],
     inc=[('Alojamiento dentro del barrio privado Arelauquen','Accommodation inside the Arelauquen private estate'),
          ('Acceso a la cancha de golf y áreas comunes del club','Access to the golf course and club common areas'),
          ('WiFi de fibra y hogar a leña','Fiber WiFi and wood fireplace'),
@@ -108,8 +108,8 @@ XPS = [
     hero=dict(img='assets/img/arelauquen-golf.jpg', alt=('Cancha de golf de Arelauquen con el lago Nahuel Huapi y la cordillera','Arelauquen golf course with Lake Nahuel Huapi and the Andes'), pos='center 45%'),
     card_img='assets/img/arelauquen-golf.jpg',
     strip=[],
-    meta_title='Casa en Arelauquen, Bariloche (próximamente) | Lago Sur',
-    meta_desc='Casa para hasta 6 personas con hogar a leña dentro del barrio privado Arelauquen, Bariloche, con acceso al golf y al club. Próximamente.',
+    meta_title='Casa en Arelauquen, Bariloche: alquiler desde diciembre | Lago Sur',
+    meta_desc='Casa para hasta 6 personas con hogar a leña dentro del barrio privado Arelauquen, Bariloche, con acceso al golf y al club. Disponible desde diciembre.',
     keywords='alojamiento Arelauquen, casa Bariloche barrio privado, hospedaje golf Bariloche',
     ld_type='LodgingBusiness', tourist=[]),
 ]
@@ -191,8 +191,8 @@ def head(title, desc, keywords, canonical_path, og_img, jsonld, preload_img=None
 
 def wa_msg(x):
     if x['slug'] == 'casa-arelauquen':
-        return ('Hola, quiero que me avisen cuando la casa en Arelauquen esté disponible',
-                'Hi, please let me know when the house in Arelauquen is available')
+        return ('Hola, quiero consultar por la casa en Arelauquen (desde diciembre)',
+                'Hi, I would like to ask about the house in Arelauquen (from December)')
     return (f"Hola, quiero consultar por {x['title'][0]} con Lago Sur Experiences",
             f"Hi, I would like to ask about {x['title'][1]} with Lago Sur Experiences")
 
@@ -222,9 +222,10 @@ def others_section(current):
     for x in XPS:
         if x['slug'] == current: continue
         base = x['card_img'].rsplit('.', 1)[0]
-        soon = '<span class="exp-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>' if x.get('soon') else ''
+        b = x.get('badge')
+        badge = f'<span class="exp-badge" data-es="{b[0]}" data-en="{b[1]}">{b[0]}</span>' if b else ''
         cards.append(f'''        <a href="/{x['slug']}" class="xp-other fade-in">
-          {soon}
+          {badge}
           <img src="{base}-800.jpg" loading="lazy" alt="{x['title'][0]}" data-alt-es="{x['title'][0]}" data-alt-en="{x['title'][1]}">
           <div class="xp-other-body">
             <p class="section-label"><span class="xp-num">{x['num']}</span> · <span data-es="{x['kicker'][0]}" data-en="{x['kicker'][1]}">{x['kicker'][0]}</span></p>
@@ -260,7 +261,7 @@ def ld_item(x):
 
 # ───────────────────────────── páginas individuales ─────────────────────────────
 for x in XPS:
-    soon = x.get('soon', False)
+    b = x.get('badge')
     jsonld = {"@context": "https://schema.org", "@graph": [
         {"@type": "BreadcrumbList", "itemListElement": [
             {"@type": "ListItem", "position": 1, "name": "Inicio", "item": BASE + "/"},
@@ -282,11 +283,8 @@ for x in XPS:
   </section>
 
 ''' if x['strip'] else ''
-    if soon:
-        cta = '            <span class="exp-cta exp-cta--soon" data-es="Disponible próximamente" data-en="Available soon">Disponible próximamente</span>\n            <a href="#contacto" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Avisame cuando esté lista" data-en="Notify me when it is ready">Avisame cuando esté lista</a>'
-    else:
-        cta = '            <a href="#contacto" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp">Consultar por WhatsApp</a>'
-    badge = '    <span class="exp-badge xp-hero-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>\n' if soon else ''
+    cta = '            <a href="#contacto" class="btn-hero xp-cta xp-cta-wa" target="_blank" rel="noopener" data-es="Consultar por WhatsApp" data-en="Ask on WhatsApp">Consultar por WhatsApp</a>'
+    badge = f'    <span class="exp-badge xp-hero-badge" data-es="{b[0]}" data-en="{b[1]}">{b[0]}</span>\n' if b else ''
     page = head(x['meta_title'], x['meta_desc'], x['keywords'], x['slug'], x['card_img'], jsonld, x['hero'].get('poster')) + f'''<body class="page-experiencias page-xp" data-xp="{x['slug']}" data-wa-es="{wa_msg(x)[0]}" data-wa-en="{wa_msg(x)[1]}">
 
 {nav_for(x['slug'])}
@@ -345,10 +343,10 @@ hub_cards = []
 for i, x in enumerate(XPS):
     base = x['card_img'].rsplit('.', 1)[0]
     flip = ' xp-grid--flip' if i % 2 else ''
-    soon = x.get('soon', False)
-    badge = '          <span class="exp-badge" data-es="Próximamente" data-en="Coming soon">Próximamente</span>\n' if soon else ''
-    btn_es, btn_en = ('Ver la casa', 'See the house') if soon else ('Ver experiencia', 'See experience')
-    hub_cards.append(f'''  <article class="xp{' xp--soon' if soon else ''}" id="{x['id']}">
+    b = x.get('badge')
+    badge = f'          <span class="exp-badge" data-es="{b[0]}" data-en="{b[1]}">{b[0]}</span>\n' if b else ''
+    btn_es, btn_en = ('Ver la casa', 'See the house') if x['id'] == 'casa' else ('Ver experiencia', 'See experience')
+    hub_cards.append(f'''  <article class="xp" id="{x['id']}">
     <div class="container">
       <div class="xp-grid{flip}">
         <a href="/{x['slug']}" class="xp-media fade-in">
@@ -401,9 +399,9 @@ hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
       <div class="section-header fade-in">
         <p class="section-label" data-es="A medida, en grupos reducidos" data-en="Tailor-made, in small groups">A medida, en grupos reducidos</p>
         <p class="xp-intro-text"
-           data-es="Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, próximamente, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp."
-           data-en="Lago Sur Experiences offers private experiences in Arelauquen, Bariloche: boat tours on Lake Nahuel Huapi (with optional fly fishing), secret trails across the Andes and, coming soon, a house inside the private estate. Everything is tailor-made, in Spanish or English, includes drone photos and videos of your day and is booked via WhatsApp.">
-          Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, próximamente, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp.
+           data-es="Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, desde diciembre, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp."
+           data-en="Lago Sur Experiences offers private experiences in Arelauquen, Bariloche: boat tours on Lake Nahuel Huapi (with optional fly fishing), secret trails across the Andes and, from December, a house inside the private estate. Everything is tailor-made, in Spanish or English, includes drone photos and videos of your day and is booked via WhatsApp.">
+          Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, desde diciembre, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp.
         </p>
         <nav class="xp-jump" aria-label="Experiencias">
           <a href="/paseo-en-lancha" data-es="Lancha" data-en="Boat">Lancha</a>
