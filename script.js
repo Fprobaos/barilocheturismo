@@ -72,19 +72,17 @@ function trackContact(label) {
 }
 
 /* ── HERO VIDEO ───────────────────────────────────────────────
-   El video de fondo se descarga recién cuando terminó de cargar la página (primero se ve
-   la foto de portada). En pantallas chicas usa la versión liviana (-mobile.mp4). Con
-   "reducir movimiento" o ahorro de datos queda solo la foto. */
+   Es lo primero que se ve, así que arranca apenas corre el script (la foto de portada
+   cubre hasta que llega el primer cuadro). En pantallas chicas usa la versión vertical
+   (-mobile.mp4). Con "reducir movimiento" o ahorro de datos queda solo la foto. */
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const heroVideo = document.querySelector('video[data-src]');
 if (heroVideo && !reduceMotion && !(navigator.connection && navigator.connection.saveData)) {
-  afterLoad(() => {
-    const small = window.matchMedia('(max-width: 768px)').matches;
-    heroVideo.muted = true;
-    heroVideo.autoplay = true;
-    heroVideo.src = (small && heroVideo.dataset.srcMobile) || heroVideo.dataset.src;
-    heroVideo.play().catch(() => {});
-  }, 1500);
+  const small = window.matchMedia('(max-width: 768px)').matches;
+  heroVideo.muted = true;
+  heroVideo.autoplay = true;
+  heroVideo.src = (small && heroVideo.dataset.srcMobile) || heroVideo.dataset.src;
+  heroVideo.play().catch(() => {});
 }
 
 /* ── LANGUAGE ─────────────────────────────────────────────────── */
