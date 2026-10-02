@@ -36,16 +36,19 @@ XPS = [
          'Nahuel Huapi from the water: bays, islands and turquoise coves no road can reach.'),
     p1=('Salimos en nuestra lancha privada, con capacidad para hasta seis personas, y dejamos atrás el ruido del centro. En pocos minutos el lago se abre en brazos y bahías que solo se conocen navegando.',
         'We set out on our private boat, with room for up to six people, and leave the noise of downtown behind. Within minutes the lake opens into arms and bays you only get to know by sailing.'),
-    p2=('El recorrido se arma según el día y el grupo: una cala de agua turquesa para nadar, una playa escondida para un picnic, o simplemente apagar el motor y escuchar el silencio de la cordillera. Mientras tanto, el dron registra la salida desde el aire para que te lleves las fotos y los videos.',
-        'The route is shaped by the day and the group: a turquoise cove for a swim, a hidden beach for a picnic, or simply cutting the engine to listen to the silence of the Andes. Meanwhile, the drone captures the outing from above so you take the photos and videos home.'),
-    p3=('No hay dos salidas iguales. Si el viento acompaña cruzamos a las islas; si el lago está planchado buscamos las calas del brazo norte, donde el agua se pone transparente y las montañas se reflejan enteras. Cerramos siempre con el atardecer sobre la cordillera. Y si te gusta pescar, sumá la pesca con mosca como adicional por persona.',
-        'No two outings are alike. If the wind allows we cross to the islands; if the lake is glassy we head for the coves of the northern arm, where the water turns transparent and the mountains reflect in full. We always close with sunset over the Andes. And if you like fishing, add fly fishing as a per-person extra.'),
-    facts=[('Duración','Duration','Medio día','Half day'),('Grupo','Group','Hasta 6 personas','Up to 6 people'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Adicional','Add-on','Pesca con mosca','Fly fishing')],
+    p2=('El recorrido se arma según el día y el grupo: una cala de agua turquesa para nadar, una playa escondida para un picnic, o simplemente apagar el motor y escuchar el silencio de la cordillera. Y si querés llevarte el recuerdo, sumá un reel con el resumen del día, fotos y videos.',
+        'The route is shaped by the day and the group: a turquoise cove for a swim, a hidden beach for a picnic, or simply cutting the engine to listen to the silence of the Andes. And if you want to take the memory home, add a reel with the day’s highlights, photos and videos.'),
+    p3=('No hay dos salidas iguales. Si el viento acompaña cruzamos a las islas; si el lago está planchado buscamos las calas del brazo norte, donde el agua se pone transparente y las montañas se reflejan enteras. Cerramos siempre con el atardecer sobre la cordillera. Y si te gusta pescar, sumalo como adicional.',
+        'No two outings are alike. If the wind allows we cross to the islands; if the lake is glassy we head for the coves of the northern arm, where the water turns transparent and the mountains reflect in full. We always close with sunset over the Andes. And if you like fishing, add it as an extra.'),
+    facts=[('Duración','Duration','Salida matutina o de día completo','Morning or full-day outing'),('Grupo','Group','Hasta 6 personas','Up to 6 people'),('Temporada','Season','Dic — Mar','Dec — Mar'),('Adicional','Add-on','Pesca y reel del día','Fishing and day reel')],
     inc=[('Lancha privada para hasta 6 personas','Private boat for up to 6 people'),
          ('Recorrido por bahías, islas y rincones del Nahuel Huapi','Route through bays, islands and hidden corners of Nahuel Huapi'),
          ('Chalecos y equipo de seguridad a bordo','Life jackets and safety gear on board'),
          ('Parada para nadar o hacer picnic en una playa escondida','Stop to swim or picnic on a hidden beach'),
-         DRON],
+         ('Snack casero','Homemade snack'),
+         ('Traslado privado','Private transfer')],
+    extra=[('Equipamiento de pesca','Fishing equipment'),
+           ('Reel con resumen del día + fotos y videos','Reel with the day’s highlights + photos and videos')],
     hero=dict(video='assets/video/lanchas-navegando-hero-v2.mp4', poster='assets/video/lanchas-navegando-hero.jpg',
               alt=('Lanchas navegando a toda velocidad por el lago Nahuel Huapi','Boats speeding across Lake Nahuel Huapi')),
     card_img='assets/img/playa-turquesa-aerea.jpg',
@@ -61,7 +64,7 @@ XPS = [
            ('assets/video/lancha-estela-bosque.jpg', 'assets/video/lancha-estela-bosque.mp4', 'La lancha abriendo estela en el lago, con bosque y cerros nevados de fondo','The boat carving a wake across the lake, with forest and snowy peaks behind'),
            ('assets/video/lancha-agua-turquesa.jpg', 'assets/video/lancha-agua-turquesa.mp4', 'Vista con dron de la lancha sobre agua turquesa, subiendo hacia los cerros','Drone view of the boat on turquoise water, rising toward the peaks')],
     meta_title='Paseo en lancha privado por el Nahuel Huapi, Bariloche | Lago Sur',
-    meta_desc='Navegación privada por bahías, islas y calas turquesa del Nahuel Huapi desde Arelauquen, Bariloche. Hasta 6 personas, pesca con mosca opcional y fotos con dron.',
+    meta_desc='Navegación privada por bahías, islas y calas turquesa del Nahuel Huapi desde Arelauquen, Bariloche. Hasta 6 personas, salida matutina o de día completo.',
     keywords='paseo en lancha Bariloche, navegación Nahuel Huapi, excursión lancha privada Bariloche, pesca con mosca Bariloche, Arelauquen',
     ld_type='TouristTrip', tourist=['Familias','Parejas','Grupos privados']),
 
@@ -268,6 +271,11 @@ for x in XPS:
             {"@type": "ListItem", "position": 2, "name": "Experiencias", "item": BASE + "/experiencias"},
             {"@type": "ListItem", "position": 3, "name": x['title'][0], "item": f"{BASE}/{x['slug']}"}]},
         ld_item(x)]}
+    extra = f'''            <p class="exp-incluye-label" data-es="Adicional" data-en="Add-ons">Adicional</p>
+            <ul class="exp-incluye">
+{li(x['extra'])}
+            </ul>
+''' if x.get('extra') else ''
     strip = '\n'.join(gitem(i, s, v, a, b) for i, (s, v, a, b) in enumerate(x['strip']))
     strip_section = f'''  <!-- ── GALERÍA ───────────────────────────────────────────────── -->
   <section class="xp-gallery">
@@ -321,7 +329,7 @@ for x in XPS:
             <ul class="exp-incluye">
 {li(x['inc'])}
             </ul>
-{cta}
+{extra}{cta}
             <p class="xp-aside-note" data-es="Respondemos en el día por WhatsApp, en español o inglés." data-en="We reply same-day via WhatsApp, in Spanish or English.">Respondemos en el día por WhatsApp, en español o inglés.</p>
           </div>
         </aside>
@@ -376,7 +384,7 @@ hub_ld = {"@context": "https://schema.org", "@graph": [
      "itemListElement": [{"@type": "ListItem", "position": i + 1, "url": f"{BASE}/{x['slug']}", "name": x['title'][0]} for i, x in enumerate(XPS)]}]}
 
 hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
-           'Paseos privados en lancha por el Nahuel Huapi, pesca con mosca opcional y rutas secretas en la cordillera, desde Arelauquen, Bariloche. En español o inglés.',
+           'Paseos privados en lancha por el Nahuel Huapi y rutas secretas en la cordillera, desde Arelauquen, Bariloche. En español o inglés.',
            'experiencias Bariloche, paseo en lancha Nahuel Huapi, pesca con mosca Bariloche, trekking Bariloche, Arelauquen, turismo de lujo Patagonia, fotos con dron',
            'experiencias', 'og-image.jpg', hub_ld) + f'''<body class="page-experiencias">
 
@@ -399,9 +407,9 @@ hub = head('Experiencias privadas en Bariloche: lancha y trekking | Lago Sur',
       <div class="section-header fade-in">
         <p class="section-label" data-es="A medida, en grupos reducidos" data-en="Tailor-made, in small groups">A medida, en grupos reducidos</p>
         <p class="xp-intro-text"
-           data-es="Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, desde diciembre, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp."
-           data-en="Lago Sur Experiences offers private experiences in Arelauquen, Bariloche: boat tours on Lake Nahuel Huapi (with optional fly fishing), secret trails across the Andes and, from December, a house inside the private estate. Everything is tailor-made, in Spanish or English, includes drone photos and videos of your day and is booked via WhatsApp.">
-          Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi (con pesca con mosca opcional), rutas secretas por la cordillera y, desde diciembre, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, incluye fotos y videos con dron de tu jornada y se reserva por WhatsApp.
+           data-es="Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi, rutas secretas por la cordillera y, desde diciembre, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, y se reserva por WhatsApp."
+           data-en="Lago Sur Experiences offers private experiences in Arelauquen, Bariloche: boat tours on Lake Nahuel Huapi, secret trails across the Andes and, from December, a house inside the private estate. Everything is tailor-made, in Spanish or English, and is booked via WhatsApp.">
+          Lago Sur Experiences ofrece experiencias privadas en Arelauquen, Bariloche: paseos en lancha por el Nahuel Huapi, rutas secretas por la cordillera y, desde diciembre, alojamiento dentro del barrio privado. Todo se organiza a medida, en español o inglés, y se reserva por WhatsApp.
         </p>
         <nav class="xp-jump" aria-label="Experiencias">
           <a href="/paseo-en-lancha" data-es="Lancha" data-en="Boat">Lancha</a>
