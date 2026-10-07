@@ -49,7 +49,7 @@ XPS = [
          ('Traslado privado','Private transfer')],
     extra=[('Equipamiento de pesca','Fishing equipment'),
            ('Reel con resumen del día + fotos y videos','Reel with the day’s highlights + photos and videos')],
-    note=('¿Preferís navegar por tu cuenta? Consultanos también por el alquiler de la lancha.',
+    note=('¿Preferís navegar por tu cuenta? Consultanos también por el alquiler del bote.',
           'Prefer to sail on your own? Ask us about renting the boat too.'),
     hero=dict(video='assets/video/lanchas-navegando-hero-v2.mp4', poster='assets/video/lanchas-navegando-hero.jpg',
               alt=('Lanchas navegando a toda velocidad por el lago Nahuel Huapi','Boats speeding across Lake Nahuel Huapi')),
@@ -67,7 +67,7 @@ XPS = [
            ('assets/video/lancha-agua-turquesa.jpg', 'assets/video/lancha-agua-turquesa.mp4', 'Vista con dron de la lancha sobre agua turquesa, subiendo hacia los cerros','Drone view of the boat on turquoise water, rising toward the peaks')],
     meta_title='Paseo en lancha privado por el Nahuel Huapi, Bariloche | Lago Sur',
     meta_desc='Navegación privada por bahías, islas y calas turquesa del Nahuel Huapi desde Arelauquen, Bariloche. Hasta 6 personas, salida matutina o de día completo.',
-    keywords='paseo en lancha Bariloche, navegación Nahuel Huapi, excursión lancha privada Bariloche, alquiler de lancha Bariloche, pesca con mosca Bariloche, Arelauquen',
+    keywords='paseo en lancha Bariloche, navegación Nahuel Huapi, excursión lancha privada Bariloche, alquiler de bote Bariloche, alquiler de lancha Bariloche, pesca con mosca Bariloche, Arelauquen',
     ld_type='TouristTrip', tourist=['Familias','Parejas','Grupos privados']),
 
   dict(slug='rutas-secretas', id='rutas', num='02', kicker=('Cordillera','Andes'), title=('Rutas Secretas','Secret Trails'),

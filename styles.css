@@ -533,6 +533,7 @@ section { padding: 100px 0; }
   transition: border-color var(--transition), color var(--transition);
 }
 .exp-cta:hover { color: var(--gold-lt); border-color: var(--gold-lt); }
+.exp-card p.exp-card-note { font-size: 0.8rem; color: rgba(240,235,224,0.6); margin-bottom: 1.3rem; }
 
 /* Qué incluye cada experiencia */
 .exp-incluye-label {
