@@ -2036,6 +2036,8 @@ video.lightbox-media { width: auto; height: 80vh; max-width: 85vw; }
 .xp-aside-card .btn-hero { display: block; text-align: center; margin-top: 0.8rem; }
 .xp-aside-card .exp-cta--soon { display: block; margin-bottom: 0.2rem; }
 .xp-aside-note { margin-top: 1rem; font-size: 0.78rem; color: var(--gray); text-align: center; }
+.xp-aside-note--hint { margin-top: 1.2rem; color: rgba(240,235,224,0.7); }
+.xp-aside-note--hint + .xp-aside-note { margin-top: 0.5rem; }
 
 .xp-gallery { padding: 60px 0 40px; }
 .xp-gallery .section-header { margin-bottom: 2.5rem; }
